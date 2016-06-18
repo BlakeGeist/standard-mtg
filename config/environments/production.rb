@@ -5,7 +5,7 @@ Rails.application.configure do
   config.cache_classes = true
 
   #this preconfigs the assest for heroku / it doesn't show the images if you dont use this
-  config.serve_static_assets = true
+  config.serve_static_files = true
   config.assets.compile = true
 
   # Eager load code on boot. This eager loads most of Rails and
