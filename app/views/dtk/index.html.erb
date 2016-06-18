@@ -1,0 +1,28 @@
+
+<h1>What cards are in Dragons of Tarkir?</h1>
+
+<section>
+
+  <h2>Dragons of Tarkir</h2>
+
+  <div class="card-set">
+
+    <% @dtk_cards.each do |card| %>
+
+      <div class="cards-card">
+
+        <a href="<%= card_path(card) %>">
+
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= will_paginate @dtk_cards %>
+
+</section>

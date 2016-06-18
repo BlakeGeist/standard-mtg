@@ -1,0 +1,39 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.cards {
+  display: flex;
+}
+
+  .cards_wrapper {
+    overflow: hidden;
+    position: relative;
+    height: 315px;
+    width: 100%;
+  }
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  position: absolute;
+}
+
+  .cards-card {
+    margin-right: 5px;
+  }
+
+  .cards-card:last-child {
+    margin-right: 0px;
+  }
+
+.arrow {
+  flex: 0 0 50px;
+  line-height: 315px;
+}
+
+.arrow.mod-right{
+  text-align: right;
+}

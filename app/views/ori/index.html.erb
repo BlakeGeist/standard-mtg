@@ -1,0 +1,28 @@
+
+<h1>What cards are in Magic Origins?</h1>
+
+<section>
+
+  <h2>Magic Origins Cards</h2>
+
+  <div class="card-set">
+
+    <% @ori_cards.each do |card| %>
+
+      <div class="cards-card">
+
+        <a href="<%= card_path(card) %>">
+
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= will_paginate @ori_cards %>
+
+</section>

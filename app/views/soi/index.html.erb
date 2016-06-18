@@ -1,0 +1,28 @@
+
+<h1>What cards are in Shadows over Instarad?</h1>
+
+<section>
+
+  <h2>Shadows over Instarad Cards</h2>
+
+  <div class="card-set">
+
+    <% @soi_cards.each do |card| %>
+
+      <div class="cards-card">
+
+        <a href="<%= card_path(card) %>">
+
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= will_paginate @soi_cards %>
+
+</section>

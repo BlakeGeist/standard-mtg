@@ -1,0 +1,2 @@
+module SoiHelper
+end

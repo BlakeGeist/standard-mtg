@@ -1,0 +1,28 @@
+
+<h1>What cards are in Oath of the Gatewatch?</h1>
+
+<section>
+
+  <h2>Oath of the Gatewatch Cards</h2>
+
+  <div class="card-set">
+
+    <% @ogw_cards.each do |card| %>
+
+      <div class="cards-card">
+
+        <a href="<%= card_path(card) %>">
+
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= will_paginate @ogw_cards %>
+
+</section>

@@ -1,0 +1,28 @@
+
+<h1>What cards are in the Battle For Zendikar set?</h1>
+
+<section>
+
+  <h2>Battle For Zendikar</h2>
+
+  <div class="card-set">
+
+    <% @bfz_cards.each do |card| %>
+
+      <div class="cards-card">
+
+        <a href="<%= card_path(card) %>">
+
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= will_paginate @bfz_cards %>
+
+</section>

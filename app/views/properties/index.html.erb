@@ -1,0 +1,10 @@
+<h1>This is where I check the properties of things</h1>
+
+<%# How to view 1 card at a time %>
+<%# card = MTG::Card.find(386616) %>
+
+<% json = @card.to_json %>
+
+<%= JSON.parse(json).each do |item| %>
+  <p><%= item %></p
+<% end %>

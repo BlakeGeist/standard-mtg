@@ -1,0 +1,68 @@
+
+<h2>What sets are in Standard MTG</h2>
+
+<% @standard.each_with_index do |set, index| %>
+
+  <section data-set-id="<%= index +1 %>">
+
+    <h2>
+
+      <% if set[2] %>
+        <%= link_to set[0], set[2] %>
+      <% else %>
+        <%= set[0] %>
+      <% end %>
+
+    </h2>
+
+    <div class="cards">
+
+      <a class="arrow mod-left arrowLeft" href="#">
+
+        <div class="arrow-left">
+
+          left
+
+        </div>
+
+      </a>
+
+      <div class="cards_wrapper">
+
+        <div class="cards-container">
+
+          <% set[1].each do |card| %>
+
+            <div class="cards-card">
+
+              <a href="<%= card_path(card) %>">
+
+                <img src="<%= card.image_url %>" />
+
+              </a>
+
+            </div>
+
+          <% end %>
+
+        </div>
+
+      </div>
+
+      <a class="arrow mod-right arrowRight" href="#">
+
+        <div >
+
+          right
+
+        </div>
+
+      </a>
+
+    </div>
+
+    <%= will_paginate set[1] %>
+
+  </section>
+
+<% end %>
