@@ -1,5 +1,47 @@
 
-<h2>What sets are in Standard MTG</h2>
+
+<section>
+
+  <h2>What sets are in Standard MTG</h2>
+
+  <div class="sets">
+
+    <div class="sets-block">
+      <div class="sets-block-set">
+        Shadows over Innistrad
+        <div><%= image_tag asset_path('soi-symbol.png'), class: 'header-nav-link-image' %></div>
+      </div>
+      <div class="sets-block-set">
+        Welcome Deck 2016
+        <div><%= image_tag asset_path('w16-symbol.png'), class: 'header-nav-link-image' %></div>
+      </div>
+    </div>
+
+    <div class="sets-block">
+      <div class="sets-block-set">
+        Oath of the Gatewatch
+        <div><%= image_tag asset_path('ogw-symbol.png'), class: 'header-nav-link-image' %></div>
+      </div>
+      <div class="sets-block-set">
+        Battle for Zendikar
+        <div><%= image_tag asset_path('bfz-symbol.png'), class: 'header-nav-link-image' %></div>
+      </div>
+    </div>
+
+    <div class="sets-block">
+      <div class="sets-block-set">
+        Magic Origins
+        <div><%= image_tag asset_path('ori-symbol.png'), class: 'header-nav-link-image' %></div>
+      </div>
+      <div class="sets-block-set">
+        Dragons of Tarkir
+        <div><%= image_tag asset_path('dtk-symbol.png'), class: 'header-nav-link-image' %></div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
 
 <% @standard.each_with_index do |set, index| %>
 

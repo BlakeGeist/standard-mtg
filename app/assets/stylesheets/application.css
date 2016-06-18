@@ -53,6 +53,14 @@ header {
     display: inline-block;
   }
 
+    .header-nav-link-text {
+      display: inline-block;
+    }
+
+    .header-nav-link-text-small {
+      display: none;
+    }
+
     .header-nav-link-image {
       vertical-align: middle;
       width: 35px;
@@ -67,9 +75,21 @@ main {
   display: none;
 }
 
-
 /* card pages */
 
 .card-set {
   justify-content: space-between;
+}
+
+
+@media (max-width: 1280px) {
+
+  .header-nav-link-text {
+    display: none;
+  }
+
+  .header-nav-link-text-small {
+    display: inline;
+  }
+
 }
