@@ -47,6 +47,8 @@ class Import < Thor
 
   end
 
+  desc "set2","import a mtg set into the db"
+
   def set2
 
     require File.expand_path('config/environment.rb')
@@ -91,6 +93,8 @@ class Import < Thor
     end
 
   end
+
+  desc "set3","import a mtg set into the db"
 
   def set3
 
@@ -137,6 +141,8 @@ class Import < Thor
 
   end
 
+  desc "set4","import a mtg set into the db"
+
   def set4
 
     require File.expand_path('config/environment.rb')
@@ -182,6 +188,8 @@ class Import < Thor
 
   end
 
+  desc "set5","import a mtg set into the db"
+
   def set5
 
     require File.expand_path('config/environment.rb')
@@ -226,6 +234,8 @@ class Import < Thor
     end
 
   end
+
+  desc "set6","import a mtg set into the db"
 
   def set6
 
