@@ -177,3 +177,14 @@ main {
     margin-top: 50px;
   }
 }
+
+@media (max-width: 480px) {
+  .cards-card {
+    width: 90%;
+    margin: 0px;
+  }
+
+  .card-set .cards-card img {
+    width: 100%;
+  }
+}
