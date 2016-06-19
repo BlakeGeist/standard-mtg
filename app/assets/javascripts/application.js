@@ -33,19 +33,20 @@ $('#openMobileMenuLink').on('click', function(ev) {
     var $thisContainerRightClickCount = Math.abs($thisMarginDistance) / 228
 
     $thisSetWrapper.animate({'marginLeft': '-=228px'});
+    ev.preventDefault();
+    ev.stopPropagation();
 
     if ($thisContainerRightClickCount === 2) {
       $.getScript($('[data-set-id=' + $setId + '] .pagination .next_page').attr('href'));
     } else if ($thisContainerRightClickCount % 10 === 0) {
       $.getScript($('[data-set-id=' + $setId + '] .pagination .next_page').attr('href'));
     }
-
-    ev.preventDefault();
-    ev.stopPropagation();
   });
 
 
   $('.arrowLeft').on("click", function(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
 
     var $thisSetWrapper = $('[data-set-id=' + $setId + '] .cards-container');
     var $thisMarginDistance = parseInt(($thisSetWrapper).css('marginLeft'));
@@ -53,9 +54,6 @@ $('#openMobileMenuLink').on('click', function(ev) {
     if ($thisMarginDistance < 0) {
       $thisSetWrapper.animate({'marginLeft': '+=228px'});
     }
-
-    ev.preventDefault();
-    ev.stopPropagation();
   });
 
 

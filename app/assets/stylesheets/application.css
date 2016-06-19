@@ -90,6 +90,19 @@ header {
   min-height:0;
 }
 
+.arrow-left img, .arrow-right img{
+  width: 55px;
+  vertical-align: middle;
+}
+
+.arrow-left img {
+  padding-right: 10px
+}
+
+.arrow-right img{
+  padding-left: 10px;
+}
+
 main {
   margin-top: 100px;
 }
