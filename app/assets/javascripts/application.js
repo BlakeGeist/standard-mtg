@@ -71,3 +71,11 @@ $(function() {
     }
   });
 });
+
+$('html').click(function() {
+  $('.is-open').removeClass('is-open');
+});
+
+$('.is-open').click(function(event){
+    event.stopPropagation();
+});

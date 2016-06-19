@@ -33,7 +33,7 @@ def index
  end
 
  def show
-   @card = Card.find(params[:id])
+   @card = Card.friendly.find(params[:id])
  end
 
  def new
