@@ -110,10 +110,6 @@ main {
 
 /* card pages */
 
-.card-set {
-  justify-content: space-between;
-}
-
 
 @media (max-width: 1450px) {
 
