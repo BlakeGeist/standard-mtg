@@ -10,10 +10,15 @@
 
 <header>
 
+
   <nav class="header-nav">
 
-    <div>
+    <div class="header-nav-home">
+
       <%= link_to 'Home', root_path, class: 'header-nav-link' %>
+
+      <span class="header-nav-open"><%= link_to image_tag( asset_path('menu.png'), class: 'header-nav-open-image'), "#open-mobile-menu-link", id: 'openMobileMenuLink' %></span>
+
     </div>
 
     <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
@@ -25,7 +30,7 @@
 
         <span class="header-nav-link-text-small">SOI</span>
 
-        <%= image_tag asset_path('soi-symbol.png'), class: 'header-nav-link-image' %>
+        <span><%= image_tag asset_path('soi-symbol.png'), class: 'header-nav-link-image' %></span>
 
       </a>
     </div>
@@ -39,7 +44,7 @@
 
         <span class="header-nav-link-text-small">W16</span>
 
-        <%= image_tag asset_path('/w16-symbol.png'), class: 'header-nav-link-image' %>
+        <span><%= image_tag asset_path('/w16-symbol.png'), class: 'header-nav-link-image' %></span>
 
       </a>
     </div>
@@ -54,7 +59,7 @@
 
         <span class="header-nav-link-text-small">OGW</span>
 
-        <%= image_tag asset_path('ogw-symbol.png'), class: 'header-nav-link-image' %>
+        <span><%= image_tag asset_path('ogw-symbol.png'), class: 'header-nav-link-image' %></span>
 
       </a>
 
@@ -70,7 +75,7 @@
 
         <span class="header-nav-link-text-small">BFZ</span>
 
-        <%= image_tag asset_path('bfz-symbol.png'), class: 'header-nav-link-image' %>
+        <span><%= image_tag asset_path('bfz-symbol.png'), class: 'header-nav-link-image' %></span>
 
       </a>
 
@@ -86,7 +91,7 @@
 
         <span class="header-nav-link-text-small">ORI</span>
 
-        <%= image_tag asset_path('ori-symbol.png'), class: 'header-nav-link-image' %>
+        <span><%= image_tag asset_path('ori-symbol.png'), class: 'header-nav-link-image' %></span>
 
       </a>
 
@@ -102,7 +107,7 @@
 
         <span class="header-nav-link-text-small">DTK</span>
 
-        <%= image_tag asset_path('dtk-symbol.png'), class: 'header-nav-link-image' %>
+        <span><%= image_tag asset_path('dtk-symbol.png'), class: 'header-nav-link-image' %></span>
 
       </a>
 

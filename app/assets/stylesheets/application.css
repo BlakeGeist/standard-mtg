@@ -31,17 +31,35 @@ header {
   width: 100%;
   top: 0;
   z-index: 999;
+  transition: all .3s ease .15s;
 }
 
 .header-nav {
   width: 90%;
   margin: 0 auto;
-  height: 100px;
+  min-height: 100px;
   line-height: 100px;
   position: relative;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
+
+  .header-nav-open {
+    display: none;
+    text-align: right;
+  }
+
+  .header-nav-open-image {
+    width: 35px;
+    vertical-align: middle;
+   }
+
+  .header-nav-home {
+    display: flex;
+    justify-content: space-between;
+  }
+
 
   .header-nav-link {
     color: #fff;
@@ -65,6 +83,11 @@ header {
       vertical-align: middle;
       width: 35px;
     }
+
+.scrolled .header-nav{
+  height: 50px;
+  line-height:50px;
+}
 
 main {
   margin-top: 100px;
@@ -92,4 +115,59 @@ main {
     display: inline;
   }
 
+}
+
+@media (max-width: 650px) {
+  header {
+    background: #312f2f;
+  }
+
+  .header-nav-open {
+    display: block;
+  }
+
+  .scrolled .header-nav{
+    height: auto;
+    line-height:50px;
+  }
+
+  .header-nav {
+    min-height: 50px;
+    line-height: 50px;
+  }
+
+  .header-nav div{
+    flex: 1 0 100%;
+    display: none;
+  }
+
+  .header-nav.is-open div{
+    display: flex;
+  }
+
+  div.header-nav-home {
+    display: flex;
+  }
+
+  .header-nav-bar{
+    display: none;
+  }
+
+  .header-nav-link {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .header-nav-link-text {
+    display: inline-block;
+  }
+
+  .header-nav-link-text-small {
+    display: none;
+  }
+
+  main {
+    margin-top: 50px;
+  }
 }
