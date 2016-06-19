@@ -96,11 +96,11 @@ header {
 }
 
 .arrow-left img {
-  padding-right: 10px
+  margin-right: 10px
 }
 
 .arrow-right img{
-  padding-left: 10px;
+  margin-left: 10px;
 }
 
 main {
