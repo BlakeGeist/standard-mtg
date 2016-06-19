@@ -90,6 +90,11 @@ header {
   min-height:0;
 }
 
+.scrolled .header-nav-bar {
+  line-height: auto;
+  height: auto;
+}
+
 .arrow-left img, .arrow-right img{
   width: 55px;
   vertical-align: middle;
