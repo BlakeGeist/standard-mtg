@@ -1,11 +1,23 @@
+
+<div class="card">
+
+  <div class="card-image-container"><%= image_tag (@card.image_url), class: 'card-image' %></div>
+
+  <div class="card-info">
+
+    <h1 class="card-info-name"><%= @card.name %></h1>
+
+    <p class="card-info-type"><%= @card.originalType %></p>
+
+    <%=raw @card_text %>
+
+  </div>
+
+
+</div>
+
 <% @card.info.each do |t| %>
 
-  <p><%= t %>
-
-<% end %>
-
-<% @card.attributes.each do |attribute| %>
-
-  <p><%= attribute %></p>
+  <p><%= t %></p>
 
 <% end %>

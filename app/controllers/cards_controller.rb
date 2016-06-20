@@ -34,6 +34,23 @@ def index
 
  def show
    @card = Card.friendly.find(params[:id])
+
+   if @card.text =~ /(?:\n\r?|\r\n?)/
+     @card_text = @card.text.gsub(/(?:\n\r?|\r\n?)/, '<br /> <br />')
+   else
+     @card_text = @card.text
+   end
+
+
+    if @card_text.include? ("(")
+
+      @card_text = @card_text.gsub('(', '<em>(')
+      @card_text = @card_text.gsub(')', ')</em>')
+
+    end
+
+
+
  end
 
  def new
