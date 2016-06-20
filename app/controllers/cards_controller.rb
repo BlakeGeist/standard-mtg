@@ -1,7 +1,8 @@
 class CardsController < ApplicationController
 
-
 def index
+
+  @title ="Standard Magic the Gathering Cards"
 
   @soi_cards = Card.where(set: 'SOI').sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 10)
 
