@@ -223,9 +223,17 @@ main {
     margin-top: 50px;
   }
 
-  .card-image-container {
-    flex: 1 0 100%;
+  .card-info {
+    margin-left: 0px;
   }
+
+    .card-image-container {
+      flex: 1 0 100%;
+    }
+
+    .card-info-container {
+      padding: 0px;
+    }
 
 }
 
