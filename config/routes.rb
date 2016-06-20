@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :red
 
   get 'cards/index'
-  resources :cards
+  resources :cards, :path => ''
   root 'cards#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
