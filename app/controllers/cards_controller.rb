@@ -33,7 +33,11 @@ def index
  end
 
  def show
+
    @card = Card.friendly.find(params[:id])
+
+   @title="#{@card.name} is in Standard"
+
 
    if @card.text =~ /(?:\n\r?|\r\n?)/
      @card_text = @card.text.gsub(/(?:\n\r?|\r\n?)/, '<br /> <br />')
