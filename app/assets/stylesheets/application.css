@@ -231,19 +231,25 @@ main {
       flex: 1 0 100%;
     }
 
+      .card-image {
+        width: 100%;
+      }
+
     .card-info-container {
       padding: 0px;
     }
+
 
 }
 
 @media (max-width: 480px) {
   .cards-card {
-    width: 90%;
+    width: 100%;
     margin: 0px;
   }
 
   .card-set .cards-card img {
     width: 100%;
   }
+
 }
