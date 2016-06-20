@@ -15,6 +15,7 @@ class CreateCards < ActiveRecord::Migration
       t.integer :toughness
       t.integer :multiverseid
       t.text :originalText
+      t.text :flavor
       t.string :originalType
       t.string :setName
       t.string :set

@@ -11,6 +11,12 @@
 
     <%=raw @card_text %>
 
+    <% if @card.flavor %>
+
+      <p class="card-info-flavor"><em><%= @card.flavor %></em></p>
+
+    <% end %>
+
   </div>
 
 

@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160619201411) do
     t.integer  "toughness"
     t.integer  "multiverseid"
     t.text     "originalText"
+    t.text     "flavor"
     t.string   "originalType"
     t.string   "setName"
     t.string   "set"
