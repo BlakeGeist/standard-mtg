@@ -41,15 +41,12 @@ def index
      @card_text = @card.text
    end
 
-
     if @card_text.include? ("(")
 
       @card_text = @card_text.gsub('(', '<em>(')
       @card_text = @card_text.gsub(')', ')</em>')
 
     end
-
-
 
  end
 

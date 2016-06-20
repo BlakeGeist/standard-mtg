@@ -126,7 +126,7 @@ main {
 
     .card-info {
       margin-left: 15px;
-      flex: 0 0 350px;
+      flex: 0 0 600px;
     }
 
 @media (max-width: 1450px) {

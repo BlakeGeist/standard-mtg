@@ -1,4 +1,3 @@
-
 <div class="card">
 
   <div class="card-image-container"><%= image_tag (@card.image_url), class: 'card-image' %></div>
@@ -7,7 +6,33 @@
 
     <h1 class="card-info-name"><%= @card.name %></h1>
 
-    <p class="card-info-type"><%= @card.originalType %></p>
+    <p class="card-info-cmc"><strong>CMC:</strong> <%= @card.manaCost%></p>
+
+    <p clsas="card-info-colors">
+
+      <strong>Colors:</strong>
+
+      <% @card.colors.each_with_index do |color, index| %>
+
+        <%= color %><%= "," unless @card.colors.count==index+1 %>
+
+      <% end %>
+
+    </p>
+
+    <p class="card-info-type">
+
+      <strong>Type:</strong>
+
+      <% @card.types.each_with_index do |type, index| %>
+
+        <%= type %><%= "," unless @card.types.count==index+1 %>
+
+      <% end %>
+
+    </p>
+
+    <div><strong>Card Text</strong>:</div>
 
     <%=raw @card_text %>
 
@@ -17,13 +42,46 @@
 
     <% end %>
 
+    <p class="card-info-raity-number"><strong>Rarity &amp; Number:</strong> <%= @card.rarity %>, <%= @card.number %></p>
+
+    <p class="card-info-printings">
+
+      <strong>Printings:</strong>
+
+      <% @card.printings.each_with_index do |set, index| %>
+
+        <%= MTG::Set.find(set).name %>
+
+        <%= "," unless @card.printings.count==index+1 %>
+
+      <% end %>
+
+    </p>
+
+    <p class="card-info-legalities">
+
+      <strong>Legal formats:</strong>
+
+      <% @card.legalities.each_with_index do |set, index| %>
+
+        <%= set['format'] %><%= "," unless @card.legalities.count==index+1 %>
+
+      <% end %>
+
+    </p>
+
+    <p class="card-info-artist"><strong>Artist:</strong> <%= @card.artist %></p>
+
+    <% unless @card.rulings.empty? %>
+
+      <h2><%= @card.name %> Rulings</h2>
+
+        <% @card.rulings.each do |ruling| %>
+
+          <p><strong><%= ruling['date'] %>:</strong> <%= ruling['text'] %></p>
+
+        <% end %>
+
+    <% end %>
+
   </div>
-
-
-</div>
-
-<% @card.info.each do |t| %>
-
-  <p><%= t %></p>
-
-<% end %>
