@@ -126,8 +126,32 @@ main {
 
     .card-info {
       margin-left: 15px;
-      flex: 0 0 600px;
+      display: flex;
+      flex: 1 1 641px;
+      flex-wrap: wrap;
     }
+
+      .card-info-container {
+        padding-left: 15px;
+        display: flex;
+        flex: 1 0;
+        flex-wrap: wrap;
+      }
+
+      .card-info-name {
+        width: 100%;
+        margin: 0px;
+      }
+
+      .card-info-section {
+        flex: 0 0 550px;
+        padding-right: 15px;
+        flex-shrink: 1;
+      }
+
+      .card-info-section.mod-rulings {
+        flex: 1 0 100%;
+      }
 
 @media (max-width: 1450px) {
 
@@ -138,6 +162,10 @@ main {
   .header-nav-link-text-small {
     display: inline;
   }
+
+}
+
+@media (max-width: 993px) {
 
 }
 
@@ -193,6 +221,10 @@ main {
 
   main {
     margin-top: 50px;
+  }
+
+  .card-image-container {
+    flex: 1 0 100%;
   }
 
 }
