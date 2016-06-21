@@ -38,6 +38,15 @@ def index
 
    @title="#{@card.name} is in Standard"
 
+   @standard = [
+     'Shadows over Innistrad',
+     'Welcome Deck 2016',
+     'Oath of the Gatewatch',
+     'Battle for Zendikar',
+     'Magic Origins',
+     'Dragons of Tarkir'
+   ]
+
 
    if @card.text =~ /(?:\n\r?|\r\n?)/
      @card_text = @card.text.gsub(/(?:\n\r?|\r\n?)/, '<br /> <br />')

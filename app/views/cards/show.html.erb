@@ -58,9 +58,18 @@
 
           <% @card.printings.each_with_index do |set, index| %>
 
-            <%= MTG::Set.find(set).name %>
+            <% set_controller = "#{set.downcase}_path" %>
 
-            <%= "," unless @card.printings.count==index+1 %>
+            <% if @standard.include? MTG::Set.find(set).name %>
+
+              <a href="<%= MTG::Set.find(set).name.downcase.gsub(' ', '-') %>"><%= MTG::Set.find(set).name %></a>
+              <%= "," unless @card.printings.count==index+1 %>
+
+            <% else %>
+
+              <%= MTG::Set.find(set).name %><%= "," unless @card.printings.count==index+1 %>
+
+            <% end %>
 
           <% end %>
 
