@@ -45,7 +45,8 @@ header {
 }
 
 .header-nav {
-  width: 90%;
+  max-width: 1600px;
+  width: 100%;
   margin: 0 auto;
   min-height: 100px;
   line-height: 100px;
@@ -152,9 +153,14 @@ main {
       .card-info-section.mod-rulings {
         flex: 1 0 100%;
       }
+
 @media(max-width: 1600px) {
 
   .body{
+    max-width: 90%;
+  }
+
+  .header-nav {
     max-width: 90%;
   }
 

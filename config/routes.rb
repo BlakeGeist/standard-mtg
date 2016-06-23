@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   get 'ogw/index', path: "oath-of-the-gatewatch"
 
   get 'w16/index', path: "welcome-deck-2016"
+  get "welcome-deck-2016/red" => "w16#red"
+  get "welcome-deck-2016/black" => "w16#black"
+  get "welcome-deck-2016/green" => "w16#green"
+  get "welcome-deck-2016/blue" => "w16#blue"
+  get "welcome-deck-2016/white" => "w16#white"
+  get "welcome-deck-2016/artifact" => "w16#artifact"
 
   get "soi/index", path: "shadows-over-innistrad"
   get "shadows-over-innistrad/red" => "soi#red"
