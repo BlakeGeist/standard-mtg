@@ -5,6 +5,21 @@
 
   <h2>Magic Origins Cards</h2>
 
+  <h3>
+    <%= link_to 'All', ori_index_path %>
+     |
+    <%= link_to 'White', magic_origins_white_path %>
+     |
+    <%= link_to 'Blue', magic_origins_blue_path %>
+     |
+    <%= link_to 'Black', magic_origins_black_path %>
+     |
+    <%= link_to 'Red', magic_origins_red_path %>
+     |
+    <%= link_to 'Green', magic_origins_green_path %>
+  </h3>
+
+
   <div class="card-set">
 
     <% @ori_cards.each do |card| %>

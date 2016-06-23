@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
   get 'ori/index', path: "magic-origins"
+  get "magic-origins/red" => "ori#red"
+  get "magic-origins/black" => "ori#black"
+  get "magic-origins/green" => "ori#green"
+  get "magic-origins/blue" => "ori#blue"
+  get "magic-origins/white" => "ori#white"
+  get "magic-origins/artifact" => "ori#artifact"
 
   get 'dtk/index', path: "dragons-of-tarkir"
 
