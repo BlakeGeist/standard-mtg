@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   get 'bfz/index', path: "battle-for-zendikar"
 
   get 'ogw/index', path: "oath-of-the-gatewatch"
+  get "oath-of-the-gatewatch/red" => "ogw#red"
+  get "oath-of-the-gatewatch/black" => "ogw#black"
+  get "oath-of-the-gatewatch/green" => "ogw#green"
+  get "oath-of-the-gatewatch/blue" => "ogw#blue"
+  get "oath-of-the-gatewatch/white" => "ogw#white"
+  get "oath-of-the-gatewatch/artifact" => "ogw#artifact"
 
   get 'w16/index', path: "welcome-deck-2016"
   get "welcome-deck-2016/red" => "w16#red"
