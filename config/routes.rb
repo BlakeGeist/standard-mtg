@@ -17,6 +17,12 @@ Rails.application.routes.draw do
   get "dragons-of-tarkir/artifact" => "dtk#artifact"
 
   get 'bfz/index', path: "battle-for-zendikar"
+  get "battle-for-zendikar/red" => "bfz#red"
+  get "battle-for-zendikar/black" => "bfz#black"
+  get "battle-for-zendikar/green" => "bfz#green"
+  get "battle-for-zendikar/blue" => "bfz#blue"
+  get "battle-for-zendikar/white" => "bfz#white"
+  get "battle-for-zendikar/artifact" => "bfz#artifact"
 
   get 'ogw/index', path: "oath-of-the-gatewatch"
   get "oath-of-the-gatewatch/red" => "ogw#red"
