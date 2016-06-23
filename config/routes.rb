@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   get "magic-origins/artifact" => "ori#artifact"
 
   get 'dtk/index', path: "dragons-of-tarkir"
+  get "dragons-of-tarkir/red" => "dtk#red"
+  get "dragons-of-tarkir/black" => "dtk#black"
+  get "dragons-of-tarkir/green" => "dtk#green"
+  get "dragons-of-tarkir/blue" => "dtk#blue"
+  get "dragons-of-tarkir/white" => "dtk#white"
+  get "dragons-of-tarkir/artifact" => "dtk#artifact"
 
   get 'bfz/index', path: "battle-for-zendikar"
 
