@@ -16,7 +16,11 @@
 //= require_tree .
 
 
+
 $(document).on('page:change', function () {
+
+
+
 
 $('#openMobileMenuLink').on('click', function(ev) {
   $('.header-nav').toggleClass('is-open');

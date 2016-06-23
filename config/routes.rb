@@ -11,12 +11,16 @@ Rails.application.routes.draw do
   get 'w16/index', path: "welcome-deck-2016"
 
   get "soi/index", path: "shadows-over-innistrad"
+  get "shadows-over-innistrad/red" => "soi#red"
+  get "shadows-over-innistrad/black" => "soi#black"
+  get "shadows-over-innistrad/green" => "soi#green"
+  get "shadows-over-innistrad/blue" => "soi#blue"
+  get "shadows-over-innistrad/white" => "soi#white"
+  get "shadows-over-innistrad/artifact" => "soi#artifact"
+
 
   get 'properties/index'
   resources :properties
-
-  get 'red/index'
-  resources :red
 
   get 'cards/index'
   resources :cards, :path => ''

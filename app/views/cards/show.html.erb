@@ -22,7 +22,13 @@
 
         </p>
 
-        <p class="card-info-cmc"><strong>CMC:</strong> <%= @card.manaCost%></p>
+        <p class="card-info-cmc">
+
+          <strong>CMC:</strong>
+
+          <%= @card.manaCost %>
+
+        </p>
 
         <div><strong>Card Text</strong>:</div>
 
@@ -38,17 +44,16 @@
 
       <div class="card-info-section">
 
-        <p clsas="card-info-colors">
+        <p class="card-info-colors"><strong>Colors:</strong>
 
-          <strong>Colors:</strong>
+        <% @card.colors.each do |color| %>
 
-          <% @card.colors.each_with_index do |color, index| %>
+          <%= color %>
 
-            <%= color %><%= "," unless @card.colors.count==index+1 %>
-
-          <% end %>
+        <% end %>
 
         </p>
+
 
         <p class="card-info-raity-number"><strong>Rarity &amp; Number:</strong> <%= @card.rarity %>, <%= @card.number %></p>
 
