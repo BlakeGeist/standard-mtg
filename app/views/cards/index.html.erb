@@ -70,70 +70,48 @@
 
 <hr />
 
-<h2>What cards are in Standard MTG?<h2>
 
-<% @standard.each_with_index do |set, index| %>
+<h1>What cards are in Standard MTG?</h1>
 
-  <section data-set-id="<%= index +1 %>">
+<section>
 
-    <h2>
+  <h2>Standard MTG Cards</h2>
 
-      <% if set[2] %>
-        <%= link_to set[0], set[2] %>
-      <% else %>
-        <%= set[0] %>
-      <% end %>
+  <h3>
+    <%= link_to 'All', root_path %>
+     |
+    <%= link_to 'White', white_path %>
+     |
+    <%= link_to 'Blue', blue_path %>
+     |
+    <%= link_to 'Black', black_path %>
+     |
+    <%= link_to 'Red', red_path %>
+     |
+    <%= link_to 'Green', green_path %>
+     |
+    <%= link_to 'Artifact', artifact_path %>
+  </h3>
 
-    </h2>
 
-    <div class="cards">
+  <div class="card-set">
 
-      <a class="arrow mod-left arrowLeft" href="#">
+    <% @cards.each do |card| %>
 
-        <div class="arrow-left">
+      <div class="cards-card">
 
-          <%= image_tag asset_path('left.png') %>
+        <a href="<%= card_path(card) %>">
 
-        </div>
+          <img src="<%= card.image_url %>" />
 
-      </a>
-
-      <div class="cards_wrapper">
-
-        <div class="cards-container">
-
-          <% set[1].each do |card| %>
-
-            <div class="cards-card">
-
-              <a href="<%= card_path(card) %>">
-
-                <img src="<%= card.image_url %>" />
-
-              </a>
-
-            </div>
-
-          <% end %>
-
-        </div>
+        </a>
 
       </div>
 
-      <a class="arrow mod-right arrowRight" href="#">
+    <% end %>
 
-        <div class="arrow-right">
+  </div>
 
-          <%= image_tag asset_path('right.png') %>
+  <%= will_paginate @cards %>
 
-        </div>
-
-      </a>
-
-    </div>
-
-    <%= will_paginate set[1] %>
-
-  </section>
-
-<% end %>
+</section>

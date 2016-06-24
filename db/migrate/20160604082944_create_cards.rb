@@ -5,7 +5,7 @@ class CreateCards < ActiveRecord::Migration
       t.string :name
       t.string :layout
       t.text :manaCost
-      t.string :cmc
+      t.integer :cmc
       t.string :cardType
       t.string :rarity
       t.text :text

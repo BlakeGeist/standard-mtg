@@ -1,58 +1,6 @@
-//shadows over instarad
-if ($setId == 1) {
-  $('[data-set-id=' + $setId + '] .cards-container').append('<%= j render 'soi_cards' %>');
-
-  <% if @soi_cards.next_page %>
-    $('[data-set-id=' + $setId + '] .pagination').replaceWith('<%= j will_paginate(@soi_cards) %>');
-  <% else %>
-    $('[data-set-id=' + $setId + '] .pagination').remove();
-  <% end %>
-}
-//welcome deck 2016
-else if ($setId == 2) {
-
-  $('[data-set-id=' + $setId + '] .cards-container').append('<%= j render 'w16_cards'  %>');
-
-  <% if @w16_cards.next_page %>
-    $('[data-set-id=' + $setId + '] .pagination').replaceWith('<%= j will_paginate(@w16_cards) %>');
-  <% else %>
-    $('[data-set-id=' + $setId + '] .pagination').remove();
-  <% end %>
-
-}
-//oath of gatewatch
-else if ($setId == 3) {
-  $('[data-set-id=' + $setId + '] .cards-container').append('<%= j render 'ogw_cards'  %>');
-  <% if @ogw_cards.next_page %>
-    $('[data-set-id=' + $setId + '] .pagination').replaceWith('<%= j will_paginate(@ogw_cards) %>');
-  <% else %>
-    $('[data-set-id=' + $setId + '] .pagination').remove();
-  <% end %>
-}
-//battle for zendikar
-else if ($setId == 4) {
-  $('[data-set-id=' + $setId + '] .cards-container').append('<%= j render 'bfz_cards'  %>');
-  <% if @bfz_cards.next_page %>
-    $('[data-set-id=' + $setId + '] .pagination').replaceWith('<%= j will_paginate(@bfz_cards) %>');
-  <% else %>
-    $('[data-set-id=' + $setId + '] .pagination').remove();
-  <% end %>
-}
-//magic origins
-else if ($setId == 5) {
-  $('[data-set-id=' + $setId + '] .cards-container').append('<%= j render 'ori_cards'  %>');
-  <% if @ori_cards.next_page %>
-    $('[data-set-id=' + $setId + '] .pagination').replaceWith('<%= j will_paginate(@ori_cards) %>');
-  <% else %>
-    $('[data-set-id=' + $setId + '] .pagination').remove();
-  <% end %>
-}
-//dragons of tarkir
-else if ($setId == 6) {
-  $('[data-set-id=' + $setId + '] .cards-container').append('<%= j render 'dtk_cards'  %>');
-  <% if @dtk_cards.next_page %>
-    $('[data-set-id=' + $setId + '] .pagination').replaceWith('<%= j will_paginate(@dtk_cards) %>');
-  <% else %>
-    $('[data-set-id=' + $setId + '] .pagination').remove();
-  <% end %>
-}
+$('.card-set').append("<%= j render 'cards' %>");
+<% if @cards.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@cards) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

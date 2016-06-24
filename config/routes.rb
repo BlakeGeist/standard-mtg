@@ -50,10 +50,14 @@ Rails.application.routes.draw do
   get "shadows-over-innistrad/artifact" => "soi#artifact"
 
 
-  get 'properties/index'
-  resources :properties
-
   get 'cards/index'
+  get "/red" => "cards#red"
+  get "/black" => "cards#black"
+  get "/green" => "cards#green"
+  get "/blue" => "cards#blue"
+  get "/white" => "cards#white"
+  get "/artifact" => "cards#artifact"
+
   resources :cards, :path => ''
   root 'cards#index'
 

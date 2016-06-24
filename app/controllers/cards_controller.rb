@@ -4,32 +4,49 @@ def index
 
   @title ="Standard Magic the Gathering Cards"
 
-  @soi_cards = Card.where(set: 'SOI').sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 10)
-
-  @w16_cards = Card.where(set: 'W16').sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 10)
-
-  @ogw_cards = Card.where(set: 'OGW').sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 10)
-
-  @bfz_cards = Card.where(set: 'BFZ').sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 10)
-
-  @ori_cards = Card.where(set: 'ORI').sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 10)
-
-  @dtk_cards = Card.where(set: 'DTK').sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 10)
-
-  @standard = [
-    ['Shadows over Innistrad', @soi_cards, soi_index_path],
-    ['Welcome Deck 2016', @w16_cards, w16_index_path],
-    ['Oath of the Gatewatch', @ogw_cards, ogw_index_path],
-    ['Battle for Zendikar', @bfz_cards, bfz_index_path],
-    ['Magic Origins', @ori_cards, ori_index_path],
-    ['Dragons of Tarkir', @dtk_cards, dtk_index_path]
-  ]
+  @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
 
   respond_to do |format|
     format.js
     format.html
   end
 
+ end
+
+ def white
+   @title="White Standard Magic the Gathering Cards"
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%White%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   render template: "cards/index"
+ end
+
+ def blue
+   @title="Blue Standard Magic the Gathering Cards"
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%Blue%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   render template: "cards/index"
+ end
+
+ def black
+   @title="Black Standard Magic the Gathering Cards"
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%Black%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   render template: "cards/index"
+ end
+
+ def red
+   @title="Red Standard Magic the Gathering Cards"
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%Red%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   render template: "cards/index"
+ end
+
+ def green
+   @title="Green Standard Magic the Gathering Cards"
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%Green%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   render template: "cards/index"
+ end
+
+ def artifact
+   @title="Artifact Standard Magic the Gathering Cards"
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("types like ?", "%Artifact%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   render template: "cards/index"
  end
 
  def show
@@ -47,19 +64,17 @@ def index
      'Dragons of Tarkir'
    ]
 
-
-   if @card.text =~ /(?:\n\r?|\r\n?)/
-     @card_text = @card.text.gsub(/(?:\n\r?|\r\n?)/, '<br /> <br />')
-   else
-     @card_text = @card.text
-   end
-
+  unless @card.text.nil?
+    if @card.text =~ /(?:\n\r?|\r\n?)/
+      @card_text = @card.text.gsub(/(?:\n\r?|\r\n?)/, '<br /> <br />')
+    else
+      @card_text = @card.text
+    end
     if @card_text.include? ("(")
-
       @card_text = @card_text.gsub('(', '<em>(')
       @card_text = @card_text.gsub(')', ')</em>')
-
     end
+  end
 
  end
 
