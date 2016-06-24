@@ -4,7 +4,7 @@ def index
 
   @title ="Standard Magic the Gathering Cards"
 
-  @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+  @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not("types like?", "%Land%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
 
   respond_to do |format|
     format.js
@@ -15,31 +15,31 @@ def index
 
  def white
    @title="White Standard Magic the Gathering Cards"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%White%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%W%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
    render template: "cards/index"
  end
 
  def blue
    @title="Blue Standard Magic the Gathering Cards"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%Blue%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%U%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
    render template: "cards/index"
  end
 
  def black
    @title="Black Standard Magic the Gathering Cards"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%Black%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%B%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
    render template: "cards/index"
  end
 
  def red
    @title="Red Standard Magic the Gathering Cards"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%Red%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%R%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
    render template: "cards/index"
  end
 
  def green
    @title="Green Standard Magic the Gathering Cards"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%Green%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%G%").where.not(rarity: 'Basic Land').sort_by{ |t| t.cmc.to_i }.paginate(:page => params[:page], :per_page => 28)
    render template: "cards/index"
  end
 
