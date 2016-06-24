@@ -178,7 +178,7 @@ main {
 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1089px) {
   .card-info-section {
     flex: 1 0 100%;
   }
