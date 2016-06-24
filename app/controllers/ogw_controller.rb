@@ -36,7 +36,13 @@ class OgwController < ApplicationController
 
   def colorless
     @title="Colorless Oath of the Gatewatch Card List"
-    @ogw_cards = Card.where(set: 'OGW').where("colors like ?", "").sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
+    @ogw_cards = Card.where(set: 'OGW').where("cmc = ?", "%C%").sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
+    render template: "ogw/index"
+  end
+
+  def artifact
+    @title="Artifact Oath of the Gatewatch Card List"
+    @ogw_cards = Card.where(set: 'OGW').where("types like ?", "%Artifact%").sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
     render template: "ogw/index"
   end
 

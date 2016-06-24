@@ -40,4 +40,10 @@ class OriController < ApplicationController
     render template: "ori/index"
   end
 
+  def artifact
+    @title="Artifact Magic Origins Card List"
+    @ori_cards = Card.where(set: 'ORI').where("types like ?", "%Artifact%").sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
+    render template: "ori/index"
+  end
+
 end

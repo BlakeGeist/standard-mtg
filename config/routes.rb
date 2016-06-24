@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get "oath-of-the-gatewatch/blue" => "ogw#blue"
   get "oath-of-the-gatewatch/white" => "ogw#white"
   get "oath-of-the-gatewatch/artifact" => "ogw#artifact"
+  get "oath-of-the-gatewatch/colorless" => "ogw#colorless"
 
   get 'w16/index', path: "welcome-deck-2016"
   get "welcome-deck-2016/red" => "w16#red"

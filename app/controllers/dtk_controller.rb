@@ -34,9 +34,9 @@ class DtkController < ApplicationController
     render template: "dtk/index"
   end
 
-  def colorless
-    @title="Colorless Dragons of Tarkir Card List"
-    @dtk_cards = Card.where(set: 'DTK').where("colors like ?", "").sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
+  def artifact
+    @title="Artifact Dragons of Tarkir Card List"
+    @dtk_cards = Card.where(set: 'DTK').where("types like ?", "%Artifact%").sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
     render template: "dtk/index"
   end
 

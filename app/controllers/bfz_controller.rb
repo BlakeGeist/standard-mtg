@@ -34,9 +34,9 @@ class BfzController < ApplicationController
     render template: "bfz/index"
   end
 
-  def colorless
-    @title="Colorless Battle for Zendikar Card List"
-    @bfz_cards = Card.where(set: 'BFZ').where("colors like ?", "").sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
+  def artifact
+    @title="Artifact Battle for Zendikar Card List"
+    @bfz_cards = Card.where(set: 'BFZ').where("types like ?", "%Artifact%").sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
     render template: "bfz/index"
   end
 
