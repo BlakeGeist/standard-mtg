@@ -23,6 +23,9 @@ gem 'rails_12factor'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+#seach gem
+gem 'ransack'
+
 # seo friendly urls
 gem 'friendly_id', '~> 5.1.0'
 

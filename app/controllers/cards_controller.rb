@@ -5,48 +5,67 @@ def index
   @mechanics = Mechanic.all
 
   @title ="Standard Magic the Gathering Cards"
-  @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not("types like?", "%Land%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+
+  @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not("types like?", "%Land%").search(params[:q])
+
+  @cards = @search.result(distinct: true)
+
+  @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+
+  @subtypes = Subtype.all
+
   respond_to do |format|
     format.js
     format.html
   end
 
-
  end
 
  def white
+   @mechanics = Mechanic.all
    @title="White Standard Magic the Gathering Cards"
    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%W%").where.not("types like?", "%Land%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+   @subtypes = Subtype.all
    render template: "cards/index"
  end
 
  def blue
+   @mechanics = Mechanic.all
    @title="Blue Standard Magic the Gathering Cards"
    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%U%").where.not("types like?", "%Land%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+   @subtypes = Subtype.all
    render template: "cards/index"
  end
 
  def black
+   @mechanics = Mechanic.all
    @title="Black Standard Magic the Gathering Cards"
    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%B%").where.not("types like?", "%Land%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+   @subtypes = Subtype.all
    render template: "cards/index"
  end
 
  def red
+   @mechanics = Mechanic.all
    @title="Red Standard Magic the Gathering Cards"
    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%R%").where.not("types like?", "%Land%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+   @subtypes = Subtype.all
    render template: "cards/index"
  end
 
  def green
+   @mechanics = Mechanic.all
    @title="Green Standard Magic the Gathering Cards"
    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("colors like ?", "%G%").where.not("types like?", "%Land%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+   @subtypes = Subtype.all
    render template: "cards/index"
  end
 
  def artifact
+   @mechanics = Mechanic.all
    @title="Artifact Standard Magic the Gathering Cards"
    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("types like ?", "%Artifact%").where.not("types like?", "%Land%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+   @subtypes = Subtype.all
    render template: "cards/index"
  end
 

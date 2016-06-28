@@ -93,7 +93,7 @@
     <%= link_to 'Artifact', artifact_path %>
   </h3>
 
-  <h4>
+  <h4 class="subtype-heading">
 
     <% @mechanics.each do |mechanic| %>
 
@@ -108,6 +108,54 @@
     <% end %>
 
   </h4>
+
+  <div class="search">
+
+    <%= search_form_for @search do |f| %>
+
+
+      <div class="search-input">
+
+        <%= f.label :info_cont, " Search" %>
+
+        <%= f.text_field :info_cont %>
+
+        <div class="actions"><%= f.submit "submit" %></div>
+
+      </div>
+
+      <div class="search-colors">
+
+        <% $colors.each do |color| %>
+
+          <%= check_box_tag('q[colors_cont_any][]', color[:color]) %>
+
+          <%= color[:color] %>
+
+        <% end %>
+
+      </div>
+
+      <div class="search-subtypes">
+
+        <% @subtypes.each do |subtype|   %>
+
+          <div class='search-subtypes-subtype'>
+
+            <%= check_box_tag("q[subtypes_cont_any][]", subtype.name) %>
+
+            <%= subtype.name %>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
 
   <div class="card-set">
 

@@ -22,6 +22,18 @@
 
         </p>
 
+        <p>
+
+        <strong>Subtype<%= "s" unless @card.subtypes.count <= 1 %></strong>
+
+          <% @card.subtypes.each do |type| %>
+
+            <%= type %><%= "," unless type == @card.subtypes.last %>
+
+          <% end %>
+
+        </p>
+
         <p class="card-info-cmc">
 
           <strong>CMC:</strong>

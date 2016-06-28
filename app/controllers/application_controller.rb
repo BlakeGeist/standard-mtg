@@ -14,4 +14,15 @@ class ApplicationController < ActionController::Base
   # Welcome Deck 2016 | W16
   # Shadows over Innistrad | soi
 
+  $colors = [
+    {color:"White"},
+    {color:"Blue"},
+    {color:"Black"},
+    {color:"Red"},
+    {color:"Green"},
+    {color:"Artifact"}
+  ]
+
+
+
 end

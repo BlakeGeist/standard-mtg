@@ -114,6 +114,34 @@ main {
   margin-top: 100px;
 }
 
+/* sort by subtypes */
+.subtype-heading {
+  font-size: 1rem;
+}
+
+.search-input {
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 300px;
+}
+
+.search-colors {
+  padding-top: 15px;
+}
+
+.search-subtypes {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 0;
+}
+
+  .search-subtypes-subtype {
+    flex: 0 1 200px;
+    padding: 5px 0;
+    font-size: 1rem;
+  }
+
 /* turn off pagination */
 .pagination {
   display: none;
