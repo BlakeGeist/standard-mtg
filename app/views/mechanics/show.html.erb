@@ -1,33 +1,58 @@
-<div>
 
-  <p><strong>Name:</strong> <%= @mechanic.name %></p>
+<h1>What cards are in Shadows over Innistrad?</h1>
 
-  <p><strong>Tile:</strong> <%= @mechanic.title %></p>
+<section>
 
-  <p><strong>Description:</strong> <%= @mechanic.description %></p>
+  <h2>Shadows over Innistrad Cards</h2>
 
-  <p><strong>Url:</strong> <%= @mechanic.url %></p>
+  <h3>
+    <%= link_to 'All', soi_index_path %>
+     |
+    <%= link_to 'White', shadows_over_innistrad_white_path %>
+     |
+    <%= link_to 'Blue', shadows_over_innistrad_blue_path %>
+     |
+    <%= link_to 'Black', shadows_over_innistrad_black_path %>
+     |
+    <%= link_to 'Red', shadows_over_innistrad_red_path %>
+    |
+   <%= link_to 'Green', shadows_over_innistrad_green_path %>
+    |
+   <%= link_to 'Artifact', shadows_over_innistrad_artifact_path %>
+  </h3>
 
-  <p><strong>Content:</strong> <%= @mechanic.content %></p>
+  <div>
 
-</div>
+    <p><strong>Name:</strong> <%= @mechanic.name %></p>
 
-<div class="card-set">
+    <p><strong>Tile:</strong> <%= @mechanic.title %></p>
 
-  <% @cards.each do |card| %>
+    <p><strong>Description:</strong> <%= @mechanic.description %></p>
 
-    <div class="cards-card">
+    <p><strong>Url:</strong> <%= @mechanic.url %></p>
 
-      <a href="<%= card_path(card) %>">
+    <p><strong>Content:</strong> <%= @mechanic.content %></p>
 
-        <img src="<%= card.image_url %>" />
+  </div>
 
-      </a>
+  <div class="card-set">
 
-    </div>
+    <% @cards.each do |card| %>
 
-  <% end %>
+      <div class="cards-card">
 
-</div>
+        <a href="<%= card_path(card) %>">
 
-<%= will_paginate @cards %>
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= will_paginate @cards %>
+
+</section>
