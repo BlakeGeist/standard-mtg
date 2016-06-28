@@ -49,7 +49,6 @@ Rails.application.routes.draw do
   get "shadows-over-innistrad/white" => "soi#white"
   get "shadows-over-innistrad/artifact" => "soi#artifact"
 
-
   get 'cards/index'
   get "/red" => "cards#red"
   get "/black" => "cards#black"
@@ -58,8 +57,13 @@ Rails.application.routes.draw do
   get "/white" => "cards#white"
   get "/artifact" => "cards#artifact"
 
+  get 'mechanics/index'
+  resources :mechanics
+
   resources :cards, :path => ''
   root 'cards#index'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

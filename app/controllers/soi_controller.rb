@@ -40,4 +40,11 @@ class SoiController < ApplicationController
     render template: "soi/index"
   end
 
+  #set meachanics
+  def dfc
+    @title="Double Faced Shadows over Innistrad Card List"
+    @soi_cards = Card.where(set: 'SOI').where("layout like ?", '%double-faced%').sort_by{ |t| t.number }.paginate(:page => params[:page], :per_page => 28)
+    render template: "soi/index"
+  end
+
 end

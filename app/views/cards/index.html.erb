@@ -93,6 +93,21 @@
     <%= link_to 'Artifact', artifact_path %>
   </h3>
 
+  <h4>
+
+    <% @mechanics.each do |mechanic| %>
+
+      <%= link_to mechanic.name, mechanic %>
+
+      <% unless mechanic == @mechanics.last %>
+
+       |
+
+      <% end %>
+
+    <% end %>
+
+  </h4>
 
   <div class="card-set">
 

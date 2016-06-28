@@ -15,21 +15,15 @@
 //= require turbolinks
 //= require_tree .
 
+var ready = function() {
+  $('#openMobileMenuLink').on('click', function(ev) {
+    $('.header-nav').toggleClass('is-open');
 
+    ev.preventDefault();
+    ev.stopPropagation();
+  });
 
-$(document).on('page:change', function () {
-
-
-
-
-$('#openMobileMenuLink').on('click', function(ev) {
-  $('.header-nav').toggleClass('is-open');
-
-  ev.preventDefault();
-  ev.stopPropagation();
-});
-
-
+  //this is not used
   $('.arrowRight').on("click", function(ev) {
     $setId = $(this).parent().parent().data('setId')
     var $thisSetWrapper = $('[data-set-id=' + $setId + '] .cards-container');
@@ -47,7 +41,7 @@ $('#openMobileMenuLink').on('click', function(ev) {
     }
   });
 
-
+  //this is not used
   $('.arrowLeft').on("click", function(ev) {
     ev.preventDefault();
     ev.stopPropagation();
@@ -60,9 +54,7 @@ $('#openMobileMenuLink').on('click', function(ev) {
     }
   });
 
-
-});
-
+};
 
 $(function() {
   $(window).scroll(function() {

@@ -16,4 +16,9 @@ class Card < ActiveRecord::Base
     new_record?
   end
 
+  def menace
+    @title="Menace Standard Card List | MTG"
+    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Menace%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+    render template: "cards/index"
+  end
 end

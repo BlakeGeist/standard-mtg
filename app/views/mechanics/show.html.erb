@@ -1,0 +1,33 @@
+<div>
+
+  <p><strong>Name:</strong> <%= @mechanic.name %></p>
+
+  <p><strong>Tile:</strong> <%= @mechanic.title %></p>
+
+  <p><strong>Description:</strong> <%= @mechanic.description %></p>
+
+  <p><strong>Url:</strong> <%= @mechanic.url %></p>
+
+  <p><strong>Content:</strong> <%= @mechanic.content %></p>
+
+</div>
+
+<div class="card-set">
+
+  <% @cards.each do |card| %>
+
+    <div class="cards-card">
+
+      <a href="<%= card_path(card) %>">
+
+        <img src="<%= card.image_url %>" />
+
+      </a>
+
+    </div>
+
+  <% end %>
+
+</div>
+
+<%= will_paginate @cards %>
