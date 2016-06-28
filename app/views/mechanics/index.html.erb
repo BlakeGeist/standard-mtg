@@ -2,6 +2,6 @@
 
 <% @mechanics.each do |mechanic| %>
 
-  <p><%= mechanic.name %></p>
+  <p><%= mechanic.name %> | <%= link_to 'Delete', mechanic_path(mechanic), method: :delete %></p>
 
 <% end %>
