@@ -1,9 +1,9 @@
 
-<h1>What cards are in Shadows over Innistrad?</h1>
+<h1>What <%= @mechanic.name %> cards are in Standard?</h1>
 
 <section>
 
-  <h2>Shadows over Innistrad Cards</h2>
+  <h2>Standard <%= @mechanic.name %> Cards</h2>
 
   <h3>
     <%= link_to 'All', soi_index_path %>
@@ -20,20 +20,6 @@
     |
    <%= link_to 'Artifact', shadows_over_innistrad_artifact_path %>
   </h3>
-
-  <div>
-
-    <p><strong>Name:</strong> <%= @mechanic.name %></p>
-
-    <p><strong>Tile:</strong> <%= @mechanic.title %></p>
-
-    <p><strong>Description:</strong> <%= @mechanic.description %></p>
-
-    <p><strong>Url:</strong> <%= @mechanic.url %></p>
-
-    <p><strong>Content:</strong> <%= @mechanic.content %></p>
-
-  </div>
 
   <div class="card-set">
 

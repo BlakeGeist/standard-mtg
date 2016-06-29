@@ -23,7 +23,6 @@ var ready = function() {
     ev.stopPropagation();
   });
 
-
   $('.advanced').on('click', function(ev) {
     $('.search').toggleClass('is-open');
     $('.advanced-search').toggleClass('expanded');
@@ -33,7 +32,7 @@ var ready = function() {
   });
 
   $('.expanded').click(function(event){
-    event.stopPropagation();
+b       event.stopPropagation();
   });
 
   // close is-opened items if not clicked within
