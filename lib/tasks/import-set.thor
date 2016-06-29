@@ -351,6 +351,7 @@ class Import < Thor
       {"subtype":"Illusion"},
       {"subtype":"Imp"},
       {"subtype":"Insect"},
+      {"subtype":"Jace"},
       {"subtype":"Juggernaut"},
       {"subtype":"Kirin"},
       {"subtype":"Kiora"},
