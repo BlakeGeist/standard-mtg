@@ -113,42 +113,47 @@
 
     <%= search_form_for @search do |f| %>
 
-
       <div class="search-input">
 
         <%= f.label :info_cont, " Search" %>
 
         <%= f.text_field :info_cont %>
 
-        <div class="actions"><%= f.submit "submit" %></div>
+        <div class="actions"><%= f.submit "submit" %> </div> |
+
+        <a class="advanced" href="#advanced">Advanced +</a>
 
       </div>
 
-      <div class="search-colors">
+      <div class="advanced-search expanded">
 
-        <% $colors.each do |color| %>
+        <div class="search-colors">
 
-          <%= check_box_tag('q[colors_cont_any][]', color[:color]) %>
+          <% $colors.each do |color| %>
 
-          <%= color[:color] %>
+            <%= check_box_tag('q[colors_cont_any][]', color[:color]) %>
 
-        <% end %>
+            <%= color[:color] %>
 
-      </div>
+          <% end %>
 
-      <div class="search-subtypes">
+        </div>
 
-        <% @subtypes.each do |subtype|   %>
+        <div class="search-subtypes">
 
-          <div class='search-subtypes-subtype'>
+          <% @subtypes.each do |subtype|   %>
 
-            <%= check_box_tag("q[subtypes_cont_any][]", subtype.name) %>
+            <div class='search-subtypes-subtype'>
 
-            <%= subtype.name %>
+              <%= check_box_tag("q[subtypes_cont_any][]", subtype.name) %>
 
-          </div>
+              <%= subtype.name %>
 
-        <% end %>
+            </div>
+
+          <% end %>
+
+        </div>
 
       </div>
 

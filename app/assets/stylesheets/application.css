@@ -119,11 +119,23 @@ main {
   font-size: 1rem;
 }
 
+.search {
+}
+
+.advanced-search {
+  display: none;
+}
+
+.search.is-open .advanced-search {
+  display: block;
+}
+
+
 .search-input {
   padding: 5px 0;
   display: flex;
   justify-content: space-between;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .search-colors {
