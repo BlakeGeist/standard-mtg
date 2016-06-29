@@ -9,7 +9,7 @@ class SubtypesController < ApplicationController
 
    @subtype = Subtype.friendly.find(params[:id])
    @title = "What #{@subtype.name} cards are in Standard MTG?"
-   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("info like ? OR info like ?", "%#{@subtype.name}%", "%#{@subtype.name.downcase}%").search(params[:q])
+   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("subtypes like ? OR subtypes like ?", "%#{@subtype.name}%", "%#{@subtype.name.downcase}%").search(params[:q])
 
    @cards = @search.result(distinct: true)
 
