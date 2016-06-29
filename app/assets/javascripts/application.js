@@ -32,7 +32,7 @@ var ready = function() {
   });
 
   $('.expanded').click(function(event){
-b       event.stopPropagation();
+       event.stopPropagation();
   });
 
   // close is-opened items if not clicked within
@@ -41,6 +41,16 @@ b       event.stopPropagation();
     $('.is-open').removeClass('is-open');
   });
 
+  // resize menu after scroll down
+  $(function() {
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 100) /* .header-top height */ {
+        $('body').addClass('scrolled');
+      } else {
+        $('body').removeClass('scrolled');
+      }
+    });
+  });
 
   //this is not used
   $('.arrowRight').on("click", function(ev) {
@@ -78,13 +88,3 @@ b       event.stopPropagation();
 $(document).ready(ready);
 
 $(document).on('page:load', ready);
-
-$(function() {
-  $(window).scroll(function() {
-    if ($(this).scrollTop() > 100) /* .header-top height */ {
-      $('body').addClass('scrolled');
-    } else {
-      $('body').removeClass('scrolled');
-    }
-  });
-});
