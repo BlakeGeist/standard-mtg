@@ -25,11 +25,19 @@ var ready = function() {
 
   $('.advanced').on('click', function(ev) {
     $('.search').toggleClass('is-open');
-    $('.advanced-search').toggleClass('expanded');
 
     ev.preventDefault();
     ev.stopPropagation();
   });
+
+$('.quick-menu-control').on('click', function(ev) {
+  $('.quick-menu').toggleClass('is-open');
+
+  ev.preventDefault();
+  ev.stopPropagation();
+});
+
+
 
   $('.expanded').click(function(event){
        event.stopPropagation();

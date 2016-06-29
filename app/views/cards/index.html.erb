@@ -75,54 +75,67 @@
 
 <section>
 
-  <h2>Standard MTG Cards</h2>
+  <div class="quick-menu">
 
-  <h3>
-    <%= link_to 'All', root_path %>
-     |
-    <%= link_to 'White', white_path %>
-     |
-    <%= link_to 'Blue', blue_path %>
-     |
-    <%= link_to 'Black', black_path %>
-     |
-    <%= link_to 'Red', red_path %>
-     |
-    <%= link_to 'Green', green_path %>
-     |
-    <%= link_to 'Artifact', artifact_path %>
-  </h3>
+    <div class="quick-menu-container">
 
-  <h4 class="subtype-heading">
+      <h2>Standard MTG Cards</h2>
 
-    <% @mechanics.each do |mechanic| %>
+      <a href="#quick-menu-control" class="quick-menu-control">Quick Menu +</a>
 
-      <%= link_to mechanic.name, mechanic %>
+    </div>
 
-      <% unless mechanic == @mechanics.last %>
+    <div class="quick-menu-content expanded">
 
-       |
+      <h3>
+        <%= link_to 'All', root_path %>
+         |
+        <%= link_to 'White', white_path %>
+         |
+        <%= link_to 'Blue', blue_path %>
+         |
+        <%= link_to 'Black', black_path %>
+         |
+        <%= link_to 'Red', red_path %>
+         |
+        <%= link_to 'Green', green_path %>
+         |
+        <%= link_to 'Artifact', artifact_path %>
+      </h3>
 
-      <% end %>
+      <h4 class="subtype-heading">
 
-    <% end %>
+        <% @mechanics.each do |mechanic| %>
 
-  </h4>
+          <%= link_to mechanic.name, mechanic %>
 
-  <div class="search-subtypes">
+          <% unless mechanic == @mechanics.last %>
 
-    <% @subtypes.each do |subtype|   %>
+           |
 
-      <div class='search-subtypes-subtype'>
+          <% end %>
 
-        <%= link_to subtype.name, subtype_path(subtype) %>
+        <% end %>
+
+      </h4>
+
+      <div class="search-subtypes">
+
+        <% @subtypes.each do |subtype|   %>
+
+          <div class='search-subtypes-subtype'>
+
+            <%= link_to subtype.name, subtype_path(subtype) %>
+
+          </div>
+
+        <% end %>
 
       </div>
 
-    <% end %>
+    </div>
 
   </div>
-
 
   <div class="search">
 
