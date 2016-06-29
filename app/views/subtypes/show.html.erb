@@ -1,0 +1,44 @@
+
+<h1>What <%= @subtype.name %> cards are in Standard?</h1>
+
+<section>
+
+  <h2>Standard <%= @subtype.name %> Cards</h2>
+
+  <h3>
+    <%= link_to 'All', soi_index_path %>
+     |
+    <%= link_to 'White', shadows_over_innistrad_white_path %>
+     |
+    <%= link_to 'Blue', shadows_over_innistrad_blue_path %>
+     |
+    <%= link_to 'Black', shadows_over_innistrad_black_path %>
+     |
+    <%= link_to 'Red', shadows_over_innistrad_red_path %>
+    |
+   <%= link_to 'Green', shadows_over_innistrad_green_path %>
+    |
+   <%= link_to 'Artifact', shadows_over_innistrad_artifact_path %>
+  </h3>
+
+  <div class="card-set">
+
+    <% @cards.each do |card| %>
+
+      <div class="cards-card">
+
+        <a href="<%= card_path(card) %>">
+
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= will_paginate @cards %>
+
+</section>

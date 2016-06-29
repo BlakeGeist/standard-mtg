@@ -60,6 +60,9 @@ Rails.application.routes.draw do
   get 'mechanics/index'
   resources :mechanics
 
+  get 'subtypes/index'
+  resources :subtypes
+
   resources :cards, :path => ''
   root 'cards#index'
 

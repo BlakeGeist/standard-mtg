@@ -1,0 +1,7 @@
+<h1>What subtypes are in Standard?</h1>
+
+<% @subtypes.each do |subtype| %>
+
+  <p><%= subtype.name %> | <%= link_to 'Delete', subtype_path(subtype.id), method: :delete %></p>
+
+<% end %>
