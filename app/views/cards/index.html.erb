@@ -109,6 +109,21 @@
 
   </h4>
 
+  <div class="search-subtypes">
+
+    <% @subtypes.each do |subtype|   %>
+
+      <div class='search-subtypes-subtype'>
+
+        <%= link_to subtype.name, subtype_path(subtype) %>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+
   <div class="search">
 
     <%= search_form_for @search do |f| %>
