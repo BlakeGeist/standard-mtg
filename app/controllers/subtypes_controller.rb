@@ -5,9 +5,17 @@ class SubtypesController < ApplicationController
  end
 
  def show
+   @subtypes = Subtype.all
+
    @subtype = Subtype.friendly.find(params[:id])
    @title = "What #{@subtype.name} cards are in Standard MTG?"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("subtypes like ? OR subtypes like ?", "%#{@subtype.name}%", "%#{@subtype.name.downcase}%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("info like ? OR info like ?", "%#{@subtype.name}%", "%#{@subtype.name.downcase}%").search(params[:q])
+
+   @cards = @search.result(distinct: true)
+
+   @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+
+
  end
 
  def new
