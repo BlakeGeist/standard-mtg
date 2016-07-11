@@ -30,17 +30,15 @@ var ready = function() {
     ev.stopPropagation();
   });
 
-$('.quick-menu-control').on('click', function(ev) {
-  $('.quick-menu').toggleClass('is-open');
+  $('.quick-menu-control').on('click', function(ev) {
+    $('.quick-menu').toggleClass('is-open');
 
-  ev.preventDefault();
-  ev.stopPropagation();
-});
-
-
+    ev.preventDefault();
+    ev.stopPropagation();
+  });
 
   $('.expanded').click(function(event){
-       event.stopPropagation();
+    event.stopPropagation();
   });
 
   // close is-opened items if not clicked within
@@ -58,37 +56,6 @@ $('.quick-menu-control').on('click', function(ev) {
         $('body').removeClass('scrolled');
       }
     });
-  });
-
-  //this is not used
-  $('.arrowRight').on("click", function(ev) {
-    $setId = $(this).parent().parent().data('setId')
-    var $thisSetWrapper = $('[data-set-id=' + $setId + '] .cards-container');
-    var $thisMarginDistance = parseInt(($thisSetWrapper).css('marginLeft'));
-    var $thisContainerRightClickCount = Math.abs($thisMarginDistance) / 228
-
-    $thisSetWrapper.animate({'marginLeft': '-=228px'});
-    ev.preventDefault();
-    ev.stopPropagation();
-
-    if ($thisContainerRightClickCount === 2) {
-      $.getScript($('[data-set-id=' + $setId + '] .pagination .next_page').attr('href'));
-    } else if ($thisContainerRightClickCount % 10 === 0) {
-      $.getScript($('[data-set-id=' + $setId + '] .pagination .next_page').attr('href'));
-    }
-  });
-
-  //this is not used
-  $('.arrowLeft').on("click", function(ev) {
-    ev.preventDefault();
-    ev.stopPropagation();
-
-    var $thisSetWrapper = $('[data-set-id=' + $setId + '] .cards-container');
-    var $thisMarginDistance = parseInt(($thisSetWrapper).css('marginLeft'));
-
-    if ($thisMarginDistance < 0) {
-      $thisSetWrapper.animate({'marginLeft': '+=228px'});
-    }
   });
 
 };

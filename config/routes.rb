@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :users, path_names: {sign_in: 'login', sign_out: 'logout'}
+  get 'decks/index'
+  resources :decks
+  
+  resources :users do
+    resources :decks
+  end
+
   get 'ori/index', path: "magic-origins"
   get "magic-origins/red" => "ori#red"
   get "magic-origins/black" => "ori#black"
@@ -56,7 +64,7 @@ Rails.application.routes.draw do
   get "/blue" => "cards#blue"
   get "/white" => "cards#white"
   get "/artifact" => "cards#artifact"
-
+  get "/dashboard" => "cards#dashboard"
 
   get 'mechanics/index'
   resources :mechanics

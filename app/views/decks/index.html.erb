@@ -1,0 +1,7 @@
+<h1>What decks are in Standard?</h1>
+
+<% @decks.each do |deck| %>
+
+  <p><%= deck.name %> | <%= link_to 'Delete', deck_path(deck.id), method: :delete %></p>
+
+<% end %>

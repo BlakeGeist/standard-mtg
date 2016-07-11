@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="<% if user_signed_in? %>user-signed-in<% else %>user-signed-out<% end %>">
 <head>
   <!-- google webmaster tools varification -->
   <meta name="google-site-verification" content="HyxIsBX6LYrw_lxC8cC7mXktC2kbjBN05se15EM-j8Y" />
@@ -137,7 +137,22 @@
 
   <div class="body">
 
-    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to 'Edit profile', edit_user_registration_path %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+      <%= link_to "Dashboard", dashboard_path %>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> |
+      <%= link_to "Login", new_user_session_path %>
+    <% end %>
+
+    <div>
+      <%= yield %>
+    </div>
 
   </div>
 
