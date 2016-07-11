@@ -1,5 +1,5 @@
 
-<% @cards.each do |card| %>
+<% @the_cards.each do |card| %>
 
   <div class="cards-card">
 
@@ -8,6 +8,12 @@
       <img src="<%= card.image_url %>" />
 
     </a>
+
+    <% if user_signed_in? %>
+
+      <div>Add | <%= check_box_tag "deck[card_ids][]", card.id %></div>
+
+    <% end %>
 
   </div>
 

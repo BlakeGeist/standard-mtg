@@ -6,11 +6,11 @@ def index
 
   @title ="Standard Magic the Gathering Cards"
 
-  @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not("types like?", "%Land%").search(params[:q])
+  @search = Card.where.not("types like?", "%Land%").search(params[:q])
 
   @cards = @search.result(distinct: true)
 
-  @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+  @the_cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
 
   @subtypes = Subtype.all
 
@@ -18,6 +18,20 @@ def index
     format.js
     format.html
   end
+
+ end
+
+
+ def dashboard
+   if user_signed_in?
+     respond_to do |format|
+       format.js
+       format.html
+     end
+   else
+     redirect_to new_user_session_path
+   end
+
 
  end
 
