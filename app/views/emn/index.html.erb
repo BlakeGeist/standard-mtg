@@ -1,0 +1,58 @@
+
+<h1>What cards are in Eldritch Moon?</h1>
+
+<section>
+
+  <h2>Eldritch Moon Cards</h2>
+
+  <h3>
+
+    <%= link_to 'All', emn_index_path %>
+
+     |
+
+    <%= link_to 'White', eldritch_moon_white_path %>
+
+     |
+
+    <%= link_to 'Blue', eldritch_moon_blue_path %>
+
+     |
+
+    <%= link_to 'Black', eldritch_moon_black_path %>
+
+     |
+
+    <%= link_to 'Red', eldritch_moon_red_path %>
+
+     |
+
+    <%= link_to 'Green', eldritch_moon_green_path %>
+
+     |
+
+    <%= link_to 'Artifact', eldritch_moon_artifact_path %>
+
+  </h3>
+
+  <div class="card-set">
+
+    <% @emn_cards.each do |card| %>
+
+      <div class="cards-card">
+
+        <a href="<%= card_path(card) %>">
+
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <%= will_paginate @emn_cards %>
+
+</section>

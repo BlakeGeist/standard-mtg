@@ -49,6 +49,14 @@ Rails.application.routes.draw do
   get "shadows-over-innistrad/white" => "soi#white"
   get "shadows-over-innistrad/artifact" => "soi#artifact"
 
+  get "emn/index", path: "eldritch-moon"
+  get "eldritch-moon/red" => "emn#red"
+  get "eldritch-moon/black" => "emn#black"
+  get "eldritch-moon/green" => "emn#green"
+  get "eldritch-moon/blue" => "emn#blue"
+  get "eldritch-moon/white" => "emn#white"
+  get "eldritch-moon/artifact" => "emn#artifact"
+
   get 'cards/index'
   get "/red" => "cards#red"
   get "/black" => "cards#black"
