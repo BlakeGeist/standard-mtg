@@ -8,9 +8,9 @@ def index
 
   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not("types like?", "%Land%").search(params[:q])
 
-  @cards = @search.result(distinct: true)
+  @the_cards = @search.result(distinct: true)
 
-  @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+  @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
 
   @subtypes = Subtype.all
 
