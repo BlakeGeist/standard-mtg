@@ -17,10 +17,10 @@
 
 var ready = function() {
   $('#openMobileMenuLink').on('click', function(ev) {
-    $('.header-nav').toggleClass('is-open');
-
     ev.preventDefault();
     ev.stopPropagation();
+
+    $('.header-nav').toggleClass('is-open');
   });
 
   $('.advanced').on('click', function(ev) {
