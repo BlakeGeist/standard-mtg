@@ -5,16 +5,6 @@
 
   <h2>Shadows over Innistrad Cards</h2>
 
-  <% @sets.each do |set| %>
-
-  <p><%= set.name %></p>
-  <p><%= set.code %></p>
-
-  @sets = MTG::Set.all
-
-
-  <% end %>
-
   <h3>
     <%= link_to 'All', soi_index_path %>
      |

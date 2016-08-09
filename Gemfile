@@ -20,11 +20,9 @@ gem 'thor'
 gem 'will_paginate', '~> 3.1.0'
 # heroku assets
 gem 'rails_12factor'
+# See https://github.com/rails/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
 
-#devise for users
-gem 'devise'
-#cancan for user roles
-gem "cancan"
 #seach gem
 gem 'ransack'
 

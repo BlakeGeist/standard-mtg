@@ -218,28 +218,6 @@ main {
         flex: 1 0 100%;
       }
 
-/* Deck Builder */
-
-.deck-builder {
-  position: fixed;
-  background: #fff;
-  bottom: 0px;
-  height: 150px;
-  width: 100%;
-  left: 0;
-  right: 0;
-  text-align: right;
-}
-
-  .deck-builder-tools {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 15px 0;
-  }
-
-
-
-
 @media(max-width: 1600px) {
 
   .body{
@@ -346,8 +324,6 @@ main {
 
 
 }
-
-
 
 @media (max-width: 480px) {
   .cards-card {

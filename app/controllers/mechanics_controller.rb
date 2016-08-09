@@ -6,7 +6,7 @@ class MechanicsController < ApplicationController
  def show
    @mechanic = Mechanic.friendly.find(params[:id])
    @title = "What #{@mechanic.name} cards are in Standard?"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ? OR text like ?", "%#{@mechanic.name}%", "%#{@mechanic.name.downcase}%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ? OR text like ?", "%#{@mechanic.name}%", "%#{@mechanic.name.downcase}%").sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
  end
 
  def new

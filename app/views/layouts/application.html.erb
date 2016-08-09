@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="<% if user_signed_in? %>user-signed-in<% else %>user-signed-out<% end %>">
+<html>
 <head>
   <!-- google webmaster tools varification -->
   <meta name="google-site-verification" content="HyxIsBX6LYrw_lxC8cC7mXktC2kbjBN05se15EM-j8Y" />
@@ -36,6 +36,23 @@
       <span class="header-nav-open"><%= link_to image_tag( asset_path('menu.png'), class: 'header-nav-open-image'), "#open-mobile-menu-link", id: 'openMobileMenuLink' %></span>
 
     </div>
+
+
+      <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
+
+      <div>
+
+        <a href="<%= emn_index_path %>" class="header-nav-link">
+
+          <span class="header-nav-link-text">Edlritch Moon</span>
+
+          <span class="header-nav-link-text-small">EMN</span>
+
+          <span><%= image_tag asset_path('soi-symbol.png'), class: 'header-nav-link-image' %></span>
+
+        </a>
+
+      </div>
 
     <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
 
@@ -137,22 +154,7 @@
 
   <div class="body">
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
-      <%= link_to "Dashboard", dashboard_path %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Login", new_user_session_path %>
-    <% end %>
-
-    <div>
-      <%= yield %>
-    </div>
+    <%= yield %>
 
   </div>
 

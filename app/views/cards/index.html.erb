@@ -8,6 +8,15 @@
 
       <div class="sets-block-set">
 
+        Eldritch Moon
+
+        <div class="emn"><%= image_tag asset_path('emn-symbol.png'), class: 'header-nav-link-image' %></div>
+
+      </div>
+
+
+      <div class="sets-block-set">
+
         Shadows over Innistrad
 
         <div><%= image_tag asset_path('soi-symbol.png'), class: 'header-nav-link-image' %></div>
@@ -67,6 +76,9 @@
   </div>
 
 </section>
+
+<hr />
+
 
 <h1>What cards are in Standard MTG?</h1>
 
@@ -186,51 +198,10 @@
 
   </div>
 
-  <% if user_signed_in? %>
-
-    <%= form_for ([current_user, current_user.decks.build]) do |f| %>
-
-      <p>
-
-        <%= f.label :name, 'Deck Name' %><br>
-
-        <%= f.text_field :name %>
-
-      </p>
-
-      <div class="card-set">
-
-        <% @the_cards.each do |card| %>
-
-          <div class="cards-card">
-
-            <a href="<%= card_path(card) %>">
-
-              <img src="<%= card.image_url %>" />
-
-            </a>
-
-            <div>Add | <%= check_box_tag "deck[card_ids][]", card.id %></div>
-
-          </div>
-
-        <% end %>
-
-        <div class="deck-builder">
-
-          <div class="deck-builder-tools"><%= f.submit %></div>
-
-        </div>
-
-      </div>
-
-    <% end %>
-
-  <% else %>
 
   <div class="card-set">
 
-    <% @the_cards.each do |card| %>
+    <% @cards.each do |card| %>
 
       <div class="cards-card">
 
@@ -242,14 +213,10 @@
 
       </div>
 
-      <div class="deck-builder"></div>
-
     <% end %>
 
   </div>
 
-  <% end %>
-
-  <%= will_paginate @the_cards %>
+  <%= will_paginate @cards %>
 
 </section>
