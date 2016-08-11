@@ -136,6 +136,7 @@ main {
   display: flex;
   justify-content: space-between;
   max-width: 450px;
+  flex-wrap: wrap;
 }
 
 .search-colors {
