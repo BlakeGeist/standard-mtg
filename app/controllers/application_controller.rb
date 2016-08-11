@@ -23,6 +23,13 @@ class ApplicationController < ActionController::Base
     {color:"Artifact"}
   ]
 
+  $rarities = [
+    {rarity:"Mythic Rare"},
+    {rarity:"Rare"},
+    {rarity:"Uncommon"},
+    {rarity:"Common"}
+  ]
+
 
 
 end
