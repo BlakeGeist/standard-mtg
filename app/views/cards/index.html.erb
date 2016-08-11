@@ -176,6 +176,19 @@
 
         </div>
 
+        <%# maybe make some what rare cards are in standard, what common cards are in standard...ect pages  %>
+        <div class="search-rarity">
+
+          <% $rarities.each do |rarity| %>
+
+            <%= check_box_tag('q[rarities_cont_any][]', rarity[:rarity]) %>
+
+            <%= rarity[:rarity] %>
+
+          <% end %>
+
+        </div>
+
         <div class="search-subtypes">
 
           <% @subtypes.each do |subtype|   %>
