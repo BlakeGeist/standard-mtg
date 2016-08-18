@@ -262,7 +262,7 @@ class Import < Thor
 
     require File.expand_path('config/environment.rb')
 
-    @set = MTG::Card.where(set: 'dtk').all
+    @set = MTG::Card.where(set: 'emn').all
 
     @set.each do |card|
 
@@ -304,49 +304,65 @@ class Import < Thor
 
   end
 
-  desc 'emn', "import the eldritch moon set into the db"
+  desc 'standard_sets', "import the eldritch moon set into the db"
 
-  def emn
+  def standard_sets
 
     require File.expand_path('config/environment.rb')
 
-    @set = MTG::Card.where(set: 'emn').all
 
-    @set.each do |card|
 
-      hashCard = JSON.parse card.to_json
+    @sets = [
+      {"emn":"set"},
+      {"soi":"set"},
+      {"w16":"set"},
+      {"ogw":"set"},
+      {"bfz":"set"},
+      {"ori":"set"},
+      {"dtk":"set"}
+    ]
 
-      puts hashCard['name']
+    @sets.each do |set|
 
-      Card.create!(
-        :info => hashCard,
-        :name => hashCard['name'],
-        :layout => hashCard['layout'],
-        :mana_cost => hashCard['manaCost'],
-        :cmc => hashCard['cmc'],
-        :cardType => hashCard['type'],
-        :rarity => hashCard['rarity'],
-        :flavor => hashCard['flavor'],
-        :text => hashCard['text'],
-        :number => hashCard['number'],
-        :power => hashCard['power'],
-        :toughness => hashCard['toughness'],
-        :multiverseid => hashCard['multiverseid'],
-        :originalText => hashCard['originalText'],
-        :originalType => hashCard['originalType'],
-        :set => hashCard['set'],
-        :setName => hashCard['setName'],
-        :image_url => hashCard['imageUrl'],
-        :supertypes => hashCard['supertypes'],
-        :subtypes => hashCard['subtypes'],
-        :types => hashCard['types'],
-        :colors => hashCard['colors'],
-        :printings => hashCard['printings'],
-        :legalities => hashCard['legalities'],
-        :rulings => hashCard['rulings'],
-        :foreignNames => hashCard['foreignNames'],
-        :artist => hashCard['artist']
-      )
+      @set = MTG::Card.where(set: set[:set]).all
+
+      @set.each do |card|
+
+        hashCard = JSON.parse card.to_json
+
+        puts hashCard['name']
+
+        Card.create!(
+          :info => hashCard,
+          :name => hashCard['name'],
+          :layout => hashCard['layout'],
+          :mana_cost => hashCard['manaCost'],
+          :cmc => hashCard['cmc'],
+          :cardType => hashCard['type'],
+          :rarity => hashCard['rarity'],
+          :flavor => hashCard['flavor'],
+          :text => hashCard['text'],
+          :number => hashCard['number'],
+          :power => hashCard['power'],
+          :toughness => hashCard['toughness'],
+          :multiverseid => hashCard['multiverseid'],
+          :originalText => hashCard['originalText'],
+          :originalType => hashCard['originalType'],
+          :set => hashCard['set'],
+          :setName => hashCard['setName'],
+          :image_url => hashCard['imageUrl'],
+          :supertypes => hashCard['supertypes'],
+          :subtypes => hashCard['subtypes'],
+          :types => hashCard['types'],
+          :colors => hashCard['colors'],
+          :printings => hashCard['printings'],
+          :legalities => hashCard['legalities'],
+          :rulings => hashCard['rulings'],
+          :foreignNames => hashCard['foreignNames'],
+          :artist => hashCard['artist']
+        )
+
+      end
 
     end
 

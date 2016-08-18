@@ -30,13 +30,24 @@ var ready = function() {
     ev.stopPropagation();
   });
 
-$('.quick-menu-control').on('click', function(ev) {
-  $('.quick-menu').toggleClass('is-open');
+  $('.quick-menu-control').on('click', function(ev) {
+    $('.quick-menu').toggleClass('is-open');
 
-  ev.preventDefault();
-  ev.stopPropagation();
-});
+    ev.preventDefault();
+    ev.stopPropagation();
+  });
 
+  // i had to go up to this level because content that was being loaded after the intial load was not firing anything
+  $(document).on('change', '.pcard_checkbox', function(ev){
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    $(this).closest(".add-to-collection").append(
+
+      "<select name='pcard[amount]'>    <option>1</option>    <option>2</option>    <option>3</option>    <option>4</option>    <option>5</option>    <option>6</option>    <option>7</option>     <option>8</option>      <option>9</option>    <option>10</option>  </select><input type='submit' name='commit' value='Create Pcard' >"
+
+    );
+  });
 
 
   $('.expanded').click(function(event){

@@ -1,0 +1,45 @@
+<div id="div_new_pcard_<%= card.multiverseid %>">
+
+    <% if @users_cards.include? card.multiverseid %>
+
+      <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
+
+      <%= form_for([current_user, @pcard], remote: true, :html => { :class => "edit_pcard"}) do |f| %>
+
+        <a class="cards-card-link" href="<%= card_path(card) %>">
+
+          <img src="<%= card.image_url %>" />
+
+        </a>
+
+        <div class="add-to-collection">
+
+          <%= f.text_field :amount %>
+
+          <%= f.submit %>
+
+        </div>
+
+      <% end %>
+
+  <% else %>
+
+    <%= form_for([current_user, current_user.pcards.build], remote: true, :html => { :id => "new_pcard_#{card.multiverseid}"}) do |f| %>
+
+      <a class="cards-card-link" href="<%= card_path(card) %>">
+
+        <img src="<%= card.image_url %>" />
+
+      </a>
+
+      <div class="add-to-collection">
+
+        <%= check_box_tag "pcard[card_id]", card.multiverseid, false, class: "pcard_checkbox", data: {id: card.multiverseid } %>
+
+      </div>
+
+    <% end %>
+
+  <% end %>
+
+</div>

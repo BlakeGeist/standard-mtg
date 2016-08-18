@@ -2,6 +2,10 @@ class CardsController < ApplicationController
 
 def index
 
+  if user_signed_in? and current_user.pcards
+    @users_cards = current_user.pcards.pluck(:card_id)
+  end
+
   @mechanics = Mechanic.all
 
   @title ="Standard Magic the Gathering Cards"
@@ -10,7 +14,11 @@ def index
 
   @the_cards = @search.result(distinct: true)
 
-  @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+  if current_user
+    @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name] }.paginate(:page => params[:page], :per_page => 28)
+  else
+    @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+  end
 
   @subtypes = Subtype.all
 
@@ -234,7 +242,7 @@ def index
    @card = Card.find(params[:id])
    @card.destroy
 
-   redirect_to cards_path
+   redirect_to dashboard_path
  end
 
  private
