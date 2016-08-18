@@ -16,9 +16,9 @@ class Import < Thor
 
   end
 
-  desc "set","import a mtg set into the db"
+  desc "enm","import a mtg set into the db"
 
-  def set
+  def enm
 
     require File.expand_path('config/environment.rb')
 
@@ -64,9 +64,57 @@ class Import < Thor
 
   end
 
-  desc "set2","import a mtg set into the db"
+  desc "soi","import a mtg set into the db"
 
-  def set2
+  def soi
+
+    require File.expand_path('config/environment.rb')
+
+    @set = MTG::Card.where(set: 'soi').all
+
+    @set.each do |card|
+
+      hashCard = JSON.parse card.to_json
+
+      puts hashCard['name']
+
+      Card.create!(
+        :info => hashCard,
+        :name => hashCard['name'],
+        :layout => hashCard['layout'],
+        :mana_cost => hashCard['manaCost'],
+        :cmc => hashCard['cmc'],
+        :cardType => hashCard['type'],
+        :rarity => hashCard['rarity'],
+        :flavor => hashCard['flavor'],
+        :text => hashCard['text'],
+        :number => hashCard['number'],
+        :power => hashCard['power'],
+        :toughness => hashCard['toughness'],
+        :multiverseid => hashCard['multiverseid'],
+        :originalText => hashCard['originalText'],
+        :originalType => hashCard['originalType'],
+        :set => hashCard['set'],
+        :setName => hashCard['setName'],
+        :image_url => hashCard['imageUrl'],
+        :supertypes => hashCard['supertypes'],
+        :subtypes => hashCard['subtypes'],
+        :types => hashCard['types'],
+        :colors => hashCard['colors'],
+        :printings => hashCard['printings'],
+        :legalities => hashCard['legalities'],
+        :rulings => hashCard['rulings'],
+        :foreignNames => hashCard['foreignNames'],
+        :artist => hashCard['artist']
+      )
+
+    end
+
+  end
+
+  desc "w16","import a mtg set into the db"
+
+  def w16
 
     require File.expand_path('config/environment.rb')
 
@@ -114,7 +162,7 @@ class Import < Thor
 
   desc "set3","import a mtg set into the db"
 
-  def set3
+  def ogw
 
     require File.expand_path('config/environment.rb')
 
@@ -162,7 +210,7 @@ class Import < Thor
 
   desc "set4","import a mtg set into the db"
 
-  def set4
+  def bfz
 
     require File.expand_path('config/environment.rb')
 
@@ -210,7 +258,7 @@ class Import < Thor
 
   desc "set5","import a mtg set into the db"
 
-  def set5
+  def ori
 
     require File.expand_path('config/environment.rb')
 
@@ -258,11 +306,11 @@ class Import < Thor
 
   desc "set6","import a mtg set into the db"
 
-  def set6
+  def dtk
 
     require File.expand_path('config/environment.rb')
 
-    @set = MTG::Card.where(set: 'emn').all
+    @set = MTG::Card.where(set: 'dtk').all
 
     @set.each do |card|
 
