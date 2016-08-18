@@ -16,13 +16,13 @@ class Import < Thor
 
   end
 
-  desc "enm","import a mtg set into the db"
+  desc "emn","import a mtg set into the db"
 
-  def enm
+  def emn
 
     require File.expand_path('config/environment.rb')
 
-    @set = MTG::Card.where(set: 'enm').all
+    @set = MTG::Card.where(set: 'emn').all
 
     @set.each do |card|
 
