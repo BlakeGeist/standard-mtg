@@ -4,10 +4,9 @@
 
     <% @this_card = Card.find_by! multiverseid: card.card_id %>
 
-
       <div class="cards-card" id="card<%= card.id %>">
 
-        <%= form_for([@user, card], remote: true) do |f| %>
+        <%= form_for([current_user, card], remote: true) do |f| %>
 
           <a href="<%= card_path(@this_card) %>">
 
