@@ -1,0 +1,3 @@
+$(".pcards").html("<%= escape_javascript(render partial: "cards/pcards", locals: {user: current_user}) %>");
+
+$("#card<%= params[:id] %>").remove();

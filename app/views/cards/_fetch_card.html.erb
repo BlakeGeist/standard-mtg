@@ -1,0 +1,19 @@
+<% pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
+
+<%= form_for([current_user, pcard], remote: true) do |f| %>
+
+  <a class="cards-card-link" href="<%= card_path(card) %>">
+
+    <img src="<%= card.image_url %>" />
+
+  </a>
+
+  <div class="add-to-collection">
+
+    <%= f.text_field :amount %>
+
+    <%= f.submit %>
+
+  </div>
+
+<% end %>

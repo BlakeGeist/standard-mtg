@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
+  resources :users do
+    resources :pcards
+  end
+
+  resource :dashboard
+
   get 'ori/index', path: "magic-origins"
   get "magic-origins/red" => "ori#red"
   get "magic-origins/black" => "ori#black"

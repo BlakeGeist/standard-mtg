@@ -1,14 +1,25 @@
+<% if user_signed_in? %>
 
-<% @cards.each do |card| %>
+  <% @cards.each do |card| %>
 
-  <div class="cards-card">
+    <%= render 'cards/card', :card => card %>
 
-    <a href="<%= card_path(card) %>">
+  <% end %>
 
-      <img src="<%= card.image_url %>" />
+<% else %>
 
-    </a>
+  <% @cards.each do |card| %>
 
-  </div>
+    <div class="cards-card">
+
+      <a href="<%= card_path(card) %>">
+
+        <img src="<%= card.image_url %>" />
+
+      </a>
+
+    </div>
+
+  <% end %>
 
 <% end %>

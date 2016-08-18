@@ -1,0 +1,5 @@
+<% @cards.each do |card| %>
+
+  <div class=""><%= card.name %> | <%= link_to 'Destroy', card_path(card.id),method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+<% end %>
