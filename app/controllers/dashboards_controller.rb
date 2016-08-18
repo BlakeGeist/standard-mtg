@@ -5,7 +5,7 @@ class DashboardsController < ApplicationController
 
   def show
 
-    @cards = current_user.pcards.all.sort_by{ |t| [t.card_id.to_i] }
+    @cards = current_user.pcards.all.sort_by{ |t| [t.card_id] }
 
     @user = current_user
 
