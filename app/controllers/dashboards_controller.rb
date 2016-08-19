@@ -2,9 +2,9 @@ class DashboardsController < ApplicationController
 
   def index
 
-    @the_users_cards = current_user.pcards.all.sort_by{ |t| [t.card_id.to_i] }
+    @user_pcard_card_id = current_user.pcards.pluck(:card_id)
 
-    @the_cards = Card.where(id: @the_users_cards);
+    @cards = Card.where(multiverseid: @user_pcard_card_id);
 
     if current_user.admin?
 

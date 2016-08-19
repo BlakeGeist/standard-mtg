@@ -1,10 +1,10 @@
 <div class="card-set">
 
-  <% @the_cards.each do |card| %>
+  <% @cards.each do |card| %>
 
       <div class="cards-card" id="card<%= card.multiverseid %>">
 
-        <% @pcard = current_user.pcards.find_by! id: card.multiverseid %>
+        <% @pcard = current_user.pcards.where(card_id: card.multiverseid).take %>
 
         <a class="cards-card-link" href="<%= card_path(card) %>">
 
