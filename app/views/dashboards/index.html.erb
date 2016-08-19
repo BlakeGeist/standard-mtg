@@ -1,33 +1,8 @@
 <div class="card-set">
 
   <% current_user.pcards.each do |card| %>
- 
-    <% @this_card = Card.find_by! multiverseid: card.card_id %>
 
-      <div class="cards-card" id="card<%= card.id %>">
-
-        <%= form_for([current_user, card], remote: true) do |f| %>
-
-          <a href="<%= card_path(@this_card) %>">
-
-            <img src="<%= @this_card.image_url %>" />
-
-          </a>
-
-          <div class="add-to-collection">
-
-            <%= f.text_field :amount %>
-
-            <%= f.submit %>
-
-          </div>
-
-        <% end %>
-
-        <div><%= link_to 'Destroy Comment', user_pcard_path(current_user, card), :method => :delete, :remote => true %></div>
-
-      </div>
-
+  <%= card.card_id %>
 
   <% end %>
 
