@@ -1,7 +1,7 @@
 <div class="card-set">
 
   <% current_user.pcards.each do |card| %>
-
+ 
     <% @this_card = Card.find_by! multiverseid: card.card_id %>
 
       <div class="cards-card" id="card<%= card.id %>">
