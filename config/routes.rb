@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :pcards
   end
 
-  resource :dashboard
+  get 'dashboards/index', path: "dashboard"
 
   get 'ori/index', path: "magic-origins"
   get "magic-origins/red" => "ori#red"
