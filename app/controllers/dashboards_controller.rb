@@ -6,8 +6,6 @@ class DashboardsController < ApplicationController
 
     @the_cards = Card.where(id: @the_users_cards);
 
-    @user = current_user
-
     if current_user.admin?
 
       @cards = Card.all.sort_by{ |t| [t.name] }
