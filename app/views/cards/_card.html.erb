@@ -14,7 +14,7 @@
 
       </a>
 
-      <div class="add-to-collection">
+      <div class="add-to-collection has-card">
 
         <%= select_tag("pcard[amount]", options_for_select(1..10, @pcard.amount ), :class => "add-to-collection-amount") %>
 
@@ -37,6 +37,21 @@
         <label class="add-to-collection-add" for="card_<%= card.multiverseid %>">Add</label>
 
         <%= check_box_tag "pcard[card_id]", card.multiverseid, false, class: "pcard_checkbox", id: "card_#{card.multiverseid}", data: {id: card.multiverseid } %>
+
+        <select name='pcard[amount]' class='add-to-collection-amount card_<%= card.multiverseid %>'>
+           <option>Select Amount</option>
+           <option>1</option>
+           <option>2</option>
+           <option>3</option>
+           <option>4</option>
+           <option>5</option>
+           <option>6</option>
+           <option>7</option>
+           <option>8</option>
+           <option>9</option>
+           <option>10</option>
+        </select>
+
 
       </div>
 
