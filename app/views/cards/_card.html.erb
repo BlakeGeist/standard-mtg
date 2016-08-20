@@ -34,7 +34,9 @@
 
       <div class="add-to-collection">
 
-        <%= check_box_tag "pcard[card_id]", card.multiverseid, false, class: "pcard_checkbox", data: {id: card.multiverseid } %>
+        <label class="add-to-collection-add" for="card_<%= card.multiverseid %>">Add</label>
+
+        <%= check_box_tag "pcard[card_id]", card.multiverseid, false, class: "pcard_checkbox", id: "card_#{card.multiverseid}", data: {id: card.multiverseid } %>
 
       </div>
 

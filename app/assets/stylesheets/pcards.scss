@@ -18,7 +18,10 @@
   padding: 1px 6px;
   border: 1px solid #8a8a8a;
   right: -8px;
+}
 
+.pcard_checkbox {
+  display: none;
 }
 
 .new_pcard {
@@ -44,7 +47,20 @@
   input {
     max-width: 102px;
   }
+
+  &.hide-add {
+
+    .add-to-collection-add {
+      display: none;
+    }
+
+  }
 }
+
+.add-to-collection-add:hover {
+  cursor: pointer;
+}
+
 
 .add-to-collection-amount {
   flex: 0 1 100%;
