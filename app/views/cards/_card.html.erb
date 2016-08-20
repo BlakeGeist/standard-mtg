@@ -1,24 +1,26 @@
-<div id="div_new_pcard_<%= card.multiverseid %>">
+<div class="pcard" id="div_new_pcard_<%= card.multiverseid %>">
 
-    <% if @users_cards.include? card.multiverseid %>
+  <% if @users_cards.include? card.multiverseid %>
 
-      <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
+    <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
 
-      <%= form_for([current_user, @pcard], remote: true, :html => { :class => "edit_pcard"}) do |f| %>
+    <div class="pcard-amount"><%=@pcard.amount %></div>
 
-        <a class="cards-card-link" href="<%= card_path(card) %>">
+    <%= form_for([current_user, @pcard], remote: true, :html => { :class => "edit_pcard"}) do |f| %>
 
-          <img src="<%= card.image_url %>" />
+      <a class="cards-card-link" href="<%= card_path(card) %>">
 
-        </a>
+        <img src="<%= card.image_url %>" />
 
-        <div class="add-to-collection">
+      </a>
 
-          <%= select_tag("pcard[amount]", options_for_select(1..10, @pcard.amount ), :class => "pcard-amount") %>
+      <div class="add-to-collection">
 
-        </div>
+        <%= select_tag("pcard[amount]", options_for_select(1..10, @pcard.amount ), :class => "add-to-collection-amount") %>
 
-      <% end %>
+      </div>
+
+    <% end %>
 
   <% else %>
 

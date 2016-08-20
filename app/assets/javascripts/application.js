@@ -43,16 +43,14 @@ var ready = function() {
     ev.stopPropagation();
 
     $(this).closest(".add-to-collection").append(
-      "<select name='pcard[amount]' class='pcard-amount'>  <option>Select Amount</option>  <option>1</option>    <option>2</option>    <option>3</option>    <option>4</option>    <option>5</option>    <option>6</option>    <option>7</option>     <option>8</option>      <option>9</option>    <option>10</option></select>"
+      "<select name='pcard[amount]' class='add-to-collection-amount'>  <option>Select Amount</option>  <option>1</option>    <option>2</option>    <option>3</option>    <option>4</option>    <option>5</option>    <option>6</option>    <option>7</option>     <option>8</option>      <option>9</option>    <option>10</option></select>"
     );
-
-    $(this).closest(".pcard-amount").simulate('mousedown');
 
   });
 
-  $(document).on('change', '.pcard-amount', function(ev){
+  $(document).on('change', '.add-to-collection-amount', function(ev){
     //on select change
-      $(this).closest('form').trigger('submit');
+    $(this).closest('form').trigger('submit');
 });
 
 
