@@ -16,9 +16,7 @@
 
           <div class="add-to-collection">
 
-            <%= f.text_field :amount %>
-
-            <%= f.submit %>
+            <%= select_tag("pcard[amount]", options_for_select(1..10, @pcard.amount ), :class => "pcard-amount") %>
 
           </div>
 
