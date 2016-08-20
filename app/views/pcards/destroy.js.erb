@@ -1,3 +1,5 @@
+//i dont know if this is being called
 $(".pcards").html("<%= escape_javascript(render partial: "cards/pcards", locals: {user: current_user}) %>");
 
+//remove the card from the page when deleted
 $("#card<%= params[:id] %>").remove();

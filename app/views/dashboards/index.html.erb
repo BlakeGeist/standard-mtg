@@ -2,9 +2,9 @@
 
   <% @cards.each do |card| %>
 
-      <div class="cards-card" id="card<%= card.multiverseid %>">
+    <% @pcard = current_user.pcards.where(card_id: card.multiverseid).take %>
 
-        <% @pcard = current_user.pcards.where(card_id: card.multiverseid).take %>
+      <div class="cards-card" id="card<%= @pcard.id %>">
 
         <a class="cards-card-link" href="<%= card_path(card) %>">
 
