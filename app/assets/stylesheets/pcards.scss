@@ -2,13 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .pcard {
+  margin-bottom: 15px;
   position: relative;
+
+  form {  }
+
 }
 
 .pcard-amount {
-  text-align: right;
   position: absolute;
-  z-index: 999;
+  text-align: right;
+  z-index: 99;
   margin-top: -10px;
   background-color: #fff;
   padding: 1px 6px;

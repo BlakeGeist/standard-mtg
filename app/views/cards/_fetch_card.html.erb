@@ -1,5 +1,7 @@
 <% pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
 
+<div class="pcard-amount"><%= pcard.amount %></div>
+
 <%= form_for([current_user, pcard], remote: true) do |f| %>
 
   <a class="cards-card-link" href="<%= card_path(card) %>">
