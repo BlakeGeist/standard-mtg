@@ -14,9 +14,7 @@
 
         <div class="add-to-collection">
 
-          <%= f.text_field :amount %>
-
-          <%= f.submit %>
+          <%= select_tag("pcard[amount]", options_for_select(1..10, @pcard.amount ), :class => "pcard-amount") %>
 
         </div>
 
@@ -24,7 +22,7 @@
 
   <% else %>
 
-    <%= form_for([current_user, current_user.pcards.build], remote: true, :html => { :id => "new_pcard_#{card.multiverseid}"}) do |f| %>
+    <%= form_for([current_user, current_user.pcards.build], remote: true, :authenticity_token => true, :html => { :id => "new_pcard_#{card.multiverseid}"}) do |f| %>
 
       <a class="cards-card-link" href="<%= card_path(card) %>">
 
