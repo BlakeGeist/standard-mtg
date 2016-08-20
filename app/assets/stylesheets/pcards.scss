@@ -54,14 +54,27 @@
       display: none;
     }
 
+    .add-to-collection-amount {
+      display: block;
+    }
+
   }
+
+  &.has-card {
+
+    .add-to-collection-amount {
+      display: block;
+    }
+
+  }
+
 }
 
 .add-to-collection-add:hover {
   cursor: pointer;
 }
 
-
 .add-to-collection-amount {
+  display: none;
   flex: 0 1 100%;
 }
