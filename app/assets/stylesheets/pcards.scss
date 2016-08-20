@@ -1,6 +1,21 @@
 // Place all the styles related to the Pcards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.pcard {
+  position: relative;
+}
+
+.pcard-amount {
+  text-align: right;
+  position: absolute;
+  z-index: 999;
+  margin-top: -10px;
+  background-color: #fff;
+  padding: 1px 6px;
+  border: 1px solid #8a8a8a;
+  right: -8px;
+
+}
 
 .new_pcard {
   display: flex;
@@ -27,6 +42,6 @@
   }
 }
 
-.pcard-amount {
+.add-to-collection-amount {
   flex: 0 1 100%;
 }
