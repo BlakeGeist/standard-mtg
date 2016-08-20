@@ -46,6 +46,8 @@ var ready = function() {
       "<select name='pcard[amount]' class='add-to-collection-amount'>  <option>Select Amount</option>  <option>1</option>    <option>2</option>    <option>3</option>    <option>4</option>    <option>5</option>    <option>6</option>    <option>7</option>     <option>8</option>      <option>9</option>    <option>10</option></select>"
     );
 
+    $(this).closest(".add-to-collection").toggleClass('hide-add');
+
   });
 
   $(document).on('change', '.add-to-collection-amount', function(ev){
