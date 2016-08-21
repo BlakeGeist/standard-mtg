@@ -83,6 +83,9 @@ Rails.application.routes.draw do
   resources :cards, :path => ''
   root 'cards#index'
 
+  resources :cards do
+    resources :tcg_prices
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

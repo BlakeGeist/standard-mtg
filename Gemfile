@@ -20,6 +20,8 @@ gem 'thor'
 gem 'will_paginate', '~> 3.1.0'
 # heroku assets
 gem 'rails_12factor'
+#nokogiri
+gem 'nokogiri', '~> 1.6', '>= 1.6.6.2'
 #devise for users
 gem 'devise'
 # See https://github.com/rails/execjs#readme for more supported runtimes
