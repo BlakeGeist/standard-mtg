@@ -11,42 +11,46 @@ class Import_price < Thor
     @cards = Card.all
 
     @cards.each do |card|
+      begin
+        card_name = card.name
+        if card.name.include? " "
+          card_name = card.name.gsub!(" ", "%20")
+        end
 
-      card_name = card.name
-      if card.name.include? " "
-        card_name = card.name.gsub!(" ", "%20")
-      end
+        card_set_name = card.setName
+        if card.setName.include? " "
+          card_set_name = card.setName.gsub!(" ", "%20")
+        end
 
-      card_set_name = card.setName
-      if card.setName.include? " "
-        card_set_name = card.setName.gsub!(" ", "%20")
-      end
+        source = "http://partner.tcgplayer.com/x3/phl.asmx/p?pk=StandardMTGCards&s=#{card_set_name}&p=#{card_name}"
+        resp = Net::HTTP.get_response(URI.parse(source))
+        @data = resp.body
+        @doc = Nokogiri::XML(@data)
 
-      source = "http://partner.tcgplayer.com/x3/phl.asmx/p?pk=StandardMTGCards&s=#{card_set_name}&p=#{card_name}"
+        hiprice = @doc.xpath("//hiprice").text
 
-      resp = Net::HTTP.get_response(URI.parse(source))
-      @data = resp.body
-      @doc = Nokogiri::XML(@data)
+        if hiprice.blank?
 
-      hiprice = @doc.xpath("//hiprice").text
+          puts 'there is not pricing data'
 
-      if hiprice.blank?
+        else
 
-        puts 'there is not pricing data'
+          lowprice = @doc.xpath("//lowprice").text
+          avgprice = @doc.xpath("//avgprice").text
+          foilavgprice = @doc.xpath("//foilavgprice").text
 
-      else
+          puts "#{card.name} #{lowprice}"
 
-        lowprice = @doc.xpath("//lowprice").text
-        avgprice = @doc.xpath("//avgprice").text
-        foilavgprice = @doc.xpath("//foilavgprice").text
+          card.tcg_prices.create(
+            :hiprice => hiprice,
+            :lowprice => lowprice,
+            :avgprice => avgprice,
+            :foilavgprice => foilavgprice
+          )
 
-        card.tcg_prices.create(
-          :hiprice => hiprice,
-          :lowprice => lowprice,
-          :avgprice => avgprice,
-          :foilavgprice => foilavgprice
-        )
-
+        end
+      rescue URI::InvalidURIError => err
+        p err
       end
 
     end
