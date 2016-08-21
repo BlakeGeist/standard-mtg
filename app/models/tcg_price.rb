@@ -1,0 +1,3 @@
+class TcgPrice < ActiveRecord::Base
+  belongs_to :card
+end
