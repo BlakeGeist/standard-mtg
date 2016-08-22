@@ -3,3 +3,4 @@ $(".pcards").html("<%= escape_javascript(render partial: "cards/pcards", locals:
 "<%= @pcard = current_user.pcards.find_by! id: params[:id] %>"
 
 $("#div_new_pcard_<%= @pcard.card_id %> .pcard-amount").html("<%= @pcard.amount %>");
+$("#card<%= @pcard.id %> .pcard-amount").html("<%= @pcard.amount %>");

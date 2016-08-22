@@ -1,0 +1,25 @@
+<% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
+
+<div class="pcard" id="card<%= @pcard.id %>">
+
+  <div class="pcard-amount"><%=@pcard.amount %></div>
+
+  <%= form_for([current_user, @pcard], remote: true, :html => { :class => "edit_pcard"}) do |f| %>
+
+    <a class="cards-card-link" href="<%= card_path(card) %>">
+
+      <img src="<%= card.image_url %>" />
+
+    </a>
+
+    <div class="add-to-collection has-card">
+
+      <%= select_tag("pcard[amount]", options_for_select(1..10, @pcard.amount ), :class => "add-to-collection-amount") %>
+
+    </div>
+
+  <% end %>
+
+  <%= link_to 'Destroy Card', user_pcard_path(current_user, @pcard), :method => :delete, :remote => true %>
+
+</div>
