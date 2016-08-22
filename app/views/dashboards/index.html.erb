@@ -4,6 +4,10 @@
 
     <% @pcard = current_user.pcards.where(card_id: card.multiverseid).take %>
 
+    <div class="pcard">
+
+      <div class="pcard-amount"><%=@pcard.amount %></div>
+
       <div class="cards-card" id="card<%= @pcard.id %>">
 
         <a class="cards-card-link" href="<%= card_path(card) %>">
@@ -14,7 +18,7 @@
 
         <%= form_for([current_user, @pcard], remote: true) do |f| %>
 
-          <div class="add-to-collection">
+          <div class="add-to-collection has-card">
 
             <%= select_tag("pcard[amount]", options_for_select(1..10, @pcard.amount ), :class => "add-to-collection-amount") %>
 
@@ -25,6 +29,8 @@
         <div><%= link_to 'Destroy Card', user_pcard_path(current_user, @pcard), :method => :delete, :remote => true %></div>
 
       </div>
+
+    </div>
 
   <% end %>
 
