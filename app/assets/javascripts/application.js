@@ -39,9 +39,7 @@ var ready = function() {
 
   // i had to go up to this level because content that was being loaded after the intial load was not firing anything
   $(document).on('change', '.pcard_checkbox', function(ev){
-
     $(this).closest(".add-to-collection").toggleClass('hide-add');
-
   });
 
   $(document).on('change', '.add-to-collection-amount', function(ev){
