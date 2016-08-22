@@ -210,6 +210,8 @@ def index
 
    @card = Card.friendly.find(params[:id])
 
+   @latest_price = @card.tcg_prices.last
+
    @title="#{@card.name} is in Standard"
 
    @standard = [

@@ -6,7 +6,6 @@ class TcgPricesController < ApplicationController
   end
 
   def destroy
-
     @card = Card.friendly.find(params[:card_id])
     @tcg_price = @card.tcg_prices.find(params[:id])
     @tcg_price.destroy
