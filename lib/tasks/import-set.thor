@@ -416,9 +416,9 @@ class Import < Thor
 
   end
 
-  desc "subtype", "subtypes"
+  desc "subtypes", "subtypes"
 
-  def subtype
+  def subtypes
 
     require File.expand_path('config/environment.rb')
 
