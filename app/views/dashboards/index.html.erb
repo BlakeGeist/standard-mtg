@@ -70,7 +70,15 @@
 
     <%= render 'dashboards/card', :card => card %>
 
+    <% unless card.tcg_prices.last.blank? %>
+
+      <%= card.tcg_prices.last.avgprice %>
+
+    <% end %>
+
   <% end %>
+
+
 
 </div>
 
