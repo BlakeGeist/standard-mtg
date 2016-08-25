@@ -1,0 +1,85 @@
+<div class="search">
+
+  <%= search_form_for @this_search,  url: dashboards_index_path do |f| %>
+
+    <div class="search-input">
+
+      <%= f.label :info_cont, " Search" %>
+
+      <%= f.text_field :info_cont %>
+
+      <div class="actions"><%= f.submit "submit" %> </div> |
+
+      <a class="advanced" href="#advanced">Advanced +</a>
+
+    </div>
+
+    <div class="advanced-search expanded">
+
+      <div class="search-colors">
+
+        <% $colors.each do |color| %>
+
+          <%= check_box_tag('q[colors_cont_any][]', color[:color]) %>
+
+          <%= color[:color] %>
+
+        <% end %>
+
+      </div>
+
+      <%# maybe make some what rare cards are in standard, what common cards are in standard...ect pages  %>
+      <div class="search-rarity">
+
+        <% $rarities.each do |rarity| %>
+
+          <%= check_box_tag('q[rarity_cont_any][]', rarity[:rarity]) %>
+
+          <%= rarity[:rarity] %>
+
+        <% end %>
+
+      </div>
+
+      <div class="search-subtypes">
+
+        <% @subtypes.each do |subtype|   %>
+
+          <div class='search-subtypes-subtype'>
+
+            <%= check_box_tag("q[subtypes_cont_any][]", subtype.name) %>
+
+            <%= subtype.name %>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+    </div>
+
+  <% end %>
+
+</div>
+
+
+<div class="card-set">
+
+  <% @cards.each do |card| %>
+
+    <%= render 'dashboards/card', :card => card %>
+
+    <% unless card.tcg_prices.last.blank? %>
+
+      <%= card.tcg_prices.last.avgprice %>
+
+    <% end %>
+
+  <% end %>
+
+
+
+</div>
+
+<%= will_paginate @cards %>

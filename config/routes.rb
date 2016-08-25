@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
+  resources :users do
+    resources :pcards
+  end
+
+  get 'dashboards/index', path: "collection"
+
   get 'ori/index', path: "magic-origins"
   get "magic-origins/red" => "ori#red"
   get "magic-origins/black" => "ori#black"
@@ -75,6 +83,9 @@ Rails.application.routes.draw do
   resources :cards, :path => ''
   root 'cards#index'
 
+  resources :cards do
+    resources :tcg_prices
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,80 @@
+// Place all the styles related to the Pcards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.pcard {
+  margin-bottom: 15px;
+  position: relative;
+
+  form {  }
+
+}
+
+.pcard-amount {
+  position: absolute;
+  text-align: right;
+  z-index: 99;
+  margin-top: -10px;
+  background-color: #fff;
+  padding: 1px 6px;
+  border: 1px solid #8a8a8a;
+  right: -8px;
+}
+
+.pcard_checkbox {
+  display: none;
+}
+
+.new_pcard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 220px;
+}
+
+.edit_pcard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 220px;
+}
+
+.add-to-collection {
+  display: flex;
+  width: 100%;
+  padding: 0 3px;
+  justify-content: space-between;
+
+  input {
+    max-width: 102px;
+  }
+
+  &.hide-add {
+
+    .add-to-collection-add {
+      display: none;
+    }
+
+    .add-to-collection-amount {
+      display: block;
+    }
+
+  }
+
+  &.has-card {
+
+    .add-to-collection-amount {
+      display: block;
+    }
+
+  }
+
+}
+
+.add-to-collection-add:hover {
+  cursor: pointer;
+}
+
+.add-to-collection-amount {
+  display: none;
+  flex: 0 1 100%;
+}

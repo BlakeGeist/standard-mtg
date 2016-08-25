@@ -117,6 +117,34 @@
 
     </div>
 
+    <div class="card-info-section tcg_prices">
+
+      <% unless @latest_price.blank? %>
+
+        <h2>TCG Prices</h2>
+        <p>
+          <strong>hiprice:</strong>
+          <%= number_to_currency(@latest_price.hiprice, :unit => "$") %>
+        </p>
+
+        <p>
+          <strong>lowprice:</strong>
+          <%= number_to_currency(@latest_price.lowprice, :unit => "$") %>
+        </p>
+
+        <p>
+          <strong>avgprice:</strong>
+          <%= number_to_currency(@latest_price.avgprice, :unit => "$") %>
+        </p>
+
+        <p>
+          <strong>foilavgprice:</strong>
+          <%= number_to_currency(@latest_price.foilavgprice, :unit => "$") %>
+        </p>
+      </div>
+
+    <% end %>
+
     <% unless @card.rulings.empty? %>
 
       <div class="card-info-section mod-rulings">

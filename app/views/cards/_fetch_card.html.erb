@@ -1,0 +1,31 @@
+<% pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
+
+<div class="pcard-amount"><%= pcard.amount %></div>
+
+<%= form_for([current_user, pcard], remote: true) do |f| %>
+
+  <a class="cards-card-link" href="<%= card_path(card) %>">
+
+    <img src="<%= card.image_url %>" />
+
+  </a>
+
+  <div class="add-to-collection has-card">
+
+    <select name='pcard[amount]' class='add-to-collection-amount'>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+    </select>
+
+
+  </div>
+
+<% end %>

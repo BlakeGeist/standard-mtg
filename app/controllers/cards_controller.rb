@@ -2,6 +2,10 @@ class CardsController < ApplicationController
 
 def index
 
+  if user_signed_in? and current_user.pcards
+    @users_cards = current_user.pcards.pluck(:card_id)
+  end
+
   @mechanics = Mechanic.all
 
   @title ="Standard Magic the Gathering Cards"
@@ -10,7 +14,11 @@ def index
 
   @the_cards = @search.result(distinct: true)
 
-  @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+  if current_user
+    @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name] }.paginate(:page => params[:page], :per_page => 28)
+  else
+    @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
+  end
 
   @subtypes = Subtype.all
 
@@ -22,6 +30,11 @@ def index
  end
 
  def white
+
+   if user_signed_in? and current_user.pcards
+     @users_cards = current_user.pcards.pluck(:card_id)
+   end
+
    @mechanics = Mechanic.all
    @title="White Standard Magic the Gathering Cards"
    @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%W%").where.not("types like?", "%Land%").search(params[:q])
@@ -32,6 +45,11 @@ def index
  end
 
  def blue
+
+   if user_signed_in? and current_user.pcards
+     @users_cards = current_user.pcards.pluck(:card_id)
+   end
+
    @mechanics = Mechanic.all
    @title="Blue Standard Magic the Gathering Cards"
    @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%U%").where.not("types like?", "%Land%").search(params[:q])
@@ -42,6 +60,10 @@ def index
  end
 
  def black
+   if user_signed_in? and current_user.pcards
+     @users_cards = current_user.pcards.pluck(:card_id)
+   end
+
    @mechanics = Mechanic.all
    @title="Black Standard Magic the Gathering Cards"
    @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%B%").where.not("types like?", "%Land%").search(params[:q])
@@ -52,6 +74,10 @@ def index
  end
 
  def red
+   if user_signed_in? and current_user.pcards
+     @users_cards = current_user.pcards.pluck(:card_id)
+   end
+
    @mechanics = Mechanic.all
    @title="Red Standard Magic the Gathering Cards"
    @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%R%").where.not("types like?", "%Land%").search(params[:q])
@@ -62,6 +88,10 @@ def index
  end
 
  def green
+   if user_signed_in? and current_user.pcards
+     @users_cards = current_user.pcards.pluck(:card_id)
+   end
+
    @mechanics = Mechanic.all
    @title="Green Standard Magic the Gathering Cards"
    @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("mana_cost like ?", "%G%").where.not("types like?", "%Land%").search(params[:q])
@@ -72,6 +102,10 @@ def index
  end
 
  def artifact
+   if user_signed_in? and current_user.pcards
+     @users_cards = current_user.pcards.pluck(:card_id)
+   end
+
    @mechanics = Mechanic.all
    @title="Artifact Standard Magic the Gathering Cards"
    @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("types like ?", "%Artifact%").where.not("types like?", "%Land%").search(params[:q])
@@ -176,6 +210,8 @@ def index
 
    @card = Card.friendly.find(params[:id])
 
+   @latest_price = @card.tcg_prices.last
+
    @title="#{@card.name} is in Standard"
 
    @standard = [
@@ -234,7 +270,7 @@ def index
    @card = Card.find(params[:id])
    @card.destroy
 
-   redirect_to cards_path
+   redirect_to dashboard_path
  end
 
  private

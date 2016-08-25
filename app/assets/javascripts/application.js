@@ -30,14 +30,22 @@ var ready = function() {
     ev.stopPropagation();
   });
 
-$('.quick-menu-control').on('click', function(ev) {
-  $('.quick-menu').toggleClass('is-open');
+  $('.quick-menu-control').on('click', function(ev) {
+    $('.quick-menu').toggleClass('is-open');
 
-  ev.preventDefault();
-  ev.stopPropagation();
-});
+    ev.preventDefault();
+    ev.stopPropagation();
+  });
 
+  // i had to go up to this level because content that was being loaded after the intial load was not firing anything
+  $(document).on('change', '.pcard_checkbox', function(ev){
+    $(this).closest(".add-to-collection").toggleClass('hide-add');
+  });
 
+  $(document).on('change', '.add-to-collection-amount', function(ev){
+    //on select change
+    $(this).closest('form').trigger('submit');
+  });
 
   $('.expanded').click(function(event){
        event.stopPropagation();
