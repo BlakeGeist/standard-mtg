@@ -4,5 +4,4 @@ class Pcard < ActiveRecord::Base
   validates :card_id, uniqueness: { scope: :user,
       message: "This card is already added to your collection" }
 
-   
 end

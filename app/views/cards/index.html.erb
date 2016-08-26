@@ -1,3 +1,4 @@
+<%= render 'cards/sets' %>
 
 <hr />
 
@@ -5,140 +6,11 @@
 
 <section>
 
-  <div class="quick-menu">
+  <%= render '/templates/quick_menu' %>
 
-    <div class="quick-menu-container">
+  <%= render '/templates/search' %>
 
-      <h2>Standard MTG Cards</h2>
-
-      <a href="#quick-menu-control" class="quick-menu-control">Quick Menu +</a>
-
-    </div>
-
-    <div class="quick-menu-content expanded">
-
-      <h3>
-        <%= link_to 'All', root_path %>
-         |
-        <%= link_to 'White', white_path %>
-         |
-        <%= link_to 'Blue', blue_path %>
-         |
-        <%= link_to 'Black', black_path %>
-         |
-        <%= link_to 'Red', red_path %>
-         |
-        <%= link_to 'Green', green_path %>
-         |
-        <%= link_to 'Artifact', artifact_path %>
-      </h3>
-
-      <h4 class="subtype-heading">
-
-        <% @mechanics.each do |mechanic| %>
-
-          <%= link_to mechanic.name, mechanic %>
-
-          <% unless mechanic == @mechanics.last %>
-
-           |
-
-          <% end %>
-
-        <% end %>
-
-      </h4>
-
-      <div class="search-subtypes">
-
-        <% @subtypes.each do |subtype|   %>
-
-          <div class='search-subtypes-subtype'>
-
-            <%= link_to subtype.name, subtype_path(subtype) %>
-
-          </div>
-
-        <% end %>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="search">
-
-    <%= search_form_for @search do |f| %>
-
-      <div class="search-input">
-
-        <%= f.label :info_cont, " Search" %>
-
-        <%= f.text_field :info_cont %>
-
-        <div class="actions"><%= f.submit "submit" %> </div> |
-
-        <a class="advanced" href="#advanced">Advanced +</a>
-
-      </div>
-
-      <div class="advanced-search expanded">
-
-        <div class="search-colors">
-
-          <% $colors.each do |color| %>
-
-            <%= check_box_tag('q[colors_cont_any][]', color[:color]) %>
-
-            <%= color[:color] %>
-
-          <% end %>
-
-        </div>
-
-        <%# maybe make some what rare cards are in standard, what common cards are in standard...ect pages  %>
-        <div class="search-rarity">
-
-          <% $rarities.each do |rarity| %>
-
-            <%= check_box_tag('q[rarity_cont_any][]', rarity[:rarity]) %>
-
-            <%= rarity[:rarity] %>
-
-          <% end %>
-
-        </div>
-
-        <div class="search-subtypes">
-
-          <% @subtypes.each do |subtype|   %>
-
-            <div class='search-subtypes-subtype'>
-
-              <%= check_box_tag("q[subtypes_cont_any][]", subtype.name) %>
-
-              <%= subtype.name %>
-
-            </div>
-
-          <% end %>
-
-        </div>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
-  <%= link_to '#link', 'link', :id => "multiSubmit"  %>
-
-  <div class="card-set">
-
-    <%= render 'cards' %>
-
-  </div>
+  <%= render '/templates/cards' %>
 
   <%= will_paginate @cards %>
 

@@ -48,6 +48,12 @@ class Import_price < Thor
             :foilavgprice => foilavgprice
           )
 
+          card.lowprice = lowprice
+          card.hiprice = hiprice
+          card.avgprice = avgprice
+
+          card.save
+
         end
       rescue URI::InvalidURIError => err
         p err
