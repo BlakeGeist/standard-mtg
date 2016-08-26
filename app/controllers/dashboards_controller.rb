@@ -6,7 +6,21 @@ class DashboardsController < ApplicationController
 
     @this_cards = Card.where(multiverseid: @users_cards);
 
-    @collection_total = @this_cards.pluck(:lowprice).compact
+    @total = Array.new
+
+    @users_cards.each do |card|
+
+    this_card = Card.find_by! multiverseid: card[0]
+
+      if this_card.lowprice?
+
+        @total.push(this_card.lowprice * card[1])
+
+      end
+
+    end
+
+   @total = @total.compact.sum
 
     @this_search = @this_cards.ransack(params[:q])
 
