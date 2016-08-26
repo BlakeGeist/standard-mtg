@@ -14,12 +14,12 @@ class Import_price < Thor
       begin
         card_name = card.name
         if card.name.include? " "
-          card_name = card.name.gsub!(" ", "%20")
+          card_name = card_name.gsub!(" ", "%20")
         end
 
         card_set_name = card.setName
         if card.setName.include? " "
-          card_set_name = card.setName.gsub!(" ", "%20")
+          card_set_name = card_set_name.gsub!(" ", "%20")
         end
 
         source = "http://partner.tcgplayer.com/x3/phl.asmx/p?pk=StandardMTGCards&s=#{card_set_name}&p=#{card_name}"
