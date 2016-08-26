@@ -65,22 +65,7 @@
 
 <div>
 
-  <% @total = Array.new %>
-
-  <% @users_cards.each do |card| %>
-
-    <% this_card = Card.find_by! multiverseid: card[0] %>
-
-    <% if this_card.lowprice? %>
-
-      <% @total.push(this_card.lowprice * card[1]) %>
-
-    <% end %>
-
-  <% end %>
-
-  <%= @total.compact.sum %>
-
+  <%= @total %>
 
 </div>
 
