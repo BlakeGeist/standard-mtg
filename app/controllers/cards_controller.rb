@@ -275,6 +275,6 @@ def index
 
  private
    def card_params
-     params.require(:card).permit(:info)
+     params.require(:card).permit(:info, :aveprice, :hiprice, :lowprice, :foilprice)
    end
 end

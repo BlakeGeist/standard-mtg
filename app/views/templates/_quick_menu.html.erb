@@ -1,0 +1,61 @@
+<div class="quick-menu">
+
+  <div class="quick-menu-container">
+
+    <h2>Standard MTG Cards</h2>
+
+    <a href="#quick-menu-control" class="quick-menu-control">Quick Menu +</a>
+
+  </div>
+
+  <div class="quick-menu-content expanded">
+
+    <h3>
+      <%= link_to 'All', root_path %>
+       |
+      <%= link_to 'White', white_path %>
+       |
+      <%= link_to 'Blue', blue_path %>
+       |
+      <%= link_to 'Black', black_path %>
+       |
+      <%= link_to 'Red', red_path %>
+       |
+      <%= link_to 'Green', green_path %>
+       |
+      <%= link_to 'Artifact', artifact_path %>
+    </h3>
+
+    <h4 class="subtype-heading">
+
+      <% @mechanics.each do |mechanic| %>
+
+        <%= link_to mechanic.name, mechanic %>
+
+        <% unless mechanic == @mechanics.last %>
+
+         |
+
+        <% end %>
+
+      <% end %>
+
+    </h4>
+
+    <div class="search-subtypes">
+
+      <% @subtypes.each do |subtype|   %>
+
+        <div class='search-subtypes-subtype'>
+
+          <%= link_to subtype.name, subtype_path(subtype) %>
+
+        </div>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>

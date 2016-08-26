@@ -2,9 +2,11 @@ class DashboardsController < ApplicationController
 
   def index
 
-    @users_cards = current_user.pcards.pluck(:card_id)
+    @users_cards = current_user.pcards.pluck(:card_id, :amount)
 
     @this_cards = Card.where(multiverseid: @users_cards);
+
+    @collection_total = @this_cards.pluck(:lowprice).compact
 
     @this_search = @this_cards.ransack(params[:q])
 
