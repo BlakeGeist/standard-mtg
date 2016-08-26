@@ -10,7 +10,7 @@ class DashboardsController < ApplicationController
 
     @users_cards.each do |card|
 
-    this_card = Card.find_by! multiverseid: card[0]
+    this_card = Card.find_by!(multiverseid: card[0]);
 
       if this_card.lowprice?
 
