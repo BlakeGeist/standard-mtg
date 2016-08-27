@@ -1,17 +1,13 @@
-<div class="card-set">
+<% cards.each do |card| %>
 
-  <% @cards.each do |card| %>
+  <div class="cards-card">
 
-    <div class="cards-card">
+    <a href="<%= card_path(card) %>">
 
-      <a href="<%= card_path(card) %>">
+      <img src="<%= card.image_url %>" />
 
-        <img src="<%= card.image_url %>" />
+    </a>
 
-      </a>
+  </div>
 
-    </div>
-
-  <% end %>
-
-</div>
+<% end %>

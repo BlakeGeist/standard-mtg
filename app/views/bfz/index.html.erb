@@ -23,21 +23,10 @@
 
   <div class="card-set">
 
-    <% @bfz_cards.each do |card| %>
-
-      <div class="cards-card">
-
-        <a href="<%= card_path(card) %>">
-
-          <img src="<%= card.image_url %>" />
-
-        </a>
-
-      </div>
-
-    <% end %>
+    <%= render 'templates/cards', :cards => @bfz_cards %>
 
   </div>
+
 
   <%= will_paginate @bfz_cards %>
 
