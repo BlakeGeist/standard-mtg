@@ -1,30 +1,10 @@
 class DashboardsController < ApplicationController
-
+ helper PcardsHelper
   def index
-
+    
     @users_cards = current_user.pcards.pluck(:card_id, :amount)
 
     @this_cards = Card.where(multiverseid: @users_cards);
-
-    @total = Array.new
-
-    @users_cards.each do |card|
-
-      unless card[0].nil?
-
-        this_card = Card.find_by!(multiverseid: card[0]);
-
-        if this_card.lowprice?
-
-          @total.push(this_card.lowprice * card[1])
-
-        end
-
-      end
-
-    end
-
-   @total = @total.compact.sum
 
     @this_search = @this_cards.ransack(params[:q])
 
