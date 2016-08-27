@@ -1,5 +1,30 @@
 class Import_price < Thor
 
+  desc 'fix_names', 'get fix_names'
+
+  def fix_names
+
+    require File.expand_path('config/environment.rb')
+    require 'nokogiri'
+    require 'net/http'
+
+    @cards = Card.all
+
+    @cards.each do |card|
+      if card.name?
+        begin
+          card_name = card.name
+          if card.name.include? "%20"
+            card.name = card.name.gsub!("%20", " ")
+          end
+          puts card.name
+          card.save
+        end
+      end
+    end
+
+  end
+
   desc 'tcg', 'get updat_tcg_prices'
 
   def tcg
