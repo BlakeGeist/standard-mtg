@@ -10,7 +10,11 @@
 
   <%= render '/templates/search' %>
 
-  <%= render '/templates/cards' %>
+  <div class="card-set">
+
+    <%= render 'cards' %>
+
+  </div>
 
   <%= will_paginate @cards %>
 
