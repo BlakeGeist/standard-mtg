@@ -6,37 +6,25 @@
   <h2>Welcome Deck 2016 Cards</h2>
 
   <h3>
-    <%= link_to 'All', w16_index_path %>
-     |
-    <%= link_to 'White', welcome_deck_2016_white_path %>
-     |
-    <%= link_to 'Blue', welcome_deck_2016_blue_path %>
-     |
-    <%= link_to 'Black', welcome_deck_2016_black_path %>
-     |
-    <%= link_to 'Red', welcome_deck_2016_red_path %>
-     |
-    <%= link_to 'Green', welcome_deck_2016_green_path %>
-  </h3>
 
+    <%= link_to 'All', w16_index_path %> |
+
+    <%= link_to 'White', welcome_deck_2016_white_path %> |
+
+    <%= link_to 'Blue', welcome_deck_2016_blue_path %> |
+
+    <%= link_to 'Black', welcome_deck_2016_black_path %> |
+
+    <%= link_to 'Red', welcome_deck_2016_red_path %> |
+
+    <%= link_to 'Green', welcome_deck_2016_green_path %>
+
+  </h3>
 
   <div class="card-set">
 
-    <% @w16_cards.each do |card| %>
-
-      <div class="cards-card">
-
-        <a href="<%= card_path(card) %>">
-
-          <img src="<%= card.image_url %>" />
-
-        </a>
-
-      </div>
-
-    <% end %>
+    <%= render 'templates/cards', :cards => @w16_cards %>
 
   </div>
-
 
 </section>
