@@ -14,8 +14,8 @@ def index
 
   @the_cards = @search.result(distinct: true)
 
-  if user_signed_in? and current_user.pcards.count > 0
-    @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name] }.paginate(:page => params[:page], :per_page => 28)
+  if current_user
+    @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name.to_s] }.paginate(:page => params[:page], :per_page => 28)
   else
     @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
   end

@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
  helper PcardsHelper
   def index
-    
+
     @users_cards = current_user.pcards.pluck(:card_id, :amount)
 
     @this_cards = Card.where(multiverseid: @users_cards);
@@ -10,7 +10,9 @@ class DashboardsController < ApplicationController
 
     @the_cards = @this_search.result(distinct: true)
 
-    @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name] }.paginate(:page => params[:page], :per_page => 28)
+    if current_user.pcards.count > 0
+      @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name.to_s] }.paginate(:page => params[:page], :per_page => 28)
+    end
 
     @subtypes = Subtype.all
 
