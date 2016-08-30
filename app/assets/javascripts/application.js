@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('page:change', function () {
+$(document).on('page:load', function () {
   $('#openMobileMenuLink').on('click', function(ev) {
     ev.preventDefault();
     ev.stopPropagation();
