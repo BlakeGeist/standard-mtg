@@ -16,7 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('page:change', function () {
+var ready;
+ready = function() {
+
   $('#openMobileMenuLink').on('click', function(ev) {
     ev.preventDefault();
     ev.stopPropagation();
@@ -69,4 +71,7 @@ $(document).on('page:change', function () {
     });
   });
 
-});
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
