@@ -24,9 +24,10 @@ var ready = function() {
   });
 
   $('.advanced').on('click', function(ev) {
+    $('.search').toggleClass('is-open');
+
     ev.preventDefault();
     ev.stopPropagation();
-    $('.search').toggleClass('is-open');
   });
 
   $('.quick-menu-control').on('click', function(ev) {
@@ -102,4 +103,4 @@ var ready = function() {
 
 $(document).ready(ready);
 
-$(document).on('page:change', ready);
+$(document).on('page:load', ready);
