@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -37,8 +38,39 @@ var ready = function() {
     ev.stopPropagation();
   });
 
+  // i had to go up to this level because content that was being loaded after the intial load was not firing anything
+  $(document).on('change', '.pcard_checkbox', function(ev){
+    $(this).closest(".add-to-collection").toggleClass('hide-add');
+  });
+
+  $(document).on('change', '.add-to-collection-amount', function(ev){
+    //on select change
+    $(this).closest('form').trigger('submit');
+  });
+
+  $('.expanded').click(function(event){
+       event.stopPropagation();
+  });
+
+  // close is-opened items if not clicked within
+  $('html').click(function() {
+    //Hide the menus if visible
+    $('.is-open').removeClass('is-open');
+  });
+
+  // resize menu after scroll down
+  $(function() {
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 100) /* .header-top height */ {
+        $('body').addClass('scrolled');
+      } else {
+        $('body').removeClass('scrolled');
+      }
+    });
+  });
+
 };
 
 $(document).ready(ready);
 
-$(document).on('page:load', ready);
+$(document).on('page:change', ready);
