@@ -38,12 +38,12 @@ class Import_price < Thor
     @cards.each do |card|
       begin
         card_name = card.name
-        if card.name.include? " "
+        if card_name.include? " "
           card_name = card_name.gsub!(" ", "%20")
         end
 
         card_set_name = card.setName
-        if card.setName.include? " "
+        if card_set_name.include? " "
           card_set_name = card_set_name.gsub!(" ", "%20")
         end
 
