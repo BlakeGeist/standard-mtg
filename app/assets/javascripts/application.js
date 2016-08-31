@@ -11,11 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 
-var ready = function() {
+$(document).ready(function () {
   $('#openMobileMenuLink').on('click', function(ev) {
     ev.preventDefault();
     ev.stopPropagation();
@@ -68,8 +68,4 @@ var ready = function() {
     });
   });
 
-};
-
-$(document).ready(ready);
-
-$(document).on('page:load', ready);
+});
