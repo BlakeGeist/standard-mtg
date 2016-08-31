@@ -14,6 +14,8 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+//= require_tree .
+
 
 $(document).ready(function () {
   $('#openMobileMenuLink').on('click', function(ev) {
@@ -66,6 +68,37 @@ $(document).ready(function () {
         $('body').removeClass('scrolled');
       }
     });
+  });
+
+  //this is not used
+  $('.arrowRight').on("click", function(ev) {
+    $setId = $(this).parent().parent().data('setId')
+    var $thisSetWrapper = $('[data-set-id=' + $setId + '] .cards-container');
+    var $thisMarginDistance = parseInt(($thisSetWrapper).css('marginLeft'));
+    var $thisContainerRightClickCount = Math.abs($thisMarginDistance) / 228
+
+    $thisSetWrapper.animate({'marginLeft': '-=228px'});
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    if ($thisContainerRightClickCount === 2) {
+      $.getScript($('[data-set-id=' + $setId + '] .pagination .next_page').attr('href'));
+    } else if ($thisContainerRightClickCount % 10 === 0) {
+      $.getScript($('[data-set-id=' + $setId + '] .pagination .next_page').attr('href'));
+    }
+  });
+
+  //this is not used
+  $('.arrowLeft').on("click", function(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    var $thisSetWrapper = $('[data-set-id=' + $setId + '] .cards-container');
+    var $thisMarginDistance = parseInt(($thisSetWrapper).css('marginLeft'));
+
+    if ($thisMarginDistance < 0) {
+      $thisSetWrapper.animate({'marginLeft': '+=228px'});
+    }
   });
 
 });
