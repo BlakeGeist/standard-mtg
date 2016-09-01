@@ -11,14 +11,13 @@ class DashboardsController < ApplicationController
     @the_cards = @this_search.result(distinct: true)
 
     if current_user.pcards.count > 0
-      @cards = @the_cards.sort_by{ |t| [t.avgprice] }.paginate(:page => params[:page], :per_page => 28)
+      @cards = @the_cards.sort_by{ |t| [t.avgprice.to_i, t.colors.count] }.paginate(:page => params[:page], :per_page => 28)
     end
-
     @subtypes = Subtype.all
 
     if current_user.admin?
 
-      @cards = Card.all.sort_by{ |t| [t.name] }
+      @cards = Card.all.sort_by{ |t| [t.colors.count] }
 
       render action: "admin_index"
 
