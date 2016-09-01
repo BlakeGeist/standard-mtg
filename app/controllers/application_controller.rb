@@ -30,6 +30,26 @@ class ApplicationController < ActionController::Base
     {rarity:"Common"}
   ]
 
+  $mechanics = [
+    {"mechanic":"Deathtouch"},
+    {"mechanic":"Defender"},
+    {"mechanic":"Double strike"},
+    {"mechanic":"Enchant"},
+    {"mechanic":"Equip"},
+    {"mechanic":"First strike"},
+    {"mechanic":"Flash"},
+    {"mechanic":"Flying"},
+    {"mechanic":"Haste"},
+    {"mechanic":"Hexproof"},
+    {"mechanic":"Indestructible"},
+    {"mechanic":"Lifelink"},
+    {"mechanic":"Menace"},
+    {"mechanic":"Prowess"},
+    {"mechanic":"Reach"},
+    {"mechanic":"Scry"},
+    {"mechanic":"Trample"},
+    {"mechanic":"Vigilance"}
+  ]
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
