@@ -20,6 +20,12 @@ class AdminsController < ApplicationController
     #set all subtypes var
     @mechanics = Mechanic.all
 
+    #standards
+    #add a new standards
+    @standard = Standard.new
+    #set all subtypes var
+    @standards = Standard.all
+
   end
 
 end

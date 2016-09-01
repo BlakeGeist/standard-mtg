@@ -75,6 +75,7 @@ Rails.application.routes.draw do
   get "/artifact" => "cards#artifact"
 
   resources :colors
+  resources :standards
 
   get 'mechanics/index'
   resources :mechanics

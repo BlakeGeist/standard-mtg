@@ -135,3 +135,49 @@
   </table>
 
 </div>
+
+<div class="admin-standard">
+
+  <h2>Add a set to standard:</h2>
+
+  <%= form_for(@standard) do |f| %>
+
+    <p>
+
+      <%= f.label :name %><br>
+
+      <%= f.text_field :name %>
+
+    </p>
+
+    <p>
+
+      <%= f.submit %>
+
+    </p>
+
+  <% end %>
+
+  <table>
+
+    <tr>
+
+      <th>standard</th>
+
+    </tr>
+
+    <% @standards.each do |standard| %>
+
+      <tr>
+
+        <td><%= standard.name %></td>
+
+        <td><%= link_to 'Destroy', standard_path(standard.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+    <% end %>
+
+  </table>
+
+</div>
