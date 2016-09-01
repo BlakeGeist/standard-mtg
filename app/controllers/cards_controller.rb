@@ -18,11 +18,6 @@ def index
     @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
   end
 
-  @mechanics = Mechanic.all
-
-  @subtypes = Subtype.all
-
-
   respond_to do |format|
     format.js
     format.html

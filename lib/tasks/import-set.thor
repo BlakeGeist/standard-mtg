@@ -605,6 +605,7 @@ class Import < Thor
       {rarity:"Uncommon"},
       {rarity:"Common"}
     ]
+    
     @rarities.each do |rarity|
 
       puts rarity[:rarity]
