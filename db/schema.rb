@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901015535) do
+ActiveRecord::Schema.define(version: 20160901035337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,14 @@ ActiveRecord::Schema.define(version: 20160901015535) do
   end
 
   add_index "pcards", ["user_id"], name: "index_pcards_on_user_id", using: :btree
+
+  create_table "standards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.text     "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "subtypes", force: :cascade do |t|
     t.string   "name"
