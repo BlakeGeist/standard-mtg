@@ -11,7 +11,7 @@ class DashboardsController < ApplicationController
     @the_cards = @this_search.result(distinct: true)
 
     if current_user.pcards.count > 0
-      @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name.to_s] }.paginate(:page => params[:page], :per_page => 28)
+      @cards = @the_cards.sort_by{ |t| [t.avgprice] }.paginate(:page => params[:page], :per_page => 28)
     end
 
     @subtypes = Subtype.all
