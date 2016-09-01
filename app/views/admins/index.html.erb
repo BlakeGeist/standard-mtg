@@ -181,3 +181,49 @@
   </table>
 
 </div>
+
+<div class="admin-rarity">
+
+  <h2>Add a rarity:</h2>
+
+  <%= form_for(@rarity) do |f| %>
+
+    <p>
+
+      <%= f.label :rarity %><br>
+
+      <%= f.text_field :rarity %>
+
+    </p>
+
+    <p>
+
+      <%= f.submit %>
+
+    </p>
+
+  <% end %>
+
+  <table>
+
+    <tr>
+
+      <th>Rarity</th>
+
+    </tr>
+
+    <% @rarities.each do |rarity| %>
+
+      <tr>
+
+        <td><%= rarity.rarity %></td>
+
+        <td><%= link_to 'Destroy', rarity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+    <% end %>
+
+  </table>
+
+</div>

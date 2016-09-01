@@ -76,6 +76,7 @@ Rails.application.routes.draw do
 
   resources :colors
   resources :standards
+  resources :crarities
 
   get 'mechanics/index'
   resources :mechanics

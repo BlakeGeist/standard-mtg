@@ -26,6 +26,12 @@ class AdminsController < ApplicationController
     #set all subtypes var
     @standards = Standard.all
 
+    #rarities
+    #add a new rarities
+    @rarity = Crarity.new
+    #set all rarities var
+    @rarities = Crarity.all
+
   end
 
 end
