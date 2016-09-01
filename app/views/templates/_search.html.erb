@@ -41,6 +41,23 @@
 
       </div>
 
+      <div class="search-mechanics">
+
+        <% @mechanics.each do |mechanic|   %>
+
+          <div class='search-mechanics-mechanic'>
+
+            <%= check_box_tag("q[text_cont_any][]", mechanic.name) %>
+
+            <%= mechanic.name %>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+
       <div class="search-subtypes">
 
         <% @subtypes.each do |subtype|   %>

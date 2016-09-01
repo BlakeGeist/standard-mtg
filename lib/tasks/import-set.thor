@@ -552,9 +552,45 @@ class Import < Thor
 
     end
 
-
-
   end
 
+  desc "mechanics", "mechanics"
+
+  def mechanics
+
+    require File.expand_path('config/environment.rb')
+
+    @mechanics = [
+      {"mechanic":"Deathtouch"},
+      {"mechanic":"Defender"},
+      {"mechanic":"Double strike"},
+      {"mechanic":"Enchant"},
+      {"mechanic":"Equip"},
+      {"mechanic":"First strike"},
+      {"mechanic":"Flash"},
+      {"mechanic":"Flying"},
+      {"mechanic":"Haste"},
+      {"mechanic":"Hexproof"},
+      {"mechanic":"Indestructible"},
+      {"mechanic":"Lifelink"},
+      {"mechanic":"Menace"},
+      {"mechanic":"Prowess"},
+      {"mechanic":"Reach"},
+      {"mechanic":"Scry"},
+      {"mechanic":"Trample"},
+      {"mechanic":"Vigilance"}
+    ]
+
+    @mechanics.each do |mechanic|
+
+      puts mechanic[:mechanic]
+
+      Mechanic.create!(
+        :name => mechanic[:mechanic]
+      )
+
+    end
+
+  end
 
 end

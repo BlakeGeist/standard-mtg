@@ -1,19 +1,137 @@
-<div>
+<div class="admin-colors">
+
   <h2>Add a color:</h2>
 
   <%= form_for(@color) do |f| %>
+
     <p>
+
       <%= f.label :color %><br>
+
       <%= f.text_field :color %>
+
     </p>
+
     <p>
+
       <%= f.submit %>
+
     </p>
-  <% end %>
-
-  <% @colors.each do |color| %>
-
-    <p><%= color.color %> <%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
   <% end %>
+
+  <table>
+
+    <tr>
+
+      <th>Color</th>
+
+    </tr>
+
+    <% @colors.each do |color| %>
+
+      <tr>
+
+        <td><%= color.color %></td>
+
+        <td><%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+    <% end %>
+
+  </table>
+
+</div>
+
+<div class="admin-subtypes">
+
+  <h2>Add a subtype:</h2>
+
+  <%= form_for(@subtype) do |f| %>
+
+    <p>
+
+      <%= f.label :name %><br>
+
+      <%= f.text_field :name %>
+
+    </p>
+
+    <p>
+
+      <%= f.submit %>
+
+    </p>
+
+  <% end %>
+
+  <table>
+
+    <tr>
+
+      <th>Subtype</th>
+
+    </tr>
+
+    <% @subtypes.each do |subtype| %>
+
+      <tr>
+
+        <td><%= subtype.name %></td>
+
+        <td><%= link_to 'Destroy', subtype_path(subtype.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+    <% end %>
+
+  </table>
+
+</div>
+
+<div class="admin-mechanics">
+
+  <h2>Add a mechanic:</h2>
+
+  <%= form_for(@mechanic) do |f| %>
+
+    <p>
+
+      <%= f.label :name %><br>
+
+      <%= f.text_field :name %>
+
+    </p>
+
+    <p>
+
+      <%= f.submit %>
+
+    </p>
+
+  <% end %>
+
+  <table>
+
+    <tr>
+
+      <th>mechanic</th>
+
+    </tr>
+
+    <% @mechanics.each do |mechanic| %>
+
+      <tr>
+
+        <td><%= mechanic.name %></td>
+
+        <td><%= link_to 'Destroy', mechanic_path(mechanic.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+
+    <% end %>
+
+  </table>
+
 </div>

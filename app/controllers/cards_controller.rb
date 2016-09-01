@@ -6,8 +6,6 @@ def index
     @users_cards = current_user.pcards.pluck(:card_id)
   end
 
-  @mechanics = Mechanic.all
-
   @title ="Standard Magic the Gathering Cards"
 
   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not("types like?", "%Land%").search(params[:q])
@@ -20,7 +18,10 @@ def index
     @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
   end
 
+  @mechanics = Mechanic.all
+
   @subtypes = Subtype.all
+
 
   respond_to do |format|
     format.js
@@ -114,97 +115,6 @@ def index
    @subtypes = Subtype.all
    render template: "cards/index"
  end
-
- #set meachanics
- def dfc
-   @title="Double Faced Standard Card List | MTG"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("layout like ?", '%double-faced%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-   render template: "cards/index"
- end
-
- def delirium
-   @title="Delirium Standard Card List | MTG"
-   @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Delirium%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-   render template: "cards/index"
- end
-
-  def investigate
-    @title="Investigate Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ? OR text like ?", '%Investigate%', '%investigate%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def madness
-    @title="Madness Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ? OR text like ?", '%Madness%', '%madness%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def skulk
-    @title="Skulk Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ? OR text like ?", '%Skulk%', '%skulk%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def cohort
-    @title="Cohort Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ? OR text like ?", '%Cohort%', '%cohort%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def support
-    @title="Support Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ? OR text like ?", '%Support%', '%support%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def surge
-    @title="Surge Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Surge%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def awaken
-    @title="Awaken Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Awaken%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def rally
-    @title="Rally Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Rally%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def converge
-    @title="Converge Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Converge%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def landfall
-    @title="Landfall Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Landfall%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def renown
-    @title="Renown Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Renown%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def spell_mastery
-    @title="Spell Mastery Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Spell mastery%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
-
-  def menace
-    @title="Menace Standard Card List | MTG"
-    @cards = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where("text like ?", '%Menace%').sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-    render template: "cards/index"
-  end
 
  def show
 

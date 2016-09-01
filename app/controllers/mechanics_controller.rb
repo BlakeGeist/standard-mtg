@@ -46,7 +46,7 @@ class MechanicsController < ApplicationController
 
  private
    def mechanic_params
-     params.require(:mechanic).permit(:name, :title, :description, :url, :conetnt)
+     params.require(:mechanic).permit(:name, :title, :description, :url, :content)
    end
 
 end
