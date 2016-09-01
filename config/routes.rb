@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   get 'dashboards/index', path: "collection"
+  get 'admins/index'
 
   get 'ori/index', path: "magic-origins"
   get "magic-origins/red" => "ori#red"
@@ -73,6 +74,7 @@ Rails.application.routes.draw do
   get "/white" => "cards#white"
   get "/artifact" => "cards#artifact"
 
+  resources :colors
 
   get 'mechanics/index'
   resources :mechanics
