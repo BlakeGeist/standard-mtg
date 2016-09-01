@@ -28,11 +28,11 @@
 
     <h4 class="subtype-heading">
 
-      <% @mechanics.each do |mechanic| %>
+      <% $mechanics.each do |mechanic| %>
 
         <%= link_to mechanic.name, mechanic %>
 
-        <% unless mechanic == @mechanics.last %>
+        <% unless mechanic == $mechanics.last %>
 
          |
 
@@ -44,7 +44,7 @@
 
     <div class="search-subtypes">
 
-      <% @subtypes.each do |subtype|   %>
+      <% $subtypes.each do |subtype|   %>
 
         <div class='search-subtypes-subtype'>
 
