@@ -14,11 +14,6 @@ class ApplicationController < ActionController::Base
   # Welcome Deck 2016 | W16
   # Shadows over Innistrad | soi
 
-  $colors = Color.all
-  $mechanics = Mechanic.all
-  $subtypes = Subtype.all
-  $rarities = Crarity.all
-
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
     protected

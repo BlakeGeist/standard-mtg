@@ -6,6 +6,11 @@ def index
     @users_cards = current_user.pcards.pluck(:card_id)
   end
 
+  $colors = Color.all
+  $mechanics = Mechanic.all
+  $subtypes = Subtype.all
+  $rarities = Crarity.all
+
   @title ="Standard Magic the Gathering Cards"
 
   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not("types like?", "%Land%").search(params[:q])
