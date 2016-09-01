@@ -14,42 +14,10 @@ class ApplicationController < ActionController::Base
   # Welcome Deck 2016 | W16
   # Shadows over Innistrad | soi
 
-  $colors = [
-    {color:"White"},
-    {color:"Blue"},
-    {color:"Black"},
-    {color:"Red"},
-    {color:"Green"},
-    {color:"Artifact"}
-  ]
-
-  $rarities = [
-    {rarity:"Mythic Rare"},
-    {rarity:"Rare"},
-    {rarity:"Uncommon"},
-    {rarity:"Common"}
-  ]
-
-  $mechanics = [
-    {"mechanic":"Deathtouch"},
-    {"mechanic":"Defender"},
-    {"mechanic":"Double strike"},
-    {"mechanic":"Enchant"},
-    {"mechanic":"Equip"},
-    {"mechanic":"First strike"},
-    {"mechanic":"Flash"},
-    {"mechanic":"Flying"},
-    {"mechanic":"Haste"},
-    {"mechanic":"Hexproof"},
-    {"mechanic":"Indestructible"},
-    {"mechanic":"Lifelink"},
-    {"mechanic":"Menace"},
-    {"mechanic":"Prowess"},
-    {"mechanic":"Reach"},
-    {"mechanic":"Scry"},
-    {"mechanic":"Trample"},
-    {"mechanic":"Vigilance"}
-  ]
+  $colors = Color.all
+  $mechanics = Mechanic.all
+  $subtypes = Subtype.all
+  $rarities = Crarity.all
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 

@@ -44,15 +44,7 @@ $(document).on('ready page:load', function() {
        event.stopPropagation();
   });
 
-  // close is-opened items if not clicked within
-  $('html').click(function(ev) {
-    //Hide the menus if visible
-    if (!$(this).hasClass('expander')) {
 
-    } else {
-      $('.is-open').removeClass('is-open');
-    }
-  });
 
 
   // resize menu after scroll down
@@ -65,6 +57,13 @@ $(document).on('ready page:load', function() {
       }
     });
   });
+
+});
+
+// close is-opened items if not clicked within
+$(document).on('click', 'html', function(ev) {
+  //Hide the menus if visible
+  $('.is-open').toggleClass('is-open');
 
 });
 
