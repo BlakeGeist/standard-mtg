@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901035337) do
+ActiveRecord::Schema.define(version: 20160901044538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,12 @@ ActiveRecord::Schema.define(version: 20160901035337) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "crarities", force: :cascade do |t|
+    t.string   "rarity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "mechanics", force: :cascade do |t|
     t.string   "name"
     t.string   "title"
@@ -83,6 +89,12 @@ ActiveRecord::Schema.define(version: 20160901035337) do
   end
 
   add_index "pcards", ["user_id"], name: "index_pcards_on_user_id", using: :btree
+
+  create_table "rarities", force: :cascade do |t|
+    t.string   "rarity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "standards", force: :cascade do |t|
     t.string   "name"

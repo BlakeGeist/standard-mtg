@@ -593,4 +593,28 @@ class Import < Thor
 
   end
 
+  desc "rarities", "rarities"
+
+  def rarities
+
+    require File.expand_path('config/environment.rb')
+
+    @rarities = [
+      {rarity:"Mythic Rare"},
+      {rarity:"Rare"},
+      {rarity:"Uncommon"},
+      {rarity:"Common"}
+    ]
+    @rarities.each do |rarity|
+
+      puts rarity[:rarity]
+
+      Crarity.create!(
+        :rarity => rarity[:rarity]
+      )
+
+    end
+
+  end
+
 end
