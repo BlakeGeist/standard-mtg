@@ -28,6 +28,19 @@
 
       </div>
 
+      <div class="search-sets">
+
+        <% $standard.each do |set| %>
+
+          <%= check_box_tag('q[info_cont_any][]', set[:name]) %>
+
+          <%= set[:name] %>
+
+        <% end %>
+
+      </div>
+
+
       <%# maybe make some what rare cards are in standard, what common cards are in standard...ect pages  %>
       <div class="search-rarity">
 
