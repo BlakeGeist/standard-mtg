@@ -24,7 +24,7 @@ class StandardsController < ApplicationController
 
   private
     def standard_params
-      params.require(:standard).permit(:name, :short_name, :photo)
+      params.require(:standard).permit(:name, :short_name, :photo, :slug)
     end
 
 end
