@@ -30,9 +30,9 @@
 
       <div class="search-sets">
 
-        <% $standard.each do |set| %>
+        <% $standard.reverse.each do |set| %>
 
-          <%= check_box_tag('q[info_cont_all][]', set[:name]) %>
+          <%= check_box_tag('q[set_cont_all][]', set[:short_name]) %>
 
           <%= set[:name] %>
 
