@@ -1,0 +1,37 @@
+.admins-page {
+
+}
+
+  .admins-page-section {
+
+    &.mod-colors {
+      max-width: 900px;
+    }
+
+    &.mod-subtypes {
+
+      .admins-page-section-edit-item {
+        flex: 0 1 140px;
+      }
+
+    }
+
+    &.mod-mechanics {
+
+      .admins-page-section-edit-item {
+        flex: 0 1 165px;
+      }
+
+    }
+
+    &.mod-rarities {
+      max-width: 400px;
+    }
+
+  }
+
+    .admins-page-section-edit {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }

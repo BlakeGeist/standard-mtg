@@ -1,4 +1,4 @@
-<div class="admin-colors">
+<section class="admins-page-section mod-colors">
 
   <h2>Add a color:</h2>
 
@@ -20,31 +20,31 @@
 
   <% end %>
 
-  <table>
+  <h2>Colors</h2>
 
-    <tr>
-
-      <th>Color</th>
-
-    </tr>
+  <div class="admins-page-section-edit">
 
     <% @colors.each do |color| %>
 
-      <tr>
+      <div class="admin-page-section-edit-item">
 
-        <td><%= color.color %></td>
+        <%= color.color %>
 
-        <td><%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class="admin-page-section-edit-item-controls">
 
-      </tr>
+          <%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        </div>
+
+      </div>
 
     <% end %>
 
-  </table>
+  </div>
 
-</div>
+</section>
 
-<div class="admin-subtypes">
+<section class="admins-page-section mod-subtypes">
 
   <h2>Add a subtype:</h2>
 
@@ -66,31 +66,31 @@
 
   <% end %>
 
-  <table>
+  <h2>Subtypes:</h2>
 
-    <tr>
-
-      <th>Subtype</th>
-
-    </tr>
+  <div class="admins-page-section-edit">
 
     <% @subtypes.each do |subtype| %>
 
-      <tr>
+      <div class="admins-page-section-edit-item">
 
-        <td><%= subtype.name %></td>
+        <%= subtype.name %>
 
-        <td><%= link_to 'Destroy', subtype_path(subtype.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class="admins-page-section-edit-item-controls">
 
-      </tr>
+          <%= link_to 'Destroy', subtype, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        </div>
+
+      </div>
 
     <% end %>
 
-  </table>
+  </div>
 
-</div>
+</section>
 
-<div class="admin-mechanics">
+<section class="admins-page-section mod-mechanics">
 
   <h2>Add a mechanic:</h2>
 
@@ -112,31 +112,29 @@
 
   <% end %>
 
-  <table>
-
-    <tr>
-
-      <th>mechanic</th>
-
-    </tr>
+  <div class="admins-page-section-edit">
 
     <% @mechanics.each do |mechanic| %>
 
-      <tr>
+      <div class="admins-page-section-edit-item">
 
-        <td><%= mechanic.name %></td>
+        <%= mechanic.name %>
 
-        <td><%= link_to 'Destroy', mechanic_path(mechanic.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class="admins-page-section-edit-item-controls">
 
-      </tr>
+          <%= link_to 'Destroy', mechanic, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        </div>
+
+      </div>
 
     <% end %>
 
-  </table>
+  </div>
 
-</div>
+</section>
 
-<div class="admin-standard">
+<section class="admins-page-section mod-standards">
 
   <h2>Add a set to standard:</h2>
 
@@ -158,31 +156,37 @@
 
   <% end %>
 
-  <table>
-
-    <tr>
-
-      <th>standard</th>
-
-    </tr>
+  <div class="admins-page-section-edit">
 
     <% @standards.each do |standard| %>
 
-      <tr>
+      <div class="admin-page-section-edit-item">
 
-        <td><%= standard.name %></td>
+        <%= standard.name %>
 
-        <td><%= link_to 'Destroy', standard_path(standard.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%#
 
-      </tr>
+          need to make it so that the set names are populated from a select of the mtg sdk api
+
+          need to create the inputs for shortname and logo
+
+        #%>
+
+        <div class="admin-page-section-edit-item-controls">
+
+          <%= link_to 'Destroy', standard, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        </div>
+
+      </div>
 
     <% end %>
 
-  </table>
+  </div>
 
-</div>
+</section>
 
-<div class="admin-rarity">
+<section class="admins-page-section mod-rarities">
 
   <h2>Add a rarity:</h2>
 
@@ -204,26 +208,24 @@
 
   <% end %>
 
-  <table>
-
-    <tr>
-
-      <th>Rarity</th>
-
-    </tr>
+  <div class="admins-page-section-edit">
 
     <% @rarities.each do |rarity| %>
 
-      <tr>
+      <div class="admins-page-section-edit-item">
 
-        <td><%= rarity.rarity %></td>
+        <%= rarity.rarity %>
 
-        <td><%= link_to 'Destroy', rarity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class="admins-page-section-edit-item-controls">
 
-      </tr>
+          <%= link_to 'Destroy', rarity, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+        </div>
+
+      </div>
 
     <% end %>
 
-  </table>
+  </div>
 
 </div>
