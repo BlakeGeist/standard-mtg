@@ -1,0 +1,16 @@
+section.is-open {
+  height: auto;
+
+  .show-less {
+    display: inline-block;
+  }
+
+  .show-more {
+    display: none;
+  }
+
+}
+
+.show-less {
+  display: none;
+}

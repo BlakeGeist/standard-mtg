@@ -32,6 +32,38 @@ class AdminsController < ApplicationController
     #set all rarities var
     @rarities = Crarity.all
 
+    @dont = ['id', 'created_at', 'updated_at']
+
+    @sections = [
+      {
+        "name":"Colors",
+        "section":@colors,
+        "newSection":@color
+
+      },
+      {
+        "name":"Subtypes",
+        "section":@subtypes,
+        "newSection":@subtype
+      },
+      {
+        "name":"Mechanics",
+        "section":@mechanics,
+        "newSection":@mechanic
+      },
+      {
+        "name":"Standard",
+        "section":@standards,
+        "newSection":@standard
+      },
+      {
+        "name":"Rarities",
+        "section":@rarities,
+        "newSection":@rarity
+      }
+    ]
+
+
   end
 
 end

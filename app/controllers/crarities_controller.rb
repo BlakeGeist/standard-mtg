@@ -12,6 +12,6 @@ class CraritiesController < ApplicationController
 
   private
     def crarity_params
-      params.require(:crarity).permit(:rarity)
+      params.require(:crarity).permit(:name)
     end
 end

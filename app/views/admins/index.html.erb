@@ -1,231 +1,61 @@
-<section class="admins-page-section mod-colors">
+<% @sections.each do |section| %>
 
-  <h2>Add a color:</h2>
+  <section class="admins-page-section mod-<%= section[:name].downcase %>">
 
-  <%= form_for(@color) do |f| %>
+    <h2><%= section[:name] %>: <a href="#show-more" class="toggle-section show-more">+</a><a href="#show-less" class="toggle-section show-less">-</a></h2>
 
-    <p>
+    <div class="admins-page-section-edit">
 
-      <%= f.label :color %><br>
+      <% section[:section].each do |section| %>
 
-      <%= f.text_field :color %>
+        <div class="admins-page-section-edit-item">
 
-    </p>
+          <%= section.name %>
 
-    <p>
+          <div class="admin-page-section-edit-item-controls">
 
-      <%= f.submit %>
+            <%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-    </p>
-
-  <% end %>
-
-  <h2>Colors</h2>
-
-  <div class="admins-page-section-edit">
-
-    <% @colors.each do |color| %>
-
-      <div class="admin-page-section-edit-item">
-
-        <%= color.color %>
-
-        <div class="admin-page-section-edit-item-controls">
-
-          <%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
 
         </div>
 
-      </div>
+      <% end %>
 
-    <% end %>
+    </div>
 
-  </div>
+    <div class="admins-page-section-add">
 
-</section>
+      <h2>Add a <%= section[:name]%>:</h2>
 
-<section class="admins-page-section mod-subtypes">
+      <%= form_for(section[:newSection]) do |f| %>
 
-  <h2>Add a subtype:</h2>
+        <% section[:newSection].attributes.each do |attribute| %>
 
-  <%= form_for(@subtype) do |f| %>
+          <% unless @dont.include? attribute[0].to_s  %>
 
-    <p>
+            <div>
 
-      <%= f.label :name %><br>
+              <%= f.label attribute[0] %>
 
-      <%= f.text_field :name %>
+              <%= f.text_field attribute[0] %>
 
-    </p>
+            </div>
 
-    <p>
+          <% end %>
 
-      <%= f.submit %>
+        <% end %>
 
-    </p>
+        <p>
 
-  <% end %>
+          <%= f.submit %>
 
-  <h2>Subtypes:</h2>
+        </p>
 
-  <div class="admins-page-section-edit">
+      <% end %>
 
-    <% @subtypes.each do |subtype| %>
+    </div>
 
-      <div class="admins-page-section-edit-item">
+  </section>
 
-        <%= subtype.name %>
-
-        <div class="admins-page-section-edit-item-controls">
-
-          <%= link_to 'Destroy', subtype, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-        </div>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
-</section>
-
-<section class="admins-page-section mod-mechanics">
-
-  <h2>Add a mechanic:</h2>
-
-  <%= form_for(@mechanic) do |f| %>
-
-    <p>
-
-      <%= f.label :name %><br>
-
-      <%= f.text_field :name %>
-
-    </p>
-
-    <p>
-
-      <%= f.submit %>
-
-    </p>
-
-  <% end %>
-
-  <div class="admins-page-section-edit">
-
-    <% @mechanics.each do |mechanic| %>
-
-      <div class="admins-page-section-edit-item">
-
-        <%= mechanic.name %>
-
-        <div class="admins-page-section-edit-item-controls">
-
-          <%= link_to 'Destroy', mechanic, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-        </div>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
-</section>
-
-<section class="admins-page-section mod-standards">
-
-  <h2>Add a set to standard:</h2>
-
-  <%= form_for(@standard) do |f| %>
-
-    <p>
-
-      <%= f.label :name %><br>
-
-      <%= f.text_field :name %>
-
-    </p>
-
-    <p>
-
-      <%= f.submit %>
-
-    </p>
-
-  <% end %>
-
-  <div class="admins-page-section-edit">
-
-    <% @standards.each do |standard| %>
-
-      <div class="admin-page-section-edit-item">
-
-        <%= standard.name %>
-
-        <%#
-
-          need to make it so that the set names are populated from a select of the mtg sdk api
-
-          need to create the inputs for shortname and logo
-
-        #%>
-
-        <div class="admin-page-section-edit-item-controls">
-
-          <%= link_to 'Destroy', standard, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-        </div>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
-</section>
-
-<section class="admins-page-section mod-rarities">
-
-  <h2>Add a rarity:</h2>
-
-  <%= form_for(@rarity) do |f| %>
-
-    <p>
-
-      <%= f.label :rarity %><br>
-
-      <%= f.text_field :rarity %>
-
-    </p>
-
-    <p>
-
-      <%= f.submit %>
-
-    </p>
-
-  <% end %>
-
-  <div class="admins-page-section-edit">
-
-    <% @rarities.each do |rarity| %>
-
-      <div class="admins-page-section-edit-item">
-
-        <%= rarity.rarity %>
-
-        <div class="admins-page-section-edit-item-controls">
-
-          <%= link_to 'Destroy', rarity, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-        </div>
-
-      </div>
-
-    <% end %>
-
-  </div>
-
-</div>
+<% end %>
