@@ -1,6 +1,6 @@
 <% @sections.each do |section| %>
 
-  <section class="admins-page-section mod-<%= section[:name].downcase %>">
+  <section class="admins-page-section mod-<%= section[:name].downcase %> <%= "is-open expanded" if section == @sections.first %> ">
 
     <h2><%= section[:name] %>: <a href="#show-more" class="toggle-section show-more">+</a><a href="#show-less" class="toggle-section show-less">-</a></h2>
 
@@ -10,7 +10,28 @@
 
         <div class="admins-page-section-edit-item">
 
-          <%= section.name %>
+          <% section.attributes.each do |attribute| %>
+
+            <% unless @dont.include? attribute[0].to_s  %>
+
+
+                <div class="admins-page-section-edit-item-attributes-attribute mod-<%= attribute[0] %>">
+
+                  <% if attribute[1] and attribute[1].include? 'amazonaws.com' %>
+
+                    <%= image_tag attribute[1] %>
+
+                  <% else %>
+
+                    <%= attribute[1] %>
+
+                  <% end %>
+
+              </div>
+
+            <% end %>
+
+          <% end %>
 
           <div class="admin-page-section-edit-item-controls">
 

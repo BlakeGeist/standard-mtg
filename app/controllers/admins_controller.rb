@@ -36,6 +36,11 @@ class AdminsController < ApplicationController
 
     @sections = [
       {
+        "name":"Standard",
+        "section":@standards,
+        "newSection":@standard
+      },
+      {
         "name":"Colors",
         "section":@colors,
         "newSection":@color
@@ -50,11 +55,6 @@ class AdminsController < ApplicationController
         "name":"Mechanics",
         "section":@mechanics,
         "newSection":@mechanic
-      },
-      {
-        "name":"Standard",
-        "section":@standards,
-        "newSection":@standard
       },
       {
         "name":"Rarities",

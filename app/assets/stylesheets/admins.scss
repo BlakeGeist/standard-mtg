@@ -33,7 +33,41 @@
 
   }
     .admins-page-section-edit {
-      display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
     }
+
+      .admins-page-section-edit-item {
+        border: 1px solid #f1f1f1;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        line-height: 67px;
+      }
+
+        .admins-page-section-edit-item-attributes {
+        }
+
+        .admins-page-section-edit-item-attributes-attribute {
+
+          &.mod-name {
+            flex: 0 0 240px;
+            margin-left: 15px;
+          }
+
+          &.mod-photo {
+
+            flex: 0 0 130px;
+            text-align: center;
+
+            img {
+              vertical-align: middle;
+            }
+
+          }
+
+        }
+
+      .admin-page-section-edit-item-controls {
+        margin-right: 15px;
+      }
