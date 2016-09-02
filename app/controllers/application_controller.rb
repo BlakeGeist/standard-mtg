@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   require 'will_paginate/array'
 
   #current stndard
+  $standard = Standard.all
 
   # Dragons of Tarkir | dtk
   # Magic Origins | ori
