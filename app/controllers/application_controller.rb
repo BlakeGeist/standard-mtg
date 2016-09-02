@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
   #this allows the cards to be sortable
   require 'will_paginate/array'
 
-  #current stndard
+  $colors = Color.all
+  $mechanics = Mechanic.all
+  $subtypes = Subtype.all
+  $rarities = Crarity.all
   $standard = Standard.all
 
   # Dragons of Tarkir | dtk

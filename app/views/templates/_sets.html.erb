@@ -1,0 +1,23 @@
+<section>
+
+  <h2>What sets are in Standard MTG?</h2>
+
+  <div class="sets">
+
+    <div class="sets-block">
+
+      <% $standard.reverse.each do |set| %>
+
+        <div class="sets-block-set">
+
+          <%= set.name %>
+
+          <div class="emn"><%= image_tag asset_path(set.photo), class: 'header-nav-link-image' %></div>
+
+        </div>
+
+      <% end %>
+
+  </div>
+
+</section>
