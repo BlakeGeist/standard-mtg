@@ -20,9 +20,9 @@
 
         <% $colors.each do |color| %>
 
-          <%= check_box_tag('q[colors_cont_any][]', color[:color]) %>
+          <%= check_box_tag('q[colors_cont_any][]', color[:name]) %>
 
-          <%= color[:color] %>
+          <%= color[:name] %>
 
         <% end %>
 
@@ -33,9 +33,9 @@
 
         <% $rarities.each do |rarity| %>
 
-          <%= check_box_tag('q[rarity_cont_any][]', rarity[:rarity]) %>
+          <%= check_box_tag('q[rarity_cont_any][]', rarity[:name]) %>
 
-          <%= rarity[:rarity] %>
+          <%= rarity[:name] %>
 
         <% end %>
 
