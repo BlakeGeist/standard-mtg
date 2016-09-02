@@ -3,6 +3,8 @@
 }
 
   .admins-page-section {
+    height: 75px;
+    overflow: hidden;
 
     &.mod-colors {
       max-width: 900px;
@@ -28,8 +30,8 @@
       max-width: 400px;
     }
 
-  }
 
+  }
     .admins-page-section-edit {
       display: flex;
       justify-content: space-between;
