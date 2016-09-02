@@ -32,7 +32,7 @@
 
         <% $standard.each do |set| %>
 
-          <%= check_box_tag('q[info_cont_any][]', set[:name]) %>
+          <%= check_box_tag('q[info_cont_all][]', set[:name]) %>
 
           <%= set[:name] %>
 
