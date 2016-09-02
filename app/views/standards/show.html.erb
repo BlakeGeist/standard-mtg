@@ -1,0 +1,16 @@
+
+<h1>What cards are in <%= @standard.name %>?</h1>
+
+<section>
+
+  <h2><%= @standard.name %> Cards</h2>
+
+  <div class="card-set">
+
+    <%= render 'templates/cards', :cards => @cards %>
+
+  </div>
+
+  <%= will_paginate @cards %>
+
+</section>
