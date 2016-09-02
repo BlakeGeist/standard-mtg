@@ -38,19 +38,23 @@ class Import_price < Thor
     @cards.each do |card|
       begin
         card_name = card.name
-        if card_name.include? " "
-          card_name = card_name.gsub!(" ", "%20")
+        if card_name and card_name.include? " "
+          card_name.gsub!(" ", "%20")
         end
 
         card_set_name = card.setName
-        if card_set_name.include? " "
-          card_set_name = card_set_name.gsub!(" ", "%20")
+        if card_set_name and card_set_name.include? " "
+          card_set_name.gsub!(" ", "%20")
         end
 
         source = "http://partner.tcgplayer.com/x3/phl.asmx/p?pk=StandardMTGCards&s=#{card_set_name}&p=#{card_name}"
         resp = Net::HTTP.get_response(URI.parse(source))
         @data = resp.body
         @doc = Nokogiri::XML(@data)
+
+        if card.name and card.name.include? "%20"
+          card.name.gsub!("%20", " ")
+        end
 
         hiprice = @doc.xpath("//hiprice").text
 
