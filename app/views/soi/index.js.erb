@@ -1,6 +1,0 @@
-$('.card-set').append("<%= j render 'templates/cards', :cards => @soi_cards %>");
-<% if @soi_cards.next_page %>
-  $('.pagination').replaceWith('<%= j will_paginate(@soi_cards) %>');
-<% else %>
-  $('.pagination').remove();
-<% end %>
