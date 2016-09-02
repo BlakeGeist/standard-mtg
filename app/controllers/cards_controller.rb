@@ -10,6 +10,7 @@ def index
   $mechanics = Mechanic.all
   $subtypes = Subtype.all
   $rarities = Crarity.all
+  $standard = Standard.all
 
   @title ="Standard Magic the Gathering Cards"
 

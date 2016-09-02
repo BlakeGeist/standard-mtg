@@ -6,30 +6,25 @@
     height: 75px;
     overflow: hidden;
 
+    &.mod-standard {
+
+      .admins-page-section-edit-item-attributes-attribute {
+          flex: 0 0 25%;
+      }
+
+    }
+
     &.mod-colors {
-      max-width: 900px;
     }
 
     &.mod-subtypes {
-
-      .admins-page-section-edit-item {
-        flex: 0 1 140px;
-      }
-
     }
 
     &.mod-mechanics {
-
-      .admins-page-section-edit-item {
-        flex: 0 1 165px;
-      }
-
     }
 
     &.mod-rarities {
-      max-width: 400px;
     }
-
 
   }
     .admins-page-section-edit {
@@ -43,21 +38,24 @@
         justify-content: space-between;
         flex-wrap: wrap;
         line-height: 67px;
+
+        &:hover {
+          background-color: #e4e4e4;
+        }
+
       }
 
         .admins-page-section-edit-item-attributes {
         }
 
         .admins-page-section-edit-item-attributes-attribute {
+          flex: 0 0 auto;
 
           &.mod-name {
-            flex: 0 0 240px;
             margin-left: 15px;
           }
 
           &.mod-photo {
-
-            flex: 0 0 130px;
             text-align: center;
 
             img {

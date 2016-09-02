@@ -37,114 +37,27 @@
 
     </div>
 
+    <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
 
-      <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
+    <% $standard.each do |set| %>
 
       <div>
 
-        <a href="<%= emn_index_path %>" class="header-nav-link">
+        <a href="<%= standard_path(set) %>" class="header-nav-link">
 
-          <span class="header-nav-link-text">Edlritch Moon</span>
+          <span class="header-nav-link-text"><%= set.name %></span>
 
-          <span class="header-nav-link-text-small">EMN</span>
+          <span class="header-nav-link-text-small"><%= set.short_name %></span>
 
-          <span><%= image_tag asset_path('emn-symbol.png'), class: 'header-nav-link-image' %></span>
+          <span><%= image_tag set.photo, class: 'header-nav-link-image' %></span>
 
         </a>
 
       </div>
 
-    <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
+      <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' unless set == $standard.last %>
 
-    <div>
-      <a href="<%= soi_index_path %>" class="header-nav-link">
-
-        <span class="header-nav-link-text">Shadows Over Innistrad</span>
-
-        <span class="header-nav-link-text-small">SOI</span>
-
-        <span><%= image_tag asset_path('soi-symbol.png'), class: 'header-nav-link-image' %></span>
-
-      </a>
-    </div>
-
-    <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
-
-    <div>
-      <a href="<%= w16_index_path %>" class="header-nav-link">
-
-        <span class="header-nav-link-text">Welcome Deck 2016</span>
-
-        <span class="header-nav-link-text-small">W16</span>
-
-        <span><%= image_tag asset_path('/w16-symbol.png'), class: 'header-nav-link-image' %></span>
-
-      </a>
-    </div>
-
-    <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
-
-    <div>
-
-      <a href="<%= ogw_index_path %>" class="header-nav-link">
-
-        <span class="header-nav-link-text">Oath of the Gatewatch</span>
-
-        <span class="header-nav-link-text-small">OGW</span>
-
-        <span><%= image_tag asset_path('ogw-symbol.png'), class: 'header-nav-link-image' %></span>
-
-      </a>
-
-    </div>
-
-    <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
-
-    <div>
-
-      <a href="<%= bfz_index_path %>" class="header-nav-link">
-
-        <span class="header-nav-link-text">Battle for Zendikar</span>
-
-        <span class="header-nav-link-text-small">BFZ</span>
-
-        <span><%= image_tag asset_path('bfz-symbol.png'), class: 'header-nav-link-image' %></span>
-
-      </a>
-
-    </div>
-
-    <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
-
-    <div>
-
-      <a href="<%= ori_index_path %>" class="header-nav-link">
-
-        <span class="header-nav-link-text">Magic Origins</span>
-
-        <span class="header-nav-link-text-small">ORI</span>
-
-        <span><%= image_tag asset_path('ori-symbol.png'), class: 'header-nav-link-image' %></span>
-
-      </a>
-
-    </div>
-
-    <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
-
-    <div>
-
-      <a href="<%= dtk_index_path %>" class="header-nav-link">
-
-        <span class="header-nav-link-text">Dragons of Tarkir</span>
-
-        <span class="header-nav-link-text-small">DTK</span>
-
-        <span><%= image_tag asset_path('dtk-symbol.png'), class: 'header-nav-link-image' %></span>
-
-      </a>
-
-    </div>
+    <% end %>
 
   </nav>
 
