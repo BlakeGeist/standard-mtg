@@ -32,7 +32,7 @@ class AdminsController < ApplicationController
     #set all rarities var
     @rarities = Crarity.all
 
-    @dont = ['id', 'created_at', 'updated_at']
+    @dont = ['id', 'created_at', 'updated_at', 'slug']
 
     @sections = [
       {
