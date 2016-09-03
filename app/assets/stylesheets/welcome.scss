@@ -29,11 +29,8 @@
     margin-right: 0px;
   }
 
-.arrow {
-  flex: 0 0 50px;
-  line-height: 315px;
-}
-
-.arrow.mod-right{
-  text-align: right;
-}
+  .card-set {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+  }

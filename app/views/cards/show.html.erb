@@ -82,7 +82,7 @@
 
           <% set_controller = "#{set.downcase}_path" %>
 
-          <% if @standard.include? MTG::Set.find(set).name %>
+          <% if $standard.include? MTG::Set.find(set).name %>
 
             <a href="<%= MTG::Set.find(set).name.downcase.gsub(' ', '-') %>"><%= MTG::Set.find(set).name %></a>
             <%= "," unless @card.printings.count==index+1 %>
