@@ -221,6 +221,15 @@ main {
       .card-info-section {
         padding-right: 15px;
         flex-shrink: 1;
+        flex: 0 0 auto;
+      }
+
+      .card-info-section.mod-info {
+        flex: 0 1 450px;
+      }
+
+      .card-info-section.mod-info {
+        flex: 0 1 450px;
       }
 
       .card-info-section.mod-rulings {

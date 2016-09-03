@@ -2,13 +2,11 @@
 
   <div class="card-info">
 
-    <div class="card-image-container"><%= image_tag (@card.image_url), class: 'card-image' %></div>
+    <div class="card-info-section mod-image"><%= image_tag (@card.image_url), class: 'card-image' %></div>
 
-    <div class="card-info-container">
+    <div class="card-info-section mod-info">
 
       <h1 class="card-info-name"><%= @card.name %></h1>
-
-      <div class="card-info-section">
 
         <p class="card-info-type">
 
@@ -62,9 +60,9 @@
 
       </div>
 
-      <div class="card-info-section">
+    <div class="card-info-section mod-info">
 
-        <p class="card-info-colors"><strong>Colors:</strong>
+      <p class="card-info-colors"><strong>Colors:</strong>
 
         <% @card.colors.each do |color| %>
 
@@ -72,48 +70,46 @@
 
         <% end %>
 
-        </p>
+      </p>
 
-        <p class="card-info-raity-number"><strong>Rarity &amp; Number:</strong> <%= @card.rarity %>, <%= @card.number %></p>
+      <p class="card-info-raity-number"><strong>Rarity &amp; Number:</strong> <%= @card.rarity %>, <%= @card.number %></p>
 
-        <p class="card-info-printings">
+      <p class="card-info-printings">
 
-          <strong>Printings:</strong>
+        <strong>Printings:</strong>
 
-          <% @card.printings.each_with_index do |set, index| %>
+        <% @card.printings.each_with_index do |set, index| %>
 
-            <% set_controller = "#{set.downcase}_path" %>
+          <% set_controller = "#{set.downcase}_path" %>
 
-            <% if @standard.include? MTG::Set.find(set).name %>
+          <% if @standard.include? MTG::Set.find(set).name %>
 
-              <a href="<%= MTG::Set.find(set).name.downcase.gsub(' ', '-') %>"><%= MTG::Set.find(set).name %></a>
-              <%= "," unless @card.printings.count==index+1 %>
+            <a href="<%= MTG::Set.find(set).name.downcase.gsub(' ', '-') %>"><%= MTG::Set.find(set).name %></a>
+            <%= "," unless @card.printings.count==index+1 %>
 
-            <% else %>
+          <% else %>
 
-              <%= MTG::Set.find(set).name %><%= "," unless @card.printings.count==index+1 %>
-
-            <% end %>
+            <%= MTG::Set.find(set).name %><%= "," unless @card.printings.count==index+1 %>
 
           <% end %>
 
-        </p>
+        <% end %>
 
-        <p class="card-info-legalities">
+      </p>
 
-          <strong>Legal formats:</strong>
+      <p class="card-info-legalities">
 
-          <% @card.legalities.each_with_index do |set, index| %>
+        <strong>Legal formats:</strong>
 
-            <%= set['format'] %><%= "," unless @card.legalities.count==index+1 %>
+        <% @card.legalities.each_with_index do |set, index| %>
 
-          <% end %>
+          <%= set['format'] %><%= "," unless @card.legalities.count==index+1 %>
 
-        </p>
+        <% end %>
 
-        <p class="card-info-artist"><strong>Artist:</strong> <%= @card.artist %></p>
+      </p>
 
-      </div>
+      <p class="card-info-artist"><strong>Artist:</strong> <%= @card.artist %></p>
 
     </div>
 
@@ -152,12 +148,17 @@
 
       <div>
 
-        <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=<%= @card.multiverseid %>" target="_blank">Wizards</a>
+        <p><a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=<%= @card.multiverseid %>" target="_blank">Wizards</a></p>
 
-        <a href="<%= @card.link %>" target="_blank">TCGPlayer</a>
+        <p><a href="<%= @card.link %>" target="_blank">TCGPlayer</a></p>
+
+        <% if @card.lowprice? %>
+
+          <p><a href="http://www.cardkingdom.com/mtg/<%= @card.setName.gsub(" ", "-").downcase %>/<%=@card.slug%>" target="_blank">Card Kingdom</a></p>
+
+        <% end %>
 
       </div>
-
 
     </div>
 

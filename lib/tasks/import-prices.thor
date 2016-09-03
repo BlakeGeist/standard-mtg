@@ -56,6 +56,10 @@ class Import_price < Thor
           card.name.gsub!("%20", " ")
         end
 
+        if card.setName and card.setName.include? "%20"
+          card.setName.gsub!("%20", " ")
+        end
+
         hiprice = @doc.xpath("//hiprice").text
 
         if hiprice.blank?
