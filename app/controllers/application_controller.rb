@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   $rarities = Crarity.all
   $standard = Standard.all
 
-  $models = [[$colors, "Colors", "colors"], [$standard, "Set", "set"],  [$rarities, "Rarities", "rarities"], [$mechanics, "Mechanics", "mechanics"], [$subtypes, "Subtypes", "subtypes"]]
+  $models = [[$colors, "Colors", "colors"], [$standard, "Set", "set"],  [$rarities, "Rarities", "rarity"], [$mechanics, "Mechanics", "mechanics"], [$subtypes, "Subtypes", "subtypes"]]
 
   # Dragons of Tarkir | dtk
   # Magic Origins | ori
