@@ -6,18 +6,9 @@ def index
     @users_cards = current_user.pcards.pluck(:card_id)
   end
 
-  $colors = Color.all
-  $mechanics = Mechanic.all
-  $subtypes = Subtype.all
-  $rarities = Crarity.all
-  $standard = Standard.all
-
-  @title ="Standard Magic the Gathering Cards"
-
+  @title ="Standard MTG Card List | Standard MTG Cards"
   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ', 'ORI', 'DTK').where.not("types like?", "%Land%").search(params[:q])
-
   @the_cards = @search.result(distinct: true)
-
   if current_user
     @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name.to_s] }.paginate(:page => params[:page], :per_page => 28)
   else
@@ -120,20 +111,8 @@ def index
  def show
 
    @card = Card.friendly.find(params[:id])
-
    @latest_price = @card.tcg_prices.last
-
-   @title="#{@card.name} is in Standard"
-
-   @standard = [
-     'Edlritch Moon',
-     'Shadows over Innistrad',
-     'Welcome Deck 2016',
-     'Oath of the Gatewatch',
-     'Battle for Zendikar',
-     'Magic Origins',
-     'Dragons of Tarkir'
-   ]
+   @title="#{@card.name} is in Standard | Standard MTG Cards"
 
   unless @card.text.nil?
     if @card.text =~ /(?:\n\r?|\r\n?)/

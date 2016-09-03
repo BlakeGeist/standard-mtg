@@ -5,6 +5,8 @@
 
   <h2><%= @standard.name %> Cards</h2>
 
+  <p>If you were to purchase this entire set for its low price on TCG Player it would cost you. <%= @t_cards.pluck(:lowprice).compact.sum %></p>
+
   <div class="card-set">
 
     <%= render 'templates/cards', :cards => @cards %>

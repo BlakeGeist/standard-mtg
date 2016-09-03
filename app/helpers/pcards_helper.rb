@@ -10,6 +10,7 @@ module PcardsHelper
 
         this_card = Card.find_by!(multiverseid: card[0]);
 
+
         if this_card.lowprice?
 
           @total.push(this_card.lowprice * card[1])
