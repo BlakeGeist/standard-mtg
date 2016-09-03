@@ -7,6 +7,18 @@
 
   <p>If you were to purchase this entire set for its low price on TCG Player it would cost you. <%= @t_cards.pluck(:lowprice).compact.sum %></p>
 
+  <p>The 10 most expensive cards are. </p>
+
+  <ul>
+
+    <% @last_ten.first(10).each do |card| %>
+
+      <li><%= card.name %> | <%= card.lowprice %></li>
+
+    <% end %>
+
+  </ul>
+
   <div class="card-set">
 
     <%= render 'templates/cards', :cards => @cards %>
