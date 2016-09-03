@@ -30,9 +30,17 @@
 
                 <%= check_box_tag("q[" + search_item[2].downcase + "_cont_all][]", search_by[:short_name]) %>
 
-              <% else %>
+                <% elsif search_item[2].downcase == 'mechanics' %>
 
-                <%= check_box_tag("q[" + search_item[2].downcase + "_cont_any][]", search_by[:name]) %>
+                  <%= check_box_tag("q[text_cont_any][]", search_by[:name]) %>
+
+                <% elsif search_item[2].downcase == 'mechanics' %>
+
+                  <%= check_box_tag("q[text_cont_any][]", search_by[:name]) %>
+
+                <% else %>
+
+                  <%= check_box_tag("q[" + search_item[2].downcase + "_cont_any][]", search_by[:name]) %>
 
               <% end %>
 
