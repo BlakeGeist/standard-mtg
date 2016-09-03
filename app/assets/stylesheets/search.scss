@@ -1,11 +1,39 @@
-.search-mechanics {
+.advanced-search-by {
   display: flex;
   flex-wrap: wrap;
   padding: 15px 0;
+
+  &.search-colors {
+
+    .advanced-search-by-item {
+    }
+
+  }
+
+  &.search-mechanics {
+
+    .advanced-search-by-item {
+      flex: 0 1 120px;
+    }
+
+  }
+
+  &.search-subtypes {
+
+    .advanced-search-by-item {
+      flex: 0 1 140px;
+    }
+
+  }
+
 }
 
-.search-mechanics-mechanic {
-  flex: 0 1 145px;
-  padding: 5px 0;
+.advanced-search-by-heading {
+  width: 100%;
+}
+
+.advanced-search-by-item {
+  flex: 0 1 auto;
+  padding: 5px 10px 0;
   font-size: 1rem;
 }

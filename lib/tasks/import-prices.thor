@@ -67,6 +67,7 @@ class Import_price < Thor
           lowprice = @doc.xpath("//lowprice").text
           avgprice = @doc.xpath("//avgprice").text
           foilavgprice = @doc.xpath("//foilavgprice").text
+          link = @doc.xpath("//link").text
 
           puts "#{card.name} #{lowprice}"
 
@@ -74,12 +75,14 @@ class Import_price < Thor
             :hiprice => hiprice,
             :lowprice => lowprice,
             :avgprice => avgprice,
-            :foilavgprice => foilavgprice
+            :foilavgprice => foilavgprice,
+            :link => link
           )
 
           card.lowprice = lowprice
           card.hiprice = hiprice
           card.avgprice = avgprice
+          card.link = link
 
           card.save
 

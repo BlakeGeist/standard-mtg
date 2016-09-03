@@ -14,6 +14,6 @@ class TcgPricesController < ApplicationController
 
   private
     def tcg_price_params
-      params.require(:tcg_price).permit(:hiprice, :lowprice, :avgprice, :foilavgprice)
+      params.require(:tcg_price).permit(:hiprice, :lowprice, :avgprice, :foilavgprice, :link)
     end
 end
