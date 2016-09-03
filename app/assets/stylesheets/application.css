@@ -36,7 +36,6 @@ table {
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
-  padding: 15px 0;
 }
 
 header {
@@ -116,6 +115,11 @@ header {
 
 main {
   margin-top: 100px;
+}
+
+/* user bar */
+.ux-bar {
+  padding: 15px 0;
 }
 
 /* sort by subtypes */
@@ -203,8 +207,9 @@ main {
 
       .card-info-container {
         padding-left: 15px;
+        padding-right: 6px;
         display: flex;
-        flex: 1 0;
+        flex: 0 1 545px;
         flex-wrap: wrap;
       }
 
@@ -214,7 +219,6 @@ main {
       }
 
       .card-info-section {
-        flex: 0 0 46%;
         padding-right: 15px;
         flex-shrink: 1;
       }

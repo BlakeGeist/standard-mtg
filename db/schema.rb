@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902053548) do
+ActiveRecord::Schema.define(version: 20160903012630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160902053548) do
     t.decimal  "hiprice"
     t.decimal  "lowprice"
     t.decimal  "foilprice"
+    t.text     "link"
   end
 
   add_index "cards", ["slug"], name: "index_cards_on_slug", unique: true, using: :btree
@@ -139,6 +140,7 @@ ActiveRecord::Schema.define(version: 20160902053548) do
     t.integer  "card_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "link"
   end
 
   create_table "users", force: :cascade do |t|

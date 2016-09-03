@@ -117,9 +117,9 @@
 
     </div>
 
-    <div class="card-info-section tcg_prices">
+    <% unless @latest_price.blank? %>
 
-      <% unless @latest_price.blank? %>
+      <div class="card-info-section tcg_prices">
 
         <h2>TCG Prices</h2>
         <p>
@@ -141,9 +141,25 @@
           <strong>foilavgprice:</strong>
           <%= number_to_currency(@latest_price.foilavgprice, :unit => "$") %>
         </p>
+
       </div>
 
     <% end %>
+
+    <div class="card-info-section mod-links">
+
+      <h2>Card Links</h2>
+
+      <div>
+
+        <a href="http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=<%= @card.multiverseid %>" target="_blank">Wizards</a>
+
+        <a href="<%= @card.link %>" target="_blank">TCGPlayer</a>
+
+      </div>
+
+
+    </div>
 
     <% unless @card.rulings.empty? %>
 

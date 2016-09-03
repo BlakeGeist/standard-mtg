@@ -16,75 +16,35 @@
 
     <div class="advanced-search expanded">
 
-      <div class="search-colors">
+      <% $models.each do |search_item| %>
 
-        <% $colors.each do |color| %>
+        <div class="advanced-search-by search-<%= search_item[1].downcase %>">
 
-          <%= check_box_tag('q[colors_cont_any][]', color[:name]) %>
+          <div class="advanced-search-by-heading"><%= search_item[1] %></div>
 
-          <%= color[:name] %>
+          <% search_item[0].each do |search_by| %>
 
-        <% end %>
+            <div class='advanced-search-by-item'>
 
-      </div>
+              <% if search_item[2].downcase == 'set' %>
 
-      <div class="search-sets">
+                <%= check_box_tag("q[" + search_item[2].downcase + "_cont_all][]", search_by[:short_name]) %>
 
-        <% $standard.reverse.each do |set| %>
+              <% else %>
 
-          <%= check_box_tag('q[set_cont_all][]', set[:short_name]) %>
+                <%= check_box_tag("q[" + search_item[2].downcase + "_cont_any][]", search_by[:name]) %>
 
-          <%= set[:name] %>
+              <% end %>
 
-        <% end %>
+              <%= search_by[:name] %>
 
-      </div>
+            </div>
 
+          <% end %>
 
-      <%# maybe make some what rare cards are in standard, what common cards are in standard...ect pages  %>
-      <div class="search-rarity">
+        </div>
 
-        <% $rarities.each do |rarity| %>
-
-          <%= check_box_tag('q[rarity_cont_any][]', rarity[:name]) %>
-
-          <%= rarity[:name] %>
-
-        <% end %>
-
-      </div>
-
-      <div class="search-mechanics">
-
-        <% $mechanics.each do |mechanic|   %>
-
-          <div class='search-mechanics-mechanic'>
-
-            <%= check_box_tag("q[text_cont_any][]", mechanic.name) %>
-
-            <%= mechanic.name %>
-
-          </div>
-
-        <% end %>
-
-      </div>
-
-      <div class="search-subtypes">
-
-        <% $subtypes.each do |subtype|   %>
-
-          <div class='search-subtypes-subtype'>
-
-            <%= check_box_tag("q[subtypes_cont_any][]", subtype.name) %>
-
-            <%= subtype.name %>
-
-          </div>
-
-        <% end %>
-
-      </div>
+      <% end %>
 
     </div>
 
