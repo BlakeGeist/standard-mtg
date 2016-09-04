@@ -113,35 +113,6 @@
 
     </div>
 
-    <% unless @latest_price.blank? %>
-
-      <div class="card-info-section tcg_prices">
-
-        <h2>TCG Prices</h2>
-        <p>
-          <strong>hiprice:</strong>
-          <%= number_to_currency(@latest_price.hiprice, :unit => "$") %>
-        </p>
-
-        <p>
-          <strong>lowprice:</strong>
-          <%= number_to_currency(@latest_price.lowprice, :unit => "$") %>
-        </p>
-
-        <p>
-          <strong>avgprice:</strong>
-          <%= number_to_currency(@latest_price.avgprice, :unit => "$") %>
-        </p>
-
-        <p>
-          <strong>foilavgprice:</strong>
-          <%= number_to_currency(@latest_price.foilavgprice, :unit => "$") %>
-        </p>
-
-      </div>
-
-    <% end %>
-
     <div class="card-info-section mod-links">
 
       <h2>Card Links</h2>
@@ -161,6 +132,80 @@
       </div>
 
     </div>
+
+    <% unless @latest_price.blank? %>
+
+      <div class="card-info-section mod-prices">
+
+        <h2>TCG Prices</h2>
+
+        <table>
+
+          <tr>
+
+            <td>Date</td>
+
+            <% @card.tcg_prices.each do |price| %>
+
+              <td><%= price.created_at.strftime("%m/%d/%Y") %></td>
+
+            <% end %>
+
+          </tr>
+
+          <tr>
+
+            <td>Highprice</td>
+
+            <% @card.tcg_prices.each do |price| %>
+
+              <td><%= number_to_currency(price.hiprice, :unit => "$") %></td>
+
+            <% end %>
+
+          </tr>
+
+          <tr>
+
+            <td>Avgprice</td>
+
+            <% @card.tcg_prices.each do |price| %>
+
+              <td><%= number_to_currency(price.avgprice, :unit => "$") %></td>
+
+            <% end %>
+
+          </tr>
+
+          <tr>
+
+            <td>Lowprice</td>
+
+            <% @card.tcg_prices.each do |price| %>
+
+              <td><%= number_to_currency(price.lowprice, :unit => "$") %></td>
+
+            <% end %>
+
+          </tr>
+
+          <tr>
+
+            <td>Avgfoilprice</td>
+
+            <% @card.tcg_prices.each do |price| %>
+
+              <td><%= number_to_currency(price.foilavgprice, :unit => "$") %></td>
+
+            <% end %>
+
+          </tr>
+
+        </table>
+
+      </div>
+
+    <% end %>
 
     <% unless @card.rulings.empty? %>
 

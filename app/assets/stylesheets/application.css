@@ -232,6 +232,11 @@ main {
         flex: 0 1 450px;
       }
 
+      .card-info-section.mod-prices {
+        flex: 1 0 100%;
+        font-size: 12px;
+      }
+
       .card-info-section.mod-rulings {
         flex: 1 0 100%;
       }

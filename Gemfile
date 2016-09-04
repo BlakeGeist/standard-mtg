@@ -30,6 +30,9 @@ gem 'devise'
 #seach gem
 gem 'ransack'
 
+#ebay intergration
+gem 'omniauth-ebay'
+
 # seo friendly urls
 gem 'friendly_id', '~> 5.1.0'
 
