@@ -5,9 +5,9 @@ class DashboardsController < ApplicationController
 
     @this_cards = Card.where(multiverseid: @users_cards);
 
-    @this_search = @this_cards.ransack(params[:q])
+    @search = @this_cards.ransack(params[:q])
 
-    @the_cards = @this_search.result(distinct: true)
+    @the_cards = @search.result(distinct: true)
 
     if current_user.pcards.count > 0
       @cards = @the_cards.sort_by{ |t| [t.avgprice.to_i] }.reverse.paginate(:page => params[:page], :per_page => 28)
