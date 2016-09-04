@@ -1,6 +1,6 @@
 <div class="search">
 
-  <%= search_form_for @search do |f| %>
+  <%= search_form_for @search, url: request.original_url do |f| %>
 
     <div class="search-input">
 
