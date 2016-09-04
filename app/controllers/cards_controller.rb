@@ -2,6 +2,12 @@ class CardsController < ApplicationController
 
 def index
 
+  $colors = Color.all
+  $mechanics = Mechanic.all
+  $subtypes = Subtype.all
+  $rarities = Crarity.all
+  $standard = Standard.all
+
   if user_signed_in? and current_user.pcards
     @users_cards = current_user.pcards.pluck(:card_id)
   end
