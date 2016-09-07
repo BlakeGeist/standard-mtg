@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (4.2.6)
       actionpack (= 4.2.6)
@@ -46,6 +46,7 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (9.0.5)
+    certified (1.0.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.1.1)
@@ -216,6 +217,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  certified
   coffee-rails (~> 4.1.0)
   coffee-script-source (= 1.8.0)
   devise
