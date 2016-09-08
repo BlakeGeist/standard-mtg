@@ -249,7 +249,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  config.omniauth :ebay, "Blake_Geist-BlakeGei-standa-bvslpr", "a036b866-4e0d-49de-b7f6-a45309064be2", "BlakeGei-standard-SBX-5e6e394ea-29d730e6", "SBX-e6e394ea763e-b466-4f1c-9f4e-f991", "0", :production, "SignIn"
+  config.omniauth :ebay, "Blake_Geist-BlakeGei-standa-oysusnr", "a036b866-4e0d-49de-b7f6-a45309064be2", "	BlakeGei-standard-PRD-ee6e394ea-800e1243", "PRD-e6e394ea35e2-df6c-47ae-a28e-25fa", "0", :production, "SignIn"
 
 
   # ==> Warden configuration
