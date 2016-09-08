@@ -1,35 +1,61 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
   <%= devise_error_messages! %>
 
   <div class="field">
+
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+    <% if session["devise.ebay_data"] %>
+
+      <%= f.email_field :email, autofocus: true, :value => session["devise.ebay_data"]['info']['email']  %>
+
+    <% else %>
+
+      <%= f.email_field :email, autofocus: true %>
+
+    <% end %>
+
+  </div>
+
+  <div class="field">
+
+    <%= f.label :password %>
+
+    <% if @minimum_password_length %>
+
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+
+    <% end %><br />
+
+    <%= f.password_field :password, autocomplete: "off" %>
+
+  </div>
+
+  <div class="field">
+
+    <%= f.label :password_confirmation %><br />
+
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
   </div>
 
   <% if session["devise.ebay_data"] %>
 
-    <%= session["devise.ebay_data"] %>
+    <%= f.text_field :provider, :value => session["devise.ebay_data"]['provider'] %>
+
+    <%= f.text_field :uid, :value => session["devise.ebay_data"]['uid'] %>
 
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
   <div class="actions">
+
     <%= f.submit "Sign up" %>
+
   </div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
