@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   def self.new_with_session(params, session)
    super.tap do |user|
-     if data = session["devise.ebay_data"] && session["devise.ebay_data"]["extra"]["raw_info"]
+     if data = session["devise.ebay_data"]
        user.email = data["email"] if user.email.blank?
      end
    end
