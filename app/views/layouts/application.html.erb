@@ -97,6 +97,16 @@
 
     </div>
 
+    <div>
+
+      <% if current_user && current_user.uid? %>
+
+        <%= test_ebay() %>
+
+      <% end %>
+
+    </div>
+
     <%= yield %>
 
   </div>
