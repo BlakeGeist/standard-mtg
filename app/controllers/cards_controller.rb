@@ -118,6 +118,9 @@ def index
 
    @card = Card.friendly.find(params[:id])
    @latest_price = @card.tcg_prices.last
+
+   @card_prices = @card.tcg_prices.last(5)
+
    @title="#{@card.name} is in Standard | Standard MTG Cards"
 
   unless @card.text.nil?

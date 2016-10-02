@@ -145,7 +145,7 @@
 
             <td>Date</td>
 
-            <% @card.tcg_prices.each do |price| %>
+            <% @card_prices.each do |price| %>
 
               <td><%= price.created_at.strftime("%m/%d/%Y") %></td>
 
@@ -157,7 +157,7 @@
 
             <td>Highprice</td>
 
-            <% @card.tcg_prices.each do |price| %>
+            <% @card_prices.each do |price| %>
 
               <td><%= number_to_currency(price.hiprice, :unit => "$") %></td>
 
@@ -169,7 +169,7 @@
 
             <td>Avgprice</td>
 
-            <% @card.tcg_prices.each do |price| %>
+            <% @card_prices.each do |price| %>
 
               <td><%= number_to_currency(price.avgprice, :unit => "$") %></td>
 
@@ -181,7 +181,7 @@
 
             <td>Lowprice</td>
 
-            <% @card.tcg_prices.each do |price| %>
+            <% @card_prices.each do |price| %>
 
               <td><%= number_to_currency(price.lowprice, :unit => "$") %></td>
 
@@ -193,7 +193,7 @@
 
             <td>Avgfoilprice</td>
 
-            <% @card.tcg_prices.each do |price| %>
+            <% @card_prices.each do |price| %>
 
               <td><%= number_to_currency(price.foilavgprice, :unit => "$") %></td>
 
