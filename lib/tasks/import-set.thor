@@ -410,6 +410,7 @@ class Import < Thor
 
 
     @sets = [
+      {"kld":"set"},
       {"emn":"set"},
       {"soi":"set"},
       {"w16":"set"},
