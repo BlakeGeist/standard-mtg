@@ -13,7 +13,7 @@ def index
   end
 
   @title ="Standard MTG Card List | Standard MTG Cards"
-  @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where.not("types like?", "%Land%").search(params[:q])
+  @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'KLD', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where.not("types like?", "%Land%").search(params[:q])
   @the_cards = @search.result(distinct: true)
   if current_user
     @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name.to_s] }.paginate(:page => params[:page], :per_page => 28)
@@ -36,7 +36,7 @@ def index
 
    @mechanics = Mechanic.all
    @title="White Standard Magic the Gathering Cards"
-   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%W%").where.not("types like?", "%Land%").search(params[:q])
+   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'KLD', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%W%").where.not("types like?", "%Land%").search(params[:q])
    @cards = @search.result(distinct: true)
    @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
    @subtypes = Subtype.all
@@ -51,7 +51,7 @@ def index
 
    @mechanics = Mechanic.all
    @title="Blue Standard Magic the Gathering Cards"
-   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%U%").where.not("types like?", "%Land%").search(params[:q])
+   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'KLD', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%U%").where.not("types like?", "%Land%").search(params[:q])
    @cards = @search.result(distinct: true)
    @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
    @subtypes = Subtype.all
@@ -65,7 +65,7 @@ def index
 
    @mechanics = Mechanic.all
    @title="Black Standard Magic the Gathering Cards"
-   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%B%").where.not("types like?", "%Land%").search(params[:q])
+   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'KLD', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%B%").where.not("types like?", "%Land%").search(params[:q])
    @cards = @search.result(distinct: true)
    @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
    @subtypes = Subtype.all
@@ -79,7 +79,7 @@ def index
 
    @mechanics = Mechanic.all
    @title="Red Standard Magic the Gathering Cards"
-   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%R%").where.not("types like?", "%Land%").search(params[:q])
+   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'KLD', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%R%").where.not("types like?", "%Land%").search(params[:q])
    @cards = @search.result(distinct: true)
    @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
    @subtypes = Subtype.all
@@ -93,7 +93,7 @@ def index
 
    @mechanics = Mechanic.all
    @title="Green Standard Magic the Gathering Cards"
-   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%G%").where.not("types like?", "%Land%").search(params[:q])
+   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'KLD', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("mana_cost like ?", "%G%").where.not("types like?", "%Land%").search(params[:q])
    @cards = @search.result(distinct: true)
    @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
    @subtypes = Subtype.all
@@ -107,7 +107,7 @@ def index
 
    @mechanics = Mechanic.all
    @title="Artifact Standard Magic the Gathering Cards"
-   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=?', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("types like ?", "%Artifact%").where.not("types like?", "%Land%").search(params[:q])
+   @search = Card.where('set=? OR set=? OR set=? OR set=? OR set=? OR set=?', 'KLD', 'EMN', 'SOI', 'W16', 'OGW', 'BFZ').where("types like ?", "%Artifact%").where.not("types like?", "%Land%").search(params[:q])
    @cards = @search.result(distinct: true)
    @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
    @subtypes = Subtype.all
