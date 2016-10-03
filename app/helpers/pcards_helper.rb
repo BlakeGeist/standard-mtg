@@ -13,7 +13,7 @@ module PcardsHelper
 
         if this_card.avgprice?
 
-          @total.push(this_card.lowprice * card[1])
+          @total.push(this_card.avgprice * card[1])
 
         end
 
