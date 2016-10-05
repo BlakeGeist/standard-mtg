@@ -14,12 +14,8 @@ def index
 
   @title ="Standard MTG Card List | Standard MTG Cards"
   @search = Card.ransack(params[:q])
-  @the_cards = @search.result(distinct: true)
-  if current_user
-    @cards = @the_cards.sort_by{ |t| [t.colors.count, t.colors, t.name.to_s] }.paginate(:page => params[:page], :per_page => 28)
-  else
-    @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 28)
-  end
+  @the_cards = @search.result(distinct: true).where.not("types like?", "%Land%")
+  @cards = @the_cards.sort_by{ |t| [t.colors.count, t.cmc.to_i, t.name.to_s] }.paginate(:page => params[:page], :per_page => 28)
 
   respond_to do |format|
     format.js
