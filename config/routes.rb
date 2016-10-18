@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => 'registrations'}
+  devise_for :users
 
   resources :users do
     resources :pcards
@@ -17,6 +17,12 @@ Rails.application.routes.draw do
   get "/white" => "cards#white"
   get "/artifact" => "cards#artifact"
 
+  resources :admins do
+    collection do
+      get :import_set
+      get :delete_set_and_cards
+    end
+  end
   resources :colors
   resources :standards
   resources :crarities
