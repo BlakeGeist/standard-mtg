@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
  helper PcardsHelper
+
   def index
 
     $colors = Color.all
@@ -7,7 +8,7 @@ class DashboardsController < ApplicationController
     $subtypes = Subtype.all
     $rarities = Crarity.all
     $standard = Standard.all
-    
+
     @users_cards = current_user.pcards.pluck(:card_id, :amount)
 
     @this_cards = Card.where(multiverseid: @users_cards);
@@ -30,5 +31,7 @@ class DashboardsController < ApplicationController
 
     end
   end
+
+
 
 end

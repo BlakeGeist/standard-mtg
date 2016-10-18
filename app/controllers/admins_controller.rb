@@ -25,6 +25,12 @@ class AdminsController < ApplicationController
     @standard = Standard.new
     #set all subtypes var
     @standards = Standard.all
+    $standard_codes = @standards.map { |set| set.short_name.downcase}
+
+    mtg_sets = MTG::Set.all
+
+    $recent_mtg_sets = mtg_sets.last(20).reverse
+
 
     #rarities
     #add a new rarities
@@ -63,6 +69,38 @@ class AdminsController < ApplicationController
       }
     ]
 
+    respond_to do |format|
+      format.js
+      format.html
+    end
+
+  end
+
+
+  #this is the method called by the import set button from the admin
+  def import_set
+
+    @this_set = Standard.find_by_short_name(params[:set_code])
+
+    import_these_cards(params[:set_code])
+
+    respond_to do |format|
+      format.js
+    end
+
+  end
+
+  #this is the method called by the delete set button from the admins
+  def delete_set_and_cards
+
+    @this_set = Standard.find_by_short_name(params[:set_code])
+
+    @this_set.destroy
+    Card.where(set: params[:set_code_upper]).destroy_all
+
+    respond_to do |format|
+      format.js
+    end
 
   end
 

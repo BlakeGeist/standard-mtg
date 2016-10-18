@@ -1,0 +1,3 @@
+$("#set-<%= @standard.short_name.downcase %>").replaceWith("<%= escape_javascript(render partial: "admins/set0", locals: {set: @standard}) %>");
+
+$("#set-<%= @standard.short_name.downcase %>").removeClass('is-added');
