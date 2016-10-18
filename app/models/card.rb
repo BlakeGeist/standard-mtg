@@ -16,6 +16,6 @@ class Card < ActiveRecord::Base
     new_record?
   end
 
-  has_many :tcg_prices,  dependent: :destroy 
+  has_many :tcg_prices
 
 end
