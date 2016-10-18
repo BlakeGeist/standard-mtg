@@ -1,13 +1,3 @@
-<section class="admins-page-section standards is-open expanded">
-
-  <% $recent_mtg_sets.each do |set| %>
-
-    <%= render 'set', :set => set %>
-
-  <% end %>
-
-</section>
-
 <% @sections.each do |section| %>
 
   <section class="admins-page-section mod-<%= section[:name].downcase %> <%= "is-open expanded" if section == @sections.first %> ">
@@ -23,6 +13,7 @@
           <% section.attributes.each do |attribute| %>
 
             <% unless @dont.include? attribute[0].to_s  %>
+
 
                 <div class="admins-page-section-edit-item-attributes-attribute mod-<%= attribute[0] %>">
 
