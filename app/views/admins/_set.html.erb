@@ -1,20 +1,20 @@
-<div id="set-<%= set.code.downcase %>" class="<%= 'is-added' if $standard_codes.include? set.code.downcase %>">
+<div id="set-<%= set.code %>" class="<%= 'is-added' if $standard_codes.include? set.code %>">
 
-  <%= set.name %> | <%= set.code.downcase %> |
+  <%= set.name %> | <%= set.code %> |
 
   <%= form_for @standard, remote: true, :html => {:class => "add-set-to-starndard-form"}  do |f| %>
 
     <%= f.hidden_field :name, :value => set.name %>
 
-    <%= f.hidden_field :short_name, :value => set.code.downcase %>
+    <%= f.hidden_field :short_name, :value => set.code %>
 
     <a href="#add-set-to-starndard" class="add-set-to-starndard add-button">Add</a>
 
   <% end %>
 
-  <% if $standard_codes.include? set.code.downcase %>
+  <% if $standard_codes.include? set.code %>
 
-    <% this_set = Standard.find_by_short_name(set.code.downcase) %>
+    <% this_set = Standard.find_by_short_name(set.code) %>
 
     <% if defined?(this_set.id) %>
 
@@ -24,11 +24,9 @@
 
       <strong>Admin control:</strong>
 
-      <%= link_to "add this set to the db", { action: "import_set", :set_code => set.code.downcase }, remote: true %>
+      <%= link_to "add this set to the db", { action: "import_set", :set_code => set.code }, remote: true %>
 
-      <%= link_to "delete this set from the db", { action: "delete_set_and_cards", :set_code => set.code.downcase, :set_code_upper => set.code }, remote: true %>
-
-
+      <%= link_to "delete this set from the db", { action: "delete_set_and_cards", :set_code => set.code, :set_code_upper => set.code }, remote: true %>
 
     <% end %>
 

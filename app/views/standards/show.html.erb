@@ -13,7 +13,7 @@
 
     <% @last_ten.first(10).each do |card| %>
 
-      <li><%= card.name %> | <%= card.lowprice %></li>
+      <li><%= link_to card.name, card %> | <%= card.lowprice %></li>
 
     <% end %>
 

@@ -25,7 +25,7 @@ class AdminsController < ApplicationController
     @standard = Standard.new
     #set all subtypes var
     @standards = Standard.all
-    $standard_codes = @standards.map { |set| set.short_name.downcase}
+    $standard_codes = @standards.map { |set| set.short_name}
 
     mtg_sets = MTG::Set.all
 

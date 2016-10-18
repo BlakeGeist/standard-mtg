@@ -13,9 +13,13 @@ def index
   end
 
   @title ="Standard MTG Card List | Standard MTG Cards"
-  @search = Card.ransack(params[:q])
+  @search = Card.where(set: $standard.map(&:short_name)).ransack(params[:q])
   @the_cards = @search.result(distinct: true).where.not("types like?", "%Land%")
   @cards = @the_cards.sort_by{ |t| [t.colors.count, t.cmc.to_i, t.name.to_s] }.paginate(:page => params[:page], :per_page => 28)
+
+  @cardsd = Card.last(5)
+
+  @this_thing =  $standard.map(&:short_name)
 
   respond_to do |format|
     format.js
