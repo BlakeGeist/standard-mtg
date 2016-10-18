@@ -1,0 +1,23 @@
+<div id="set-<%= set.short_name.downcase %>" class="<%= 'is-added' if $standard_codes.include? set.short_name.downcase %>">
+
+  <%= set.name %> | <%= set.short_name.downcase %> |
+
+  <%= form_for @standard, remote: true, :html => {:class => "add-set-to-starndard-form"}  do |f| %>
+
+    <%= f.hidden_field :name, :value => set.name %>
+    
+    <%= f.hidden_field :short_name, :value => set.short_name.downcase %>
+
+    <a href="#add-set-to-starndard" class="add-set-to-starndard add-button">Add</a>
+
+  <% end %>
+
+  <% if $standard_codes.include? set.short_name.downcase %>
+
+    <%= link_to 'Destroy', standard_path(set.id), method: :delete, remote: true, class: 'remove-set-from-standard remove-button' %>
+
+    <%= getTotalCardsInSet(set) %>
+
+  <% end %>
+
+</div>
