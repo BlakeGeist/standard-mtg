@@ -1,0 +1,20 @@
+//simple show add or remove options
+.add-button {
+  display: inline-block;
+}
+
+.remove-button {
+  display: none;
+}
+
+.is-added {
+
+  .add-button {
+    display: none;
+  }
+
+  .remove-button {
+    display: inline-block;
+  }
+
+}
