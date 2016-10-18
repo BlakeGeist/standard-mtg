@@ -10,7 +10,7 @@
 
 <% @sections.each do |section| %>
 
-  <section class="admins-page-section mod-<%= section[:name].downcase %> <%= "is-open expanded" if section == @sections.first %> ">
+  <section class="admins-page-section mod-<%= section[:name] %> <%= "is-open expanded" if section == @sections.first %> ">
 
     <h2><%= section[:name] %>: <a href="#show-more" class="toggle-section show-more">+</a><a href="#show-less" class="toggle-section show-less">-</a></h2>
 
