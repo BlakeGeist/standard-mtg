@@ -34,8 +34,6 @@ gem 'ransack'
 #ebay intergration
 gem 'omniauth-ebay'
 
-gem 'ebayr'
-
 # seo friendly urls
 gem 'friendly_id', '~> 5.1.0'
 
