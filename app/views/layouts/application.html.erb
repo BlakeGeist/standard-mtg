@@ -99,6 +99,8 @@
 
     <% if current_user %>
 
+      <%= current_user.provider %>
+
       <% current_user.attributes.each do |attr_name, attr_value| %>
         <div class="work_profile_attribute">
           <%= attr_name %>: <%= attr_value %>
