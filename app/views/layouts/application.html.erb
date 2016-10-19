@@ -97,6 +97,14 @@
 
     </div>
 
+    <% if current_user && current_user.provider == 'ebay' %>
+
+      <div>
+
+        <%= request.env['omniauth.auth'].info:ebay_id %>
+
+      </div>
+
     <%= yield %>
 
   </div>
