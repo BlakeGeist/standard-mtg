@@ -97,15 +97,9 @@
 
     </div>
 
-    <% if current_user %>
+    <% if request.env['omniauth.auth'] %>
 
-      <%= current_user.provider %>
-
-      <% current_user.attributes.each do |attr_name, attr_value| %>
-        <div class="work_profile_attribute">
-          <%= attr_name %>: <%= attr_value.class %>
-        </div>
-      <% end %>
+      <%= request.env['omniauth.auth'].ebay_id %>
 
     <% end %>
 
