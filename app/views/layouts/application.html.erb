@@ -67,7 +67,7 @@
 
   <div class="body">
 
-  <div class="ux-bar">
+    <div class="ux-bar">
 
       <% if user_signed_in? %>
 
@@ -99,7 +99,7 @@
 
     <% if request.env['omniauth.auth'] %>
 
-      <%= request.env['omniauth.auth'].ebay_id %>
+      |  <%= request.env['omniauth.auth'].ebay_id %> |
 
     <% end %>
 
