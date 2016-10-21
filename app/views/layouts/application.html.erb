@@ -97,12 +97,6 @@
 
     </div>
 
-    <% if request.env['omniauth.auth'] %>
-
-      |  <%= request.env['omniauth.auth'].ebay_id %> |
-
-    <% end %>
-
     <%= yield %>
 
   </div>
