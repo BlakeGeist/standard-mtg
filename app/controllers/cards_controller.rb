@@ -12,6 +12,16 @@ def index
     @users_cards = current_user.pcards.pluck(:card_id)
   end
 
+  if user_signed_in
+
+    omniauth = request.env['omniauth.auth']
+    unless omniauth['info']['email'].blank?
+      @this_email omniauth['info']['email'] # ;)
+    end
+
+
+  end
+
   @title ="Standard MTG Card List | Standard MTG Cards"
   @search = Card.where(set: $standard.map(&:short_name)).ransack(params[:q])
   @the_cards = @search.result(distinct: true).where.not("types like?", "%Land%")
