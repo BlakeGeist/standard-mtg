@@ -95,13 +95,9 @@
 
       <% end %>
 
+       | <%= @this_email %> |
+
     </div>
-
-    <% if current_user %>
-
-      |  <%= request.env['omniauth.auth'].info %> |
-
-    <% end %>
 
     <%= yield %>
 
