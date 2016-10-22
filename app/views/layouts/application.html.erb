@@ -95,7 +95,7 @@
 
       <% end %>
 
-       | <%= @this_email %> |
+       | <%= @this_email unless @this_email.blank? %> |
 
     </div>
 
