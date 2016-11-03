@@ -25,7 +25,7 @@ class AdminsController < ApplicationController
     @standard = Standard.new
     #set all subtypes var
     @standards = Standard.all
-    $standard_codes = @standards.map { |set| set.short_name}
+    $standard_codes = @standards.map { |set| set.short_name.downcase}
 
     mtg_sets = MTG::Set.all
 
@@ -90,8 +90,18 @@ class AdminsController < ApplicationController
 
   end
 
+  def get_ebay_time
+
+    getEbayTime()
+
+    respond_to do |format|
+      format.js
+    end
+
+  end
+
   #this is the method called by the delete set button from the admins
-  def delete_set_and_cards
+  def delete_set_cand
 
     @this_set = Standard.find_by_short_name(params[:set_code])
 
