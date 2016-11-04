@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     collection do
       get :import_set
       get :delete_set_and_cards
+      get :get_ebay_time
     end
   end
   resources :colors
