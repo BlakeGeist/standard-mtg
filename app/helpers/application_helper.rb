@@ -10,7 +10,9 @@ module ApplicationHelper
 
   def showAuthTokens()
 
-    @user
+    @user = User.from_omniauth(request.env["omniauth.auth"])
+
+return @user
 
   end
 
