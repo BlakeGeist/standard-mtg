@@ -10,10 +10,8 @@ module ApplicationHelper
 
   def showAuthTokens()
 
-    hash = request.env["omniauth.auth"]
+    @user
 
-    flash[:notice] = hash
-    
   end
 
   def getEbayTime()
