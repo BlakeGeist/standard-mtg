@@ -10,7 +10,9 @@ module ApplicationHelper
 
   def showAuthTokens()
 
-    flash[:notice] = request.env['omniauth.auth'].info:ebay_token
+    hash  = request.env["omniauth.auth"]
+    info  = hash.info
+    email = info["email"]
 
   end
 
