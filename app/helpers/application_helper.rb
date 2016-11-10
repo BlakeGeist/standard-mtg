@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def getEbayTime()
-    EbayClient.api.get_user!
+    EbayClient.api.get_seller_list()
   end
 
   def import_these_cards(set)
