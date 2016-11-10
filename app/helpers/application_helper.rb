@@ -14,6 +14,7 @@ module ApplicationHelper
     info  = hash.info
     email = info["email"]
 
+    flash[:notice] = email
   end
 
   def getEbayTime()
