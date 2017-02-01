@@ -95,7 +95,9 @@
 
       <% end %>
 
-      | <%= @user %>
+      | <%= current_user %> |
+       <%= current_user.session %> |
+        <%= current_user.provider %>
 
     </div>
 
