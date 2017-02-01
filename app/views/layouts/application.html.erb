@@ -103,7 +103,7 @@
 
       <% end %>
 
-      | <%= current_user.provider %>
+      | <%= request.env['omniauth.auth'].info %>
 
     </div>
 
