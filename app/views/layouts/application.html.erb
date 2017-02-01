@@ -95,6 +95,14 @@
 
       <% end %>
 
+      <% if current_user && current_user.provider === 'ebay'%>
+
+        is ebay user
+
+        <%= ebay_id %>
+
+      <% end %>
+
     </div>
 
     <%= yield %>
