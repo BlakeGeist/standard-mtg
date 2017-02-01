@@ -95,7 +95,7 @@
 
       <% end %>
 
-      <% if current_user && current_user.provider === 'ebay'%>
+      <% if current_user && current_user.provider.to_s === 'ebay'%>
 
         is ebay user
 
@@ -103,7 +103,7 @@
 
       <% end %>
 
-      | <%= @user %>
+      | <%= @user.ebay_id %>
 
     </div>
 
