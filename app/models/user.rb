@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     where(provider: auth.ebay, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.provider = 'ebay'
+      user.provider = auth.info.provider
     end
   end
 
