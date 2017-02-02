@@ -95,11 +95,21 @@
 
       <% end %>
 
-      <%= @user if @user %>
+      <% if @user %>
 
-      <% if current_user && current_user.provider %>
+        <%= @user.attributes.each do |attr_name, attr_value| %>
+          <p><%= attr_name %>,
+          <%= attr_value %></p>
+        <% end %>
 
-        <%= current_user.provider %>
+      <% end %>
+
+      <% if current_user %>
+
+        <%= current_user.attributes.each do |attr_name, attr_value| %>
+          <p><%= attr_name %>,
+          <%= attr_value %></p>
+        <% end %>
 
       <% end %>
 
