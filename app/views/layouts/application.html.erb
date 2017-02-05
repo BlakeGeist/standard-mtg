@@ -104,7 +104,7 @@
 
       <% end %>
 
-      <% if current_user %>
+      <% if current_user && current_user.admin? %>
 
         <%= current_user.attributes.each do |attr_name, attr_value| %>
           <p><%= attr_name %>,
