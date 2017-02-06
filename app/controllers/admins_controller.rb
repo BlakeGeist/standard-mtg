@@ -90,7 +90,7 @@ class AdminsController < ApplicationController
 
   end
 
-  def getEbayTime
+  def getTokenStatus
 
     respond_to do |format|
       format.js

@@ -1,5 +1,0 @@
-<% require 'ebayr' %>
-
-<% @time = Ebayr.call(:GeteBayOfficialTime, :auth_token => current_user.uid) %>
-
-$('.ebayTime').html('<%= @time %> THIS TOO');
