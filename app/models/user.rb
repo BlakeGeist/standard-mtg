@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
       user.provider = 'ebay'
+      user.ebay_token = auth.info.ebay_token
     end
   end
 
