@@ -90,9 +90,9 @@ class AdminsController < ApplicationController
 
   end
 
-  def showAuthToken
+  def getEbayTime
 
-    showAuthTokens()
+    getEbayTime()
     respond_to do |format|
       format.js
     end
