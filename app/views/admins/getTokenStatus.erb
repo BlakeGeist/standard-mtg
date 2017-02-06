@@ -1,5 +1,5 @@
 <% require 'ebayr' %>
 
-<% @getTokenStatus = Ebayr.call(:GetTokenStatus, :auth_token => current_user.uid) %>
+<% @getTokenStatus = Ebayr.call(:GetTokenStatus, :eias_token => current_user.uid) %>
 
 $('.ebayTime').html('<%= @getTokenStatus %> THIS TOO');
