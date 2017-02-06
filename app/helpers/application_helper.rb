@@ -8,11 +8,6 @@ module ApplicationHelper
 
   end
 
-    def getEbayTime(user)
-
-
-  end
-
   def import_these_cards(set)
 
     require File.expand_path('config/environment.rb')

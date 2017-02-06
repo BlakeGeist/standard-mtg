@@ -92,7 +92,6 @@ class AdminsController < ApplicationController
 
   def getEbayTime
 
-    getEbayTime()
     respond_to do |format|
       format.js
     end
