@@ -99,12 +99,12 @@ class AdminsController < ApplicationController
     Ebayr.app_id = "BlakeGei-standard-PRD-ee6e394ea-800e1243"
 
     Ebayr.cert_id = "PRD-bff3fe44f0ea-09ae-470f-9222-6e2c"
-entriesPerPage
+
     Ebayr.ru_name = "Blake_Geist-BlakeGei-standa-oysusnr"
 
     Ebayr.sandbox = false
 
-    @GetOrders = Ebayr.call(:GetSellerList, :EndTimeFrom => '2017-01-07', :EndTimeTo => '2017-02-07', :UserID => session["dick"]["info"]["ebay_id"], :GranularityLevel => 'Coarse', :Pagination => 1, :auth_token => session["dick"]["info"]["ebay_token"])
+    @GetOrders = Ebayr.call(:GetSellerList, :EndTimeFrom => '2017-01-07', :EndTimeTo => '2017-02-07', :UserID => session["dick"]["info"]["ebay_id"], :GranularityLevel => 'Coarse', :Pagination['EntriesPerPage'] => 200, :Pagination['PageNumber'] => 1, :auth_token => session["dick"]["info"]["ebay_token"])
 
     respond_to do |format|
       format.js
