@@ -104,7 +104,7 @@ class AdminsController < ApplicationController
 
     Ebayr.sandbox = false
 
-    @GetOrders = Ebayr.call(:GetSellerList, :EndTimeFrom => "2017-02-07T09:54:29.659Z",  :auth_token => session["dick"]["info"]["ebay_token"])
+    @GetOrders = Ebayr.call(:GetUser,  :auth_token => session["dick"]["info"]["ebay_token"])
 
     respond_to do |format|
       format.js
