@@ -1,5 +1,5 @@
-"<% require 'ebayr' %>"
+"<% require ebayr %>"
 
-<% @GetOrders = Ebayr.call(:GetOrders, :auth_token => session["dick"]["info"]["ebay_token"]) %>
+<% @GetOrders = Ebayr.call(:GetTokenStatus, :auth_token => session["dick"]["info"]["ebay_token"]) %>
 
 $('.ebayTime').html('<%= @GetOrders %> THIS TOO');
