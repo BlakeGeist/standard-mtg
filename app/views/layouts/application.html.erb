@@ -101,9 +101,9 @@
 
           Has session
 
-          <%= session.to_hash %>
+          <%= session['session_id'] %>
 
-          | <%= user_session %> |
+          | <%= session['_csrf_token'] %> |
 
         <% end %>
 
