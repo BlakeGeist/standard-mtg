@@ -96,12 +96,6 @@ class AdminsController < ApplicationController
 
     @GetOrders = Ebayr.call(:GeteBayOfficialTime)
   
-    Ebayr.app_id = "my-ebay-app-id"
-
-    Ebayr.cert_id = "my-ebay-cert-id"
-
-    Ebayr.ru_name = "my-ebay-ru-name"
-
     respond_to do |format|
       format.js
     end
