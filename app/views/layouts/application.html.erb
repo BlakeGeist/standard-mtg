@@ -95,6 +95,12 @@
 
       <% end %>
 
+      <% if user %>
+
+      <%= user.tested %>
+
+      <% end %>
+
       <% if user_signed_in? %>
 
         <% if session %>
