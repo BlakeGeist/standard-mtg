@@ -104,16 +104,26 @@
 
       <% end %>
 
-      <% if current_user && current_user.admin? %>
+      <% if user_signed_in %>
 
-        <% if session["devise.ebay_data"] %>
-          <%= session["devise.ebay_data"]['info']['email']  %>
-        <% end %>
+      <% if session %>
 
-        <%= current_user.attributes.each do |attr_name, attr_value| %>
-          <p><%= attr_name %>,
-          <%= attr_value %></p>
-        <% end %>
+        Has session
+
+        <%= session %>
+
+      <% end %>
+
+        <p>
+          <% if session["devise.ebay_data"] %>
+            <%= session["devise.ebay_data"]['info']['email']  %>
+          <% end %>
+        </p>
+
+        <%#= current_user.attributes.each do |attr_name, attr_value| %>
+          <!--<p><%#= attr_name %>,
+          <%#= attr_value %></p>-->
+        <%# end %>
 
       <% end %>
 
