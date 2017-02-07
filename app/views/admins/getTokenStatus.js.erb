@@ -1,2 +1,2 @@
 
-$('.ebayTime').html('<ul><% @GetOrders["item_array"]["item"].each do |item| %><li><ul><% item.each do |k, v| %><%= k %>:<%= v %><% end %></li><% end %></ul>');
+$('.ebayTime').html('<ul><% @GetOrders["item_array"]["item"].each do |item| %><li><ul><% item.each do |k, v| %><li><%= k %>:<%= v %></li><% end %><% end %></ul></li></ul>');
