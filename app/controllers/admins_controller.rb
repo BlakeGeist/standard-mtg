@@ -104,7 +104,7 @@ class AdminsController < ApplicationController
 
     Ebayr.sandbox = false
 
-    @GetOrders = Ebayr.call(:GetUser,  :auth_token => session["dick"]["info"]["ebay_token"])
+    @GetOrders = Ebayr.call(:GetAccount,  :auth_token => session["dick"]["info"]["ebay_token"])
 
     respond_to do |format|
       format.js
