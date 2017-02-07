@@ -106,13 +106,13 @@
 
       <% if user_signed_in %>
 
-      <% if session %>
+        <% if session %>
 
-        Has session
+          Has session
 
-        <%= session %>
+          <%= session %>
 
-      <% end %>
+        <% end %>
 
         <p>
           <% if session["devise.ebay_data"] %>
