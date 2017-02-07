@@ -95,7 +95,7 @@ class AdminsController < ApplicationController
     require 'ebayr'
 
     @GetOrders = Ebayr.call(:GeteBayOfficialTime)
-
+  
     respond_to do |format|
       format.js
     end
