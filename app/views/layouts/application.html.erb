@@ -106,11 +106,9 @@
 
       <% if current_user && current_user.admin? %>
 
-      <% if session["devise.ebay_data"] %>
-
-        <%= f.email_field :email, autofocus: true, :value => session["devise.ebay_data"]['info']['email']  %>
-
-      <% else %>
+        <% if session["devise.ebay_data"] %>
+          <%= session["devise.ebay_data"]['info']['email']  %>
+        <% end %>
 
         <%= current_user.attributes.each do |attr_name, attr_value| %>
           <p><%= attr_name %>,
