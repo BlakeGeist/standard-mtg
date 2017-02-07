@@ -110,7 +110,9 @@
 
           Has session
 
-          <%= session["devise"] %>
+          <%= session.to_s %>
+
+          | <%= user_session %> |
 
         <% end %>
 
