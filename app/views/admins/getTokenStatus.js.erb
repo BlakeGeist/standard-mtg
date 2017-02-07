@@ -1,5 +1,3 @@
-"<% require ebayr %>"
-
-<% @GetOrders = Ebayr.call(:GetTokenStatus, :auth_token => session["dick"]["info"]["ebay_token"]) %>
-
 $('.ebayTime').html('<%= @GetOrders %> THIS TOO');
+
+$alert(session["dick"]["info"]["ebay_token"]);
