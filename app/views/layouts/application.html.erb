@@ -108,11 +108,9 @@
 
         <% if session %>
 
-          Has session
+          Session_id:
 
-          <%= session.to_hash %>
-
-          | <%= user_session %> |
+          <%= session["session_id"] %>
 
         <% end %>
 
