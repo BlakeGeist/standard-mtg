@@ -109,6 +109,7 @@
 
         <p>
           <% if session["devise.ebay_data"] %>
+            < <%= session["devise.ebay_data"] %> >
             <%= session["devise.ebay_data"]['info']['email']  %>
           <% end %>
         </p>
