@@ -92,10 +92,10 @@ class AdminsController < ApplicationController
 
   def getTokenStatus
 
-    require ebayr
+    require 'ebayr'
 
     @GetOrders = Ebayr.call(:GetTokenStatus, :auth_token => session["dick"]["info"]["ebay_token"])
-    
+
     respond_to do |format|
       format.js
     end
