@@ -95,15 +95,6 @@
 
       <% end %>
 
-      <% if @user %>
-
-        <%= @user.attributes.each do |attr_name, attr_value| %>
-          <p><%= attr_name %>,
-          <%= attr_value %></p>
-        <% end %>
-
-      <% end %>
-
       <% if user_signed_in? %>
 
         <% if session %>
@@ -113,6 +104,12 @@
           <%= session.to_hash %>
 
           | <%= user_session %> |
+
+        <% end %>
+
+        <% if ebay %>
+
+          <%= ebay.to_hash %>
 
         <% end %>
 
