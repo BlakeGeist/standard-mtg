@@ -102,6 +102,8 @@ class AdminsController < ApplicationController
 
     Ebayr.ru_name = "Blake_Geist-BlakeGei-standa-oysusnr"
 
+    Ebayr.sandbox = false
+
     @GetOrders = Ebayr.call(:GeteBayOfficialTime)
 
     respond_to do |format|
