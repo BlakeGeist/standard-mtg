@@ -104,7 +104,7 @@ class AdminsController < ApplicationController
 
     Ebayr.sandbox = false
 
-    @GetOrders = Ebayr.call(:GetSellerList, :EndTimeFrom => '2017-01-07', :EndTimeTo => '2017-02-07', :UserID => session["dick"]["info"]["ebay_id"], :GranularityLevel => 'Coarse', :Pagination['EntriesPerPage'] => 200, :Pagination['PageNumber'] => 1, :auth_token => session["dick"]["info"]["ebay_token"])
+    @GetOrders = Ebayr.call(:GetSellerList, :EndTimeFrom => '2017-01-07', :EndTimeTo => '2017-02-07', :UserID => session["dick"]["info"]["ebay_id"], :GranularityLevel => 'Coarse', :Pagination => 1, :auth_token => session["dick"]["info"]["ebay_token"])
 
     respond_to do |format|
       format.js
