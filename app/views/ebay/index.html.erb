@@ -1,14 +1,14 @@
-<ul>
+<ul class="auctions">
 
   <% @GetOrders["item_array"]["item"].each do |item| %>
 
     <li>
 
-      <ul class="auctions">
+      <ul class="auctions-auction">
 
         <% item.each do |k, v| %>
 
-          <li class="auctions-auction">
+          <li class="auctions-auction-item">
 
             <%= render 'loop_hash', :v => v, :k => k %>
 
