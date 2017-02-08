@@ -7,11 +7,17 @@
   margin: 10px 10px 20px;
   list-style: none;
   padding: 0;
+  &.is-active{
+    .auctions-auction-item {
+      display: block;
+    }
+  }
 }
   .auctions-auction-item {
     border-bottom: 1px solid #c7c7c7;
     padding: 10px;
     list-style: none;
+    display: none;
   }
 
   .the-auctions-acution {
@@ -25,4 +31,8 @@
 
   .the-auctions-acution img {
       vertical-align: middle;
+  }
+
+  li.auctions-auction-item.mod-details {
+    display: block;
   }
