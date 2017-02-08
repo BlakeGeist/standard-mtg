@@ -4,7 +4,7 @@
 
     <li>
       <div class="the-auctions-acution">
-        <div>Has Questions?: <%= ["listing_details"]["has_unasnswered_questions"] %></div>
+        <div>Has Questions?: <%= item["listing_details"]["has_unasnswered_questions"] %></div>
         <div><%= link_to item["title"], item["listing_details"]["view_item_url"] %></div>
         <div><%= item["quantity"] %></div>
         <div><%= item["selling_status"]["current_price"] %></div>
