@@ -67,7 +67,7 @@
 
   <div class="body">
 
-  <div class="ux-bar">
+    <div class="ux-bar">
 
       <% if user_signed_in? %>
 
@@ -95,23 +95,9 @@
 
       <% end %>
 
+      <% if user_signed_in? && session && session["devise.ebay_data"]%>
 
-      <% if user_signed_in? %>
-
-        <% if session %>
-
-        <p>
-          <% if session["devise.ebay_data"] %>
-
-          <%= link_to "Ebay Dashboard", ebay_index %>
-
-          <% end %>
-        </p>
-
-        <%#= current_user.attributes.each do |attr_name, attr_value| %>
-          <!--<p><%#= attr_name %>,
-          <%#= attr_value %></p>-->
-        <%# end %>
+        <%= link_to "Ebay Dashboard", ebay_index %>
 
       <% end %>
 
