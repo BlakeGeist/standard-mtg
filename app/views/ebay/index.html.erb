@@ -14,11 +14,15 @@
 
             <% if v.is_a? Hash %>
 
-              <% v.each do |k, v| %>
+              <ul>
 
-                <%= "#{k}:#{v}" %>
+                <% v.each do |k, v| %>
 
-              <% end %>
+                  <li><%= "#{k}:#{v}" %></li>
+
+                <% end %>
+
+              </ul>
 
             <% else %>
 
