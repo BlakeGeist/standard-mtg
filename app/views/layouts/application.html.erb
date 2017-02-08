@@ -95,7 +95,7 @@
 
       <% end %>
 
-      <% if user_signed_in? && session && session["devise.ebay_data"]%>
+      <% if current_user && session["devise.ebay_data"]%>
 
         <%= link_to "Ebay Dashboard", ebay_index %>
 
