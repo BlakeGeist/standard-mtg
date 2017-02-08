@@ -8,7 +8,8 @@
         <div><%= link_to item["title"], item["listing_details"]["view_item_url"] %></div>
         <div><%= item["quantity"] %></div>
         <div><%= item["selling_status"]["current_price"] %></div>
-        <div>Ends: <%= item["listing_details"]["view_item_url"] %></div>
+        <div>Ends: <%= item["time_left"] %></div>
+        <div><%= image_tag["picture_details"]["gallery_url"] %></div>
       </div>
     </li>
 
