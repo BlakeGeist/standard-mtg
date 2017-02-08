@@ -1,5 +1,35 @@
 <ul class="auctions">
 
-  <%= @GetOrders %>
+  <% @GetOrders["active_list"]["item_array"]["item"].each do |item| %>
+
+    <li>
+      <div class="the-auctions-acution">
+        <div>Has Questions?: <%= item["listing_details"]["has_unasnswered_questions"] %></div>
+        <div><%= link_to item["title"], item["listing_details"]["view_item_url"] %></div>
+        <div><%= item["quantity"] %></div>
+        <div><%= item["selling_status"]["current_price"] %></div>
+        <div>Ends: <%= item["listing_details"]["view_item_url"] %></div>
+      </div>
+    </li>
+
+    <li>
+
+      <ul class="auctions-auction">
+
+        <% item.each do |k, v| %>
+
+          <li class="auctions-auction-item">
+
+            <%= render 'loop_hash', :k => k, :v => v %>
+
+          </li>
+
+        <% end %>
+
+      </ul>
+
+    </li>
+
+  <% end %>
 
 </ul>
