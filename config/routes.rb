@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get 'dashboards/index', path: "collection"
   get 'admins/index'
+  get 'ebay/index'
 
   get 'cards/index'
   get "/red" => "cards#red"
