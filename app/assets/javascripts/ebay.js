@@ -1,10 +1,7 @@
 
-$(document).on('ready page:load', function() {
 
-  $('[data-make-active]').on('click', function(event){
+  $(document).on('click', '[data-make-active]', function(ev) {
     event.preventDefault();
     event.stopPropagation();
-    $("." + $(this).data()).toggleClass('is-active');
+    $("." + $(this).data("make-active")).toggleClass('is-active');
   });
-
-});
