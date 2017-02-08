@@ -16,7 +16,8 @@ class EbayController < ApplicationController
 
     Ebayr.sandbox = false
 
-    @GetOrders = Ebayr.call(:GetMyeBaySelling, :auth_token => session["dick"]["info"]["ebay_token"])
+
+    @GetOrders = Ebayr.call(:GetMyeBaySelling, :auth_token => session["dick"]["info"]["ebay_token"], :ActiveList => [:Sort => 'TimeLeft', :Pagination => [:EntriesPerPage => 200, :PageNumber => 1]])
 
     respond_to do |format|
       format.js
