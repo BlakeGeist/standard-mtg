@@ -73,19 +73,19 @@
 
         Logged in as <strong><%= current_user.username %></strong>.
 
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to 'Edit profile', edit_user_registration_path %>
 
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %> |
+        | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
-        <%= link_to "Collection", dashboards_index_path %>
+        | <%= link_to "Collection", dashboards_index_path %>
 
       <% else %>
 
         <%= link_to "Sign in with Ebay", user_ebay_omniauth_authorize_path %>
 
-        <%= link_to "Sign up", new_user_registration_path %> |
+        | <%= link_to "Sign up with Email", new_user_registration_path %>
 
-        <%= link_to "Login", new_user_session_path %>
+        | <%= link_to "Login", new_user_session_path %>
 
       <% end %>
 
@@ -95,23 +95,9 @@
 
       <% end %>
 
+      <% if session["dick"] %>
 
-      <% if user_signed_in? %>
-
-        <% if session %>
-
-            <% if session["devise.ebay_data"] %>
-
-              <%= link_to "Ebay Dashboard", ebay_index %>
-
-            <% end %>
-
-        <% end %>
-
-        <%#= current_user.attributes.each do |attr_name, attr_value| %>
-          <!--<p><%#= attr_name %>,
-          <%#= attr_value %></p>-->
-        <%# end %>
+        | <%= link_to "Ebay Dashboard", ebay_index %>
 
       <% end %>
 
