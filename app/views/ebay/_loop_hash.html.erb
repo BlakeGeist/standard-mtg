@@ -1,0 +1,19 @@
+<%= k %>:
+
+<% if v.is_a? Hash %>
+
+  <ul>
+
+    <% v.each do |k, v| %>
+
+      <%= render 'loop_hash', :v => v, :k => v %>
+
+    <% end %>
+
+  </ul>
+
+<% else %>
+
+  <%= v %>
+
+<% end %>
