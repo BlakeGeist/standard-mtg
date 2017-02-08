@@ -100,26 +100,13 @@
 
         <% if session %>
 
-          Has session
-
-          <%= session['session_id'] %>
-
-          | <%= session['_csrf_token'] %> |
-
-        <% end %>
-
         <p>
           <% if session["devise.ebay_data"] %>
-            < <%= session["devise.ebay_data"] %> >
-            <%= session["devise.ebay_data"]['info']['email']  %>
+
+          <%= link_to "Ebay Dashboard", ebay_index %>
+
           <% end %>
         </p>
-
-        <% if session["dick"] %>
-
-          <%=session["dick"] %>
-
-        <% end %>
 
         <%#= current_user.attributes.each do |attr_name, attr_value| %>
           <!--<p><%#= attr_name %>,
