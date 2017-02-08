@@ -1,1 +1,21 @@
-This is the index
+<ul>
+
+  <% @GetOrders["item_array"]["item"].each do |item| %>
+
+    <li>
+
+      <ul>
+
+        <% item.each do |k, v| %>
+
+          <li><%= k %>:<%= v %></li>
+
+        <% end %>
+
+      </ul>
+
+    </li>
+
+  <% end %>
+
+</ul>
