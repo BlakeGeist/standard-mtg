@@ -1,10 +1,16 @@
 // Place all the styles related to the ebay controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.auctions {
+  list-style: none;
+  padding: 0;
+  ul, li {
+    list-style: none;
+  }
+}
 
 .auctions-auction {
   border: 1px solid #c7c7c7;
-  margin: 10px 10px 20px;
   list-style: none;
   padding: 0;
   &.is-active{
@@ -14,7 +20,6 @@
   }
 }
   .auctions-auction-item {
-    border-bottom: 1px solid #c7c7c7;
     padding: 10px;
     list-style: none;
     display: none;
@@ -23,6 +28,8 @@
   .the-auctions-acution {
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid #c7c7c7;
+    margin: 10px 0 20px;
   }
 
   .the-auctions-acution div {
@@ -30,7 +37,7 @@
   }
 
   .the-auctions-acution img {
-      vertical-align: middle;
+    vertical-align: middle;
   }
 
   li.auctions-auction-item.mod-details {
