@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   get 'admins/index'
   get 'ebay/index'
 
+  resources :dashboards do
+    collection do
+      get :ebayRequest
+    end
+  end
+
+
   get 'cards/index'
   get "/red" => "cards#red"
   get "/black" => "cards#black"

@@ -73,3 +73,24 @@
 .add-set-to-starndard-form, .edit_standard {
   display: inline-block;
 }
+
+.dashboards-page {
+  .card-options {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .ebay-options{
+    &.is-open {
+      .ebay-options-panel {
+        display: block;
+      }
+    }
+  }
+
+  .ebay-options-panel {
+    display: none;
+  }
+}

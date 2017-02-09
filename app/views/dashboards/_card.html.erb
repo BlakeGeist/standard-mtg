@@ -20,6 +20,22 @@
 
   <% end %>
 
-  <%= link_to 'Destroy Card', user_pcard_path(current_user, @pcard), :method => :delete, :remote => true %>
+  <div class="card-options">
+
+    <%= link_to 'Destroy Card', user_pcard_path(current_user, @pcard), :method => :delete, :remote => true %>
+
+    <div class="ebay-options expanded">
+
+      <a href="" data-expand class="ebay-options-link">To Ebay >></a>
+
+      <div class="ebay-options-panel">
+
+        <%= link_to "Send to Ebay", { action: "ebayRequest", :command => ':VerifyAddFixedPriceItem' }, remote: true, class: 'ebay-options=panel-link mod-send-to-ebay' %>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
