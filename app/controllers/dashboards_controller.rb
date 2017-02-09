@@ -1,5 +1,6 @@
 class DashboardsController < ApplicationController
- helper PcardsHelper
+ include PcardsHelper
+ include EbayHelper
 
   def index
 
@@ -32,6 +33,15 @@ class DashboardsController < ApplicationController
     end
   end
 
+  def ebayRequest
+
+    ebay_request(params[:command])
+
+    respond_to do |format|
+      format.js
+    end
+
+  end
 
 
 end
