@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   resources :dashboards do
     collection do
       get :ebayRequest
+    end
+  end
+
+  resources :ebay do
+    collection do
       get :ebayGetItem
     end
   end
