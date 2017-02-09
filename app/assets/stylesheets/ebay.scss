@@ -12,6 +12,7 @@
 .auctions-auction {
   border: 1px solid #c7c7c7;
   list-style: none;
+  flex: 1 1 100%;
   padding: 0;
   &.is-active{
     .auctions-auction-item {
@@ -27,8 +28,9 @@
 
   .the-auctions-acution {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    border-bottom: 1px solid #c7c7c7;
+    border: 1px solid #c7c7c7;
     margin: 10px 0 20px;
   }
 
