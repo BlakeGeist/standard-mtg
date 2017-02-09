@@ -14,7 +14,7 @@ module EbayHelper
 
     Ebayr.sandbox = false
 
-    Ebayr.call(command ":VerifyAddFixedPriceItem", :auth_token => session["dick"]["info"]["ebay_token"], :ActiveList => [:Sort => 'TimeLeft', :Pagination => [:EntriesPerPage => 200, :PageNumber => 1]])
+    Ebayr.call(command, :auth_token => session["dick"]["info"]["ebay_token"], :ActiveList => [:Sort => 'TimeLeft', :Pagination => [:EntriesPerPage => 200, :PageNumber => 1]])
 
   end
 
