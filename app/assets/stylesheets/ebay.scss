@@ -37,6 +37,9 @@
 
     .the-auctions-acution-item {
       line-height: 80px;
+      &.mod-title{
+        flex: 1 0 600px;
+      }
     }
 
 
