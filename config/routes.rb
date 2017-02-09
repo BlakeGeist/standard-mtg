@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   get 'cards/index'
   get "/red" => "cards#red"
   get "/black" => "cards#black"
