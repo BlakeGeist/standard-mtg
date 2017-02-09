@@ -39,10 +39,10 @@
         <%= check_box_tag "pcard[card_id]", card.multiverseid, false, class: "pcard_checkbox", id: "card_#{card.multiverseid}", data: {id: card.multiverseid } %>
 
         <select name='pcard[amount]' class='add-to-collection-amount card_<%= card.multiverseid %>'>
-          
+
            <option>Select Amount</option>
 
-           <% 20.times do |index, n| %>
+           <% 40.times do |index, n| %>
 
              <option><%= index + 1 %></option>
 
