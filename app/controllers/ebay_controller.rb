@@ -42,7 +42,8 @@ class EbayController < ApplicationController
 
     @this = Ebayr.call(
       :VerifyAddFixedPriceItem,
-      :id => '252735472209'
+      :id => '252735472209',
+      :auth_token => session["dick"]["info"]["ebay_token"]
       )
 
     respond_to do |format|
