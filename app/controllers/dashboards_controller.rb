@@ -47,7 +47,7 @@ class DashboardsController < ApplicationController
 
     Ebayr.sandbox = false
 
-    @this = Ebayr.call(:GetMyeBaySelling, :auth_token => session["dick"]["info"]["ebay_token"], :ActiveList => [:Sort => 'TimeLeft', :Pagination => [:EntriesPerPage => 200, :PageNumber => 1]])
+    @this = Ebayr.call(:VerifyAddFixedPriceItem, :auth_token => session["dick"]["info"]["ebay_token"], :ActiveList => [:Sort => 'TimeLeft', :Pagination => [:EntriesPerPage => 200, :PageNumber => 1]])
 
     respond_to do |format|
       format.js
