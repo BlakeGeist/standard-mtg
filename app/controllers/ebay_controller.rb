@@ -41,7 +41,7 @@ class EbayController < ApplicationController
     Ebayr.sandbox = false
 
     @this = Ebayr.call(
-      :VerifyAddFixedPriceItem,
+      :GetItem,
       :id => '252735472209',
       :auth_token => session["dick"]["info"]["ebay_token"]
       )
