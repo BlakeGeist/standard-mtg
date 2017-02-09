@@ -32,11 +32,15 @@
     justify-content: space-between;
     border: 1px solid #c7c7c7;
     margin: 10px 0 20px;
+    padding: 10px;
   }
 
-  .the-auctions-acution div {
-    line-height: 80px;
-  }
+    .the-auctions-acution-item {
+      line-height: 80px;
+    }
+
+
+
 
   .the-auctions-acution img {
     vertical-align: middle;

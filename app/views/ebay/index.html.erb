@@ -6,17 +6,17 @@
 
       <div class="the-auctions-acution">
 
-        <div><%= link_to item["title"], item["listing_details"]["view_item_url"] %></div>
+        <div class="the-auctions-acution-item mod-title"><%= link_to item["title"], item["listing_details"]["view_item_url"] %></div>
 
         <%#<div>Has Questions?: <%= item["listing_details"]["has_unasnswered_questions"] %/></div>%>
 
-        <div><%= item["quantity"] %></div>
+        <div class="the-auctions-acution-item mod-quantity">Quantity: <%= item["quantity"] %></div>
 
-        <div><%= item["selling_status"]["current_price"] %></div>
+        <div class="the-auctions-acution-item mod-price">Price: <%= item["selling_status"]["current_price"] %></div>
 
-        <div>Ends: <%= item["time_left"] %></div>
+        <div class="the-auctions-acution-item mod-ending">Ends: <%= item["time_left"] %></div>
 
-        <div><%= image_tag item["picture_details"]["gallery_url"] %></div>
+        <div class="the-auctions-acution-item mod-photo"><%= image_tag item["picture_details"]["gallery_url"] %></div>
 
         <ul class="auctions-auction">
 
