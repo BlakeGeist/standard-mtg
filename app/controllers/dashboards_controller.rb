@@ -109,7 +109,7 @@ class DashboardsController < ApplicationController
           ],
           :ShipToLocations => "US",
           :Site => "US",
-          :StartPrice => "US $0.99"
+          :StartPrice => "$0.99"
         ],
         :Title => 'Title of the ebay post'
       ],
