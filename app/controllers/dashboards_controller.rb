@@ -48,51 +48,72 @@ class DashboardsController < ApplicationController
     Ebayr.sandbox = false
 
     @this = Ebayr.call(
-      :VerifyAddFixedPriceItem,
+      :VerifyAddItem,
       :Item => [
-        :Country => "US",
-        :Currency => "USD",
-        :Description => 'Desc',
+        :AutoPay => true,
+        :BuyerRequirementDetails => [
+          :ShipToRegistrationCountry => true
+        ],
+        :BuyItNowPrice => 'US $9.99',
+        :ConditionDescription => 'ConditionDescription string',
+        :ConditionID => "3000",
+        :Country => 'US',
+        :CrossBorderTrade => false,
+        :Currency => 'USD',
+        :Description => 'Description String',
         :DispatchTimeMax => '3',
-        :ListingDuration => 'GTC',
-        :ListingType => 'FixedPriceItem',
+        :HitCounter => 'NoHitCounter',
+        :ItemSpecifics => [
+          :NameValueList => [
+            :Name => 'Condition',
+            :Value => 'Used'
+          ]
+        ],
+        :ListingDuration => 'Days_30',
+        :ListingType => 'FixedPriceItem'
+        :LiveAuction => false,
+        :Location => 'Vancouver, Washington',
         :PaymentMethods => 'PayPal',
         :PayPalEmailAddress => 'blakesmtg@gmail.com',
+        :PictureDetails => [
+          :ExternalPictureURL => 'http://i.ebayimg.com/images/g/8lAAAOSwUKxYhK8P/s-l1600.jpg'
+        ],
         :PostalCode => '98682',
         :PrimaryCategory => [
           :CategoryID => '38292'
         ],
-        :Title => "This is the title",
-        :PictureDetails => [
-          :PictureURL => "http://i.ebayimg.com/00/s/MTAwMFg3NTA=/z/8lAAAOSwUKxYhK8P/$_12.JPG"
+        :PrivateListing => false,
+        :ProductListingDetails => [
+          :Quantity => '3'
         ],
         :ReturnPolicy => [
-          :ReturnsAcceptedOption => 'ReturnsNotAccepted',
-          :ReturnsAccepted => 'No returns accepted'
+          :ReturnsAcceptedOption => 'ReturnsNotAccepted'
         ],
         :ShippingDetails => [
-          :PaymentInstructions => 'Payment must be received within 7 business days of purchase.',
           :SalesTax => [
-            :SalesTaxPercent => '6.5',
-            :SalesTaxState => 'WA'
+            :SalesTaxPercent => 6.5,
+            :SalesTaxState => 'WA',
+            :ShippingIncludedInTax => false
           ],
           :ShippingServiceOptions => [
             :FreeShipping => true,
-            :ShippingService => 'USPSPriority'
+            :ShippingService => 'USPSParcel',
+            :ShippingServiceAdditionalCost => '0.0',
+            :ShippingServiceCost => '0.0',
+            :ShippingServicePriority => '1'
           ],
-          :ItemSpecifics => [
-            :NameValueList => [
-              :Name => 'Condition',
-              :Value => 'Used'
-            ]
+          :ShippingType => 'Flat',
+          :ShippingPackageDetails => [
+            :ShippingIrregular => false,
+            :ShippingPackage => "Letter",
+            :WeightMajor => "0",
+            :WeightMinor => "0"
           ],
-          :StartPrice => '9.99',
-          :Variations => [
-            :Variation => [
-              :StartPrice => '9.99'
-            ]
-          ]
-        ]
+          :ShipToLocations => "US",
+          :Site => "US",
+          :StartPrice => "9.99"
+        ],
+        :Title => 'Title of the ebay post'
       ],
       :auth_token => session["dick"]["info"]["ebay_token"]
     )
