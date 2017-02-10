@@ -50,20 +50,47 @@ class DashboardsController < ApplicationController
     @this = Ebayr.call(
       :VerifyAddFixedPriceItem,
       :auth_token => session["dick"]["info"]["ebay_token"],
-      :item => [
-        :Country => 'US',
-        :Currency => 'USD',
-        :Description => "New Ralph Lauren Polo womens tops shirts! Black, Pink, Yellow, Blue. NWT",
-        :ListingDuration => "GTC",
-        :ListingType => "FixedPriceItem",
-        :PaymentMethods => "FixedPriceItem",
-        :PayPalEmailAddress => "blakesmtg@gmail.com",
-        :PostalCode => "98682",
-        :PrimaryCategory => "38292",
-        :Title => "MTG CARD TITLE",
-        :PictureDetails => [:PictureURL => "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=401871&type=card"],
-        :ReturnPolicy => ""
-      ])
+      :Item => [
+        :Country = "US",
+        :Currency => "USD",
+        :Description => 'Desc',
+        :DispatchTimeMax => '3',
+        :ListingDuration => 'GTC',
+        :ListingType => 'FixedPriceItem',
+        :PaymentMethods => 'PayPal',
+        :PayPalEmailAddress => 'blakesmtg@gmail.com',
+        :PostalCode => '98682',
+        :PrimaryCategory = [
+          :CategoryID => '38292',
+          :CategoryName => 'Toys & Hobbies:Collectible Card Games:Magic: The Gathering:MTG Individual Cards'
+        ],
+        :Title => "This is the title",
+        :PictureDetails => [
+          :PictureURL => "http://i.ebayimg.com/00/s/MTAwMFg3NTA=/z/8lAAAOSwUKxYhK8P/$_12.JPG"
+        ],
+        :ReturnPolicy => [
+          :ReturnsAcceptedOption => 'ReturnsNotAccepted',
+          :ReturnsAccepted => 'No returns accepted'
+        ],
+        :ShippingDetails => [
+          :PaymentInstructions => 'Payment must be received within 7 business days of purchase.',
+          :SalesTax => [
+            :SalesTaxPercent => '6.5',
+            :SalesTaxState => 'WA'
+          ],
+          :ShippingServiceOptions => [
+            :FreeShipping => true,
+            :ShippingService => 'USPSPriority'
+          ],
+          :ItemSpecifics => [
+            :NameValueList => [
+              :Name => 'Condition',
+              :Value => 'Used'
+            ]
+            :
+          ]
+        ]
+      ]
 
     respond_to do |format|
       format.js
