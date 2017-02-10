@@ -62,6 +62,7 @@ class DashboardsController < ApplicationController
         :PrimaryCategory => [
           :CategoryID => '38292'
         ],
+        :price => 'US $0.99',
         :Title => "This is the title",
         :PictureDetails => [
           :PictureURL => "http://i.ebayimg.com/00/s/MTAwMFg3NTA=/z/8lAAAOSwUKxYhK8P/$_12.JPG"
