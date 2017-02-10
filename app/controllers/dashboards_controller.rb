@@ -50,8 +50,44 @@ class DashboardsController < ApplicationController
     @this = Ebayr.call(
       :VerifyAddFixedPriceItem,
       :Item => [
-        :Country = "US",
-        :Currency => "USD"
+        :Country => "US",
+        :Currency => "USD",
+        :Description => 'Desc',
+        :DispatchTimeMax => '3',
+        :ListingDuration => 'GTC',
+        :ListingType => 'FixedPriceItem',
+        :PaymentMethods => 'PayPal',
+        :PayPalEmailAddress => 'blakesmtg@gmail.com',
+        :PostalCode => '98682',
+        :PrimaryCategory => [
+          :CategoryID => '38292',
+          :CategoryName => 'Toys & Hobbies:Collectible Card Games:Magic: The Gathering:MTG Individual Cards'
+        ],
+        :Title => "This is the title",
+        :PictureDetails => [
+          :PictureURL => "http://i.ebayimg.com/00/s/MTAwMFg3NTA=/z/8lAAAOSwUKxYhK8P/$_12.JPG"
+        ],
+        :ReturnPolicy => [
+          :ReturnsAcceptedOption => 'ReturnsNotAccepted',
+          :ReturnsAccepted => 'No returns accepted'
+        ],
+        :ShippingDetails => [
+          :PaymentInstructions => 'Payment must be received within 7 business days of purchase.',
+          :SalesTax => [
+            :SalesTaxPercent => '6.5',
+            :SalesTaxState => 'WA'
+          ],
+          :ShippingServiceOptions => [
+            :FreeShipping => true,
+            :ShippingService => 'USPSPriority'
+          ],
+          :ItemSpecifics => [
+            :NameValueList => [
+              :Name => 'Condition',
+              :Value => 'Used'
+            ]
+          ]
+        ]
       ],
       :auth_token => session["dick"]["info"]["ebay_token"]
     )
