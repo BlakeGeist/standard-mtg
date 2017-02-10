@@ -51,7 +51,7 @@ class DashboardsController < ApplicationController
       :VerifyAddFixedPriceItem,
       :auth_token => session["dick"]["info"]["ebay_token"],
       :Item => [
-        :Country = "US",
+        :Country = "US"
       ]
     )
 
