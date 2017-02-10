@@ -60,8 +60,7 @@ class DashboardsController < ApplicationController
         :PayPalEmailAddress => 'blakesmtg@gmail.com',
         :PostalCode => '98682',
         :PrimaryCategory => [
-          :CategoryID => '38292',
-          :CategoryName => 'Toys & Hobbies:Collectible Card Games:Magic: The Gathering:MTG Individual Cards'
+          :CategoryID => '38292'
         ],
         :Title => "This is the title",
         :PictureDetails => [
