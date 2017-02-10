@@ -86,6 +86,7 @@ class DashboardsController < ApplicationController
               :Value => 'Used'
             ]
           ],
+          :StartPrice => '9.99',
           :Variations => [
             :Variation => [
               :StartPrice => '9.99'
