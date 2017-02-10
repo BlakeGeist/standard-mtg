@@ -54,7 +54,7 @@ class DashboardsController < ApplicationController
         :BuyerRequirementDetails => [
           :ShipToRegistrationCountry => true
         ],
-        :ConditionDescription => 'ConditionDescription string',
+        :ConditionDescription => 'Ibet thats whynDescription string',
         :ConditionID => "3000",
         :StartPrice => "0.99",
         :Title => 'Title of the ebay post',
