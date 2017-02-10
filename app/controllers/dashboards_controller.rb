@@ -58,7 +58,6 @@ class DashboardsController < ApplicationController
         :ConditionDescription => 'ConditionDescription string',
         :ConditionID => "3000",
         :Country => 'US',
-        :CrossBorderTrade => false,
         :Currency => 'USD',
         :Description => 'Description String',
         :DispatchTimeMax => '3',
