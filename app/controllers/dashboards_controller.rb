@@ -56,6 +56,8 @@ class DashboardsController < ApplicationController
         ],
         :ConditionDescription => 'ConditionDescription string',
         :ConditionID => "3000",
+        :StartPrice => "0.99",
+        :Title => 'Title of the ebay post',
         :Country => 'US',
         :Currency => 'USD',
         :Description => 'Description String',
@@ -109,9 +111,7 @@ class DashboardsController < ApplicationController
           ],
           :ShipToLocations => "US",
           :Site => "US"
-        ],
-        :StartPrice => "0.99",
-        :Title => 'Title of the ebay post'
+        ]
       ],
       :auth_token => session["dick"]["info"]["ebay_token"]
     )
