@@ -70,7 +70,7 @@ class DashboardsController < ApplicationController
           ]
         ],
         :ListingDuration => 'Days_30',
-        :ListingType => 'FixedPriceItem'
+        :ListingType => 'FixedPriceItem',
         :LiveAuction => false,
         :Location => 'Vancouver, Washington',
         :PaymentMethods => 'PayPal',
