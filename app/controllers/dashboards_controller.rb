@@ -49,10 +49,7 @@ class DashboardsController < ApplicationController
 
     @this = Ebayr.call(
       :VerifyAddFixedPriceItem,
-      :auth_token => session["dick"]["info"]["ebay_token"],
-      :Item => [
-        :Country = "US"
-      ]
+      :auth_token => session["dick"]["info"]["ebay_token"]
     )
 
     respond_to do |format|
