@@ -87,10 +87,10 @@ class DashboardsController < ApplicationController
               :Name => 'Condition',
               :Value => 'Used'
             ]
-            :
           ]
         ]
       ]
+    )
 
     respond_to do |format|
       format.js
