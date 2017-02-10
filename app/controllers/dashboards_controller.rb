@@ -54,7 +54,6 @@ class DashboardsController < ApplicationController
         :BuyerRequirementDetails => [
           :ShipToRegistrationCountry => true
         ],
-        :BuyItNowPrice => '9.99',
         :ConditionDescription => 'ConditionDescription string',
         :ConditionID => "3000",
         :Country => 'US',
