@@ -108,9 +108,9 @@ class DashboardsController < ApplicationController
             :WeightMinor => "0"
           ],
           :ShipToLocations => "US",
-          :Site => "US",
-          :StartPrice => "$0.99"
+          :Site => "US"
         ],
+        :StartPrice => "US $0.99",
         :Title => 'Title of the ebay post'
       ],
       :auth_token => session["dick"]["info"]["ebay_token"]
