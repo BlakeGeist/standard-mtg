@@ -51,9 +51,9 @@ class DashboardsController < ApplicationController
 
     card = Card.find_by! multiverseid: multiverseid
 
-    if card.image_url.include? '&type'
+    if card.image_url.to_s.include? '&type'
 
-      photo_name = card.image_url.gsub('&','&amp;')
+      photo_name = card.image_url.gsub!('&','&amp;')
 
     else
 
