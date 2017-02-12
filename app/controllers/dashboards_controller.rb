@@ -48,7 +48,7 @@ class DashboardsController < ApplicationController
     Ebayr.sandbox = false
 
     @this = Ebayr.call(
-      :VerifyAddItem,
+      :AddItem,
       :Item => [
         :AutoPay => true,
         :BuyerRequirementDetails => [
