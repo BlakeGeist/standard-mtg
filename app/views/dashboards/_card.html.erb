@@ -30,7 +30,7 @@
 
       <div class="ebay-options-panel">
 
-        <%= link_to "Send to Ebay", { action: "ebayRequest", :command => ':VerifyAddFixedPriceItem', :card_id => @pcard.multiverseid }, remote: true, class: 'ebay-options=panel-link mod-send-to-ebay' %>
+        <%= link_to "Send to Ebay", { action: "ebayRequest", :command => ':VerifyAddFixedPriceItem', :multiverseid => pcard.multiverseid }, remote: true, class: 'ebay-options=panel-link mod-send-to-ebay' %>
 
       </div>
 
