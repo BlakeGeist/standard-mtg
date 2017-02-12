@@ -47,7 +47,7 @@ class DashboardsController < ApplicationController
 
     Ebayr.sandbox = false
 
-    card_id => params[:card_id]
+    card_id = params[:card_id]
 
     card = current_user.pcards.find_by! card_id: card.multiverseid
 
