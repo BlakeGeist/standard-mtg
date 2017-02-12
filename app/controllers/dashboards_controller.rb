@@ -80,7 +80,7 @@ class DashboardsController < ApplicationController
         :PaymentMethods => 'PayPal',
         :PayPalEmailAddress => 'blakesmtg@gmail.com',
         :PictureDetails => [
-          :ExternalPictureURL => '#{card.image_url}'
+          :ExternalPictureURL => "#{card.image_url}"
         ],
         :PostalCode => '98682',
         :PrimaryCategory => [
