@@ -51,6 +51,16 @@ class DashboardsController < ApplicationController
 
     card = Card.find_by! multiverseid: multiverseid
 
+    if card.image_url.include? '&type'
+
+      photo_name = card.image_url.gsub('&','&amp;')
+
+    else
+
+      photo_name = card.image_url
+
+    end
+
     @this = Ebayr.call(
       :VerifyAddItem,
       :Item => [
