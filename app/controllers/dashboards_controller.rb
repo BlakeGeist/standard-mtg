@@ -47,8 +47,12 @@ class DashboardsController < ApplicationController
 
     Ebayr.sandbox = false
 
+    card_id => params[:card_id]
+
+    card = current_user.pcards.find_by! card_id: card.multiverseid
+
     @this = Ebayr.call(
-      :AddItem,
+      :VerifyAddItem,
       :Item => [
         :AutoPay => true,
         :BuyerRequirementDetails => [
@@ -56,8 +60,8 @@ class DashboardsController < ApplicationController
         ],
         :ConditionDescription => 'Ibet thats whynDescription string',
         :ConditionID => "3000",
-        :StartPrice => "0.99",
-        :Title => 'Title of the ebay post',
+        :StartPrice => "#{card.avgprice}",
+        :Title => "1 x #{card.name} MTG Card - #{card.setName}",
         :Country => 'US',
         :Currency => 'USD',
         :Description => 'Description String',
@@ -76,7 +80,7 @@ class DashboardsController < ApplicationController
         :PaymentMethods => 'PayPal',
         :PayPalEmailAddress => 'blakesmtg@gmail.com',
         :PictureDetails => [
-          :ExternalPictureURL => 'http://i.ebayimg.com/images/g/8lAAAOSwUKxYhK8P/s-l1600.jpg'
+          :ExternalPictureURL => '#{card.image_url}'
         ],
         :PostalCode => '98682',
         :PrimaryCategory => [
