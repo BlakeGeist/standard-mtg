@@ -49,7 +49,7 @@ class DashboardsController < ApplicationController
 
     card_id = params[:card_id]
 
-    card = current_user.pcards.find_by! card_id: card_id
+    card = Card.find_by! card_id: card_id
 
     @this = Ebayr.call(
       :VerifyAddItem,
