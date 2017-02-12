@@ -47,9 +47,9 @@ class DashboardsController < ApplicationController
 
     Ebayr.sandbox = false
 
-    card_id = params[:card_id]
+    multiverseid = params[:multiverseid]
 
-    card = Card.find_by! card_id: card_id
+    card = Card.find_by! multiverseid: multiverseid
 
     @this = Ebayr.call(
       :VerifyAddItem,
