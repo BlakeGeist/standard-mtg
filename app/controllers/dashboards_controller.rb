@@ -62,7 +62,7 @@ class DashboardsController < ApplicationController
     end
 
     @this = Ebayr.call(
-      :AddItem,
+      :verifyAddItem,
       :Item => [
         :AutoPay => true,
         :BuyerRequirementDetails => [
