@@ -21,13 +21,29 @@ class ApplicationController < ActionController::Base
   # Welcome Deck 2016 | W16
   # Shadows over Innistrad | soi
 
+
+  def open_modal
+
+    @modal = params[:modal]
+
+    @multiverseid = params[:multiverseid]
+
+    respond_to do |format|
+      format.js
+    end
+
+  end
+
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
     protected
+
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :provider, :uid])
       devise_parameter_sanitizer.permit(:account_update, keys: [:username, :provider, :uid])
     end
+
+
 
 end

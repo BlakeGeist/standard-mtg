@@ -40,11 +40,6 @@ $(document).on('ready page:load', function() {
     $(this).closest('form').trigger('submit');
   });
 
-
-  $(document).on('click', '.expanded', function(ev){
-    ev.stopPropagation();
-  });
-
   // resize menu after scroll down
   $(function() {
     $(window).scroll(function() {

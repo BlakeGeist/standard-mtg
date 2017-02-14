@@ -1,0 +1,3 @@
+$("html").addClass("has-modal");
+$("body").append("<%= escape_javascript(render partial: '/templates/modals/send_to_ebay', locals: {:multiverseid => @multiverseid}) %>");
+$(".modal").addClass("expanded");

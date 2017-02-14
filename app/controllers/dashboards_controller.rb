@@ -68,7 +68,7 @@ class DashboardsController < ApplicationController
         :BuyerRequirementDetails => [
           :ShipToRegistrationCountry => true
         ],
-        :ConditionDescription => 'Ibet thats whynDescription string',
+        :ConditionDescription => 'Used',
         :ConditionID => "3000",
         :StartPrice => "#{card.avgprice}",
         :Title => "1 x #{card.name} MTG Card - #{card.setName}",
