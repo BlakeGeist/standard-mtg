@@ -21,7 +21,7 @@
 
           <label class="modal-label">Title</label>
 
-          <input class="modal-input" value='<% if @pcard.amount >= 4 %>4<% else %><%= @pcard.amount %><% end %><%= " X #{@card.name} - #{@card.setName} | Standard Magic The Gathering Card" %>' />
+          <input class="modal-input" name="title" value='<% if @pcard.amount >= 4 %>4<% else %><%= @pcard.amount %><% end %><%= " X #{@card.name} - #{@card.setName} | Standard Magic The Gathering Card" %>' />
 
         </div>
 
@@ -29,7 +29,7 @@
 
           <label class="modal-label">Quanitiy</label>
 
-          <%= select_tag("pcard[amount]", options_for_select(1..40, (@pcard.amount / 4).round) , :class => "modal-select mod-quanitiy ") %>
+          <%= select_tag("quantity", options_for_select(1..40, (@pcard.amount / 4).round) , :class => "modal-select mod-quanitiy ") %>
 
         </div>
 
@@ -47,7 +47,7 @@
 
           <% end %>
 
-          <input class="modal-input" value='<%= @card.tcg_prices.last.avgprice * amount %>' />
+          <input name="price" class="modal-input" value='<%= @card.tcg_prices.last.avgprice * amount %>' />
 
         </div>
 
@@ -55,7 +55,7 @@
 
           <label class="modal-label">Description</label>
 
-          <textarea class="modal-input" rows="12"><% if @pcard.amount >= 4 %>4<% else %><%= @pcard.amount %><% end %><%= " X #{@card.name} - #{@card.setName} | Standard Magic The Gathering Card" %></textarea>
+          <textarea name="description" class="modal-input" rows="12"><% if @pcard.amount >= 4 %>4<% else %><%= @pcard.amount %><% end %><%= " X #{@card.name} - #{@card.setName} | Standard Magic The Gathering Card" %></textarea>
 
         </div>
 
