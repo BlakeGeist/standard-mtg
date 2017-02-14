@@ -1,0 +1,88 @@
+<% @card = Card.find_by! multiverseid: multiverseid %>
+<% @pcard = current_user.pcards.find_by! card_id: multiverseid %>
+
+<div id="modal">
+
+  <div class="modal">
+
+    <div class="modal-exit">
+
+      Send to ebay
+
+      <span ><%= link_to image_tag("/assets/close.png", :class => 'modal-exit-image'), '', :'data-modal' => "close" %></span>
+
+    </div>
+
+    <section>
+
+      <form class="send-to-ebay-form">
+
+        <div class="send-to-ebay-form-item mod-title">
+
+          <label class="modal-label">Title</label>
+
+          <input class="modal-input" value='<% if @pcard.amount >= 4 %>4<% else %><%= @pcard.amount %><% end %><%= " X #{@card.name} - #{@card.setName} | Standard Magic The Gathering Card" %>' />
+
+        </div>
+
+        <div class="send-to-ebay-form-item mod-quanitiy">
+
+          <label class="modal-label">Quanitiy</label>
+
+          <%= select_tag("pcard[amount]", options_for_select(1..40, (@pcard.amount / 4).round) , :class => "modal-select mod-quanitiy ") %>
+
+        </div>
+
+        <div class="send-to-ebay-form-item mod-price">
+
+          <label class="modal-label">Price: <%= @card.tcg_prices.last.avgprice %>(Per Item)</label>
+
+          <% if @pcard.amount >= 4 %>
+
+            <% amount = 4 %>
+
+          <% else %>
+
+            <% amount = @pcard.amount %>
+            
+          <% end %>
+
+          <input class="modal-input" value='<%= @card.tcg_prices.last.avgprice * amount %>' />
+
+        </div>
+
+        <div class="send-to-ebay-form-item mod-description">
+
+          <label class="modal-label">Description</label>
+
+          <textarea class="modal-input" rows="12"><% if @pcard.amount >= 4 %>4<% else %><%= @pcard.amount %><% end %><%= " X #{@card.name} - #{@card.setName} | Standard Magic The Gathering Card" %></textarea>
+
+        </div>
+
+        <div class="send-to-ebay-form-item mod-image">
+
+          <label class="modal-label">Image</label>
+
+          <div>
+
+            <%= image_tag @card.image_url %>
+
+          </div>
+
+        </div>
+
+        <div class="send-to-ebay-form-item mod-buttons">
+
+          <a href="" data-modal="close">Close</a>
+
+          <div><input type="submit" vlaue="submit" /></div>
+
+        </div>
+
+      </form>
+
+    </section>
+
+  </div>
+
+</div>

@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   get 'admins/index'
   get 'ebay/index'
 
+  resources :application do
+    collection do
+      get :open_modal
+    end
+  end
+
+
   resources :dashboards do
     collection do
       get :ebayRequest

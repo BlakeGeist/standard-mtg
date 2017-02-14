@@ -26,13 +26,7 @@
 
     <div class="ebay-options expanded">
 
-      <a href="" data-expand class="ebay-options-link">To Ebay >></a>
-
-      <div class="ebay-options-panel">
-
-        <%= link_to "Send to Ebay", { action: "ebayRequest", :command => ':VerifyAddFixedPriceItem', :multiverseid => card.multiverseid }, remote: true, class: 'ebay-options=panel-link mod-send-to-ebay' %>
-
-      </div>
+      <%= link_to "To Ebay >>", { action: "open_modal", :modal => 'send_to_ebay', :multiverseid => card.multiverseid, :controller => "application" }, remote: true, class: 'ebay-options=panel-link mod-send-to-ebay' %>
 
     </div>
 

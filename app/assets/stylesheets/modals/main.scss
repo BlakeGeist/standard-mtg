@@ -1,0 +1,104 @@
+html{
+  &.has-modal #modal {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -ms-flex;
+    display: flex;
+  }
+  #modal {
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+    position: fixed;
+    display: none;
+    background-color: #f2f2f2;
+    background-color: rgba(242,242,242,0.85);
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: default;
+    top: 0;
+    overflow: auto;
+  }
+    .modal {
+      background-color: #fff;
+      padding: 10px;
+      border: 2px solid #c1c1c1;
+      border-radius: 5px;
+      flex: 0 1 500px;
+      margin: 20%;
+    }
+      .modal-exit {
+        display: flex;
+        justify-content: space-between;
+      }
+        .modal-exit-image {
+          max-width: 25px;
+        }
+      section {
+        padding: 20px 0 0 0;
+      }
+      .modal-label {
+        flex: 1 1 100%;
+      }
+      .modal-input {
+        flex: 1 1 100%;
+      }
+      .modal-select {
+        flex: 1 1 100%;
+      }
+}
+
+.send-to-ebay-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+  .send-to-ebay-form-item {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 100%;
+    padding: 25px 0 0 0;
+
+    &.mod-quanitiy, &.mod-price {
+      flex: 0 1 48%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &.mod-image {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .modal-label {
+        flex: 1 1 50%;
+      }
+
+      div {
+        flex: 1 1 50%;
+        text-align: right;
+        img {
+          max-width: 75px;
+        }
+      }
+
+    }
+    &.mod-buttons {
+      justify-content: space-between;
+      display: flex;
+    }
+  }
