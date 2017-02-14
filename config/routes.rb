@@ -16,10 +16,9 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :dashboards do
     collection do
-      get :ebayRequest
+      get :ebayRequest, :as => :ebayRequest
     end
   end
 
