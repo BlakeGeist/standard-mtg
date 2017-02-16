@@ -57,7 +57,6 @@ $(document).on('ready page:load', function() {
 $(document).on('click', 'html', function(ev) {
   //Hide the menus if visible
   $('.is-open').toggleClass('is-open');
-
 });
 
 $(document).on('click', '.advanced', function(ev) {
