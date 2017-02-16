@@ -70,7 +70,7 @@ class DashboardsController < ApplicationController
         ],
         :ConditionDescription => 'Used',
         :ConditionID => "3000",
-        :StartPrice => "#{card.avgprice}",
+        :StartPrice => "#{params[:price]}",
         :Title => "#{params[:title]}",
         :Country => 'US',
         :Currency => 'USD',
