@@ -9,13 +9,15 @@
 
       Send to ebay
 
-      <span ><%= link_to image_tag(image_path("close.png"), :class => 'modal-exit-image'), '', :'data-modal' => "close" %></span>
+      <span><%= link_to image_tag(image_path("close.png"), :class => 'modal-exit-image'), '', :'data-modal' => "close" %></span>
 
     </div>
 
     <section>
 
-      <%= form_tag({:action => "ebayRequest", :controller => "dashboards"}, :method => 'post', :remote => true, :class => 'send-to-ebay-form') do %>
+      <%= form_tag({controller: "dashboards", action: "ebayRequest"}, method: "get", class: "send-to-ebay-form", remote: true) do %>
+
+        <%= hidden_field_tag 'multiverseid', multiverseid %>
 
         <div class="send-to-ebay-form-item mod-title">
 
