@@ -71,10 +71,10 @@ class DashboardsController < ApplicationController
         :ConditionDescription => 'Used',
         :ConditionID => "3000",
         :StartPrice => "#{card.avgprice}",
-        :Title => "1 x #{card.name} MTG Card - #{card.setName}",
+        :Title => "#{params[:title]}",
         :Country => 'US',
         :Currency => 'USD',
-        :Description => 'Description String',
+        :Description => "#{params[:description]}",
         :DispatchTimeMax => '3',
         :HitCounter => 'NoHitCounter',
         :ItemSpecifics => [
