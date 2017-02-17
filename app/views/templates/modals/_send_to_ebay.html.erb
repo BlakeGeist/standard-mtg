@@ -15,7 +15,7 @@
 
     <section>
 
-      <%= form_tag({controller: "dashboards", action: "ebayRequest"}, method: "get", class: "send-to-ebay-form", remote: true) do %>
+      <%= form_tag({controller: "dashboards", action: "ebayRequest"}, method: "post", class: "send-to-ebay-form", remote: true) do %>
 
         <%= hidden_field_tag 'multiverseid', multiverseid %>
 
