@@ -65,17 +65,20 @@
 
             <p><strong>Card Set:</strong> <%= @card.setName %></p>
 
-            <p>
+            <% if @card.['info']['legalities'] %>
 
-              <strong>Legal Sets:</strong>
+              <p>
 
-              <% @card['info']['legalities'].each do |set| %>
+                <strong>Legal Sets:</strong>
 
-                <%= set["format"] %><%= ',' unless set == @card['info']['legalities'].last %>
+                <% @card['info']['legalities'].each do |set| %>
 
-              <% end %>
+                  <%= set["format"] %><%= ',' unless set == @card['info']['legalities'].last %>
 
-            </p>
+                <% end %>
+
+              </p>
+            <% end %>
 
             <div>
 
