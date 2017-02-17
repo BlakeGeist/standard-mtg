@@ -64,7 +64,7 @@ class DashboardsController < ApplicationController
     legalities = "<p><% card['info']['legalities'].each do |it| %><%= it['format'] %> <%= ', ' unless it = card['info']['legalities'].last %><% end %></p>"
 
     @this = Ebayr.call(
-      :VerifyAddItem,
+      :AddItem,
       :Item => [
         :AutoPay => true,
         :BuyerRequirementDetails => [
