@@ -68,10 +68,16 @@ class DashboardsController < ApplicationController
       description.gsub!('&mdash;', '-')
 
     end
-    
+
     if description.include? '&nbsp;'
 
       description.gsub!('&nbsp;', ' ')
+
+    end
+
+    if description.include? '&rsquo;'
+
+      description.gsub!('&rsquo;', "'")
 
     end
 
