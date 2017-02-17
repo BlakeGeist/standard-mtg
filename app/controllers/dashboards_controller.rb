@@ -61,7 +61,7 @@ class DashboardsController < ApplicationController
 
     end
 
-    description = {params[:description]
+    description = params[:description]
 
     if description.include? '&mdash'
 
