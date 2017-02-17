@@ -1,7 +1,5 @@
 <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
 
-<%= session["dick"]["info"] %>
-
 <div class="pcard" id="card<%= @pcard.id %>">
 
   <div class="pcard-amount"><%=@pcard.amount %></div>
