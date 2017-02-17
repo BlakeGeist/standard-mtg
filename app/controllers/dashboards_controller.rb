@@ -64,7 +64,7 @@ class DashboardsController < ApplicationController
     legalities = "<p><% card['info']['legalities'].each do |it| %><%= it['format'] %> <%= ', ' unless it = card['info']['legalities'].last %><% end %></p>"
 
     @this = Ebayr.call(
-      :AddItem,
+      :VerifyAddItem,
       :Item => [
         :AutoPay => true,
         :BuyerRequirementDetails => [
@@ -88,9 +88,8 @@ class DashboardsController < ApplicationController
         :ListingDuration => 'Days_30',
         :ListingType => 'FixedPriceItem',
         :LiveAuction => false,
-        :Location => 'Vancouver, Washington',
         :PaymentMethods => 'PayPal',
-        :PayPalEmailAddress => 'blakesmtg@gmail.com',
+        :PayPalEmailAddress => session["dick"]["info"]["email"],
         :PictureDetails => [
           :ExternalPictureURL => "#{card.image_url}"
         ],
