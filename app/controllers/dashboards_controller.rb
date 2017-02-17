@@ -88,6 +88,7 @@ class DashboardsController < ApplicationController
         :ListingDuration => 'Days_30',
         :ListingType => 'FixedPriceItem',
         :LiveAuction => false,
+        :Location => 'Vancouver, Washington',
         :PaymentMethods => 'PayPal',
         :PayPalEmailAddress => session["dick"]["info"]["email"],
         :PictureDetails => [
