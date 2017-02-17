@@ -15,7 +15,6 @@ class StandardsController < ApplicationController
     @standard.destroy
     respond_to do |format|
       format.js
-      format.html
     end
   end
 

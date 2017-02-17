@@ -18,7 +18,7 @@
 
       <% section[:section].each do |section| %>
 
-        <div class="admins-page-section-edit-item">
+        <div class="admins-page-section-edit-item <%= section[:short_name] %>">
 
           <% section.attributes.each do |attribute| %>
 
@@ -44,7 +44,7 @@
 
           <div class="admin-page-section-edit-item-controls">
 
-            <%= link_to 'Destroy', standard_path(section.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Destroy', standard_path(section.id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, short_name: section[:short_name] %>
 
           </div>
 
