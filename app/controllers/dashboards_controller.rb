@@ -61,6 +61,14 @@ class DashboardsController < ApplicationController
 
     end
 
+    description = {params[:description]
+
+    if description.include? '&mdash'
+
+      description.gsub!('&mdash', '-')
+
+    end
+
     @this = Ebayr.call(
       :VerifyAddItem,
       :Item => [
