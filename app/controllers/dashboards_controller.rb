@@ -75,6 +75,12 @@ class DashboardsController < ApplicationController
 
     end
 
+    if description.include? '&rsquo'
+
+      description.gsub!('&rsquo', "'")
+
+    end
+
     @this = Ebayr.call(
       :VerifyAddItem,
       :Item => [
