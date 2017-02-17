@@ -18,7 +18,7 @@ module ApplicationHelper
 
       hashCard = JSON.parse card.to_json
 
-      puts hashCard['name']
+      puts hashCard['legalities']
 
       Card.create!(
         :info => hashCard,
@@ -49,7 +49,6 @@ module ApplicationHelper
         :foreignNames => hashCard['foreignNames'],
         :artist => hashCard['artist']
       )
-
     end
 
 
