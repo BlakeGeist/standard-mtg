@@ -57,7 +57,53 @@
 
           <label class="modal-label">Description</label>
 
-          <textarea name="description" class="modal-input" rows="12"><% if @pcard.amount >= 4 %>4<% else %><%= @pcard.amount %><% end %><%= " X #{@card.name} - #{@card.setName} | Standard Magic The Gathering Card" %></textarea>
+          <%= tinymce %>
+
+          <textarea class="tinymce" name="description" rows="20">
+
+            <p><strong>Card Name:</strong> <%= @card.name %></p>
+
+            <p><strong>Card Set:</strong> <%= @card.setName %></p>
+
+            <p>
+
+              <strong>Legal Sets:</strong>
+
+              <% @card['info']['legalities'].each do |set| %>
+
+                <%= set["format"] %><%= ',' unless set == @card['info']['legalities'].last %>
+
+              <% end %>
+
+            </p>
+
+            <div>
+
+              <strong>Card Text:</strong>
+
+              <p><%= raw @card.text %></p>
+
+              <p><%= @card.flavor %></p>
+
+            </div>
+
+            <div>
+
+              <% if @card.rulings.count >= 1 %>
+
+                <strong>Card Rulings</strong>
+
+                <% @card.rulings.each do |ruling| %>
+
+                  <p><strong><%= ruling['date'] %>:</strong> <%= ruling['text'] %></p>
+
+                <% end %>
+
+              <% end %>
+
+            </div>
+
+          </textarea>
 
         </div>
 

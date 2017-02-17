@@ -215,13 +215,13 @@
 
         <h2><%= @card.name %> Rulings</h2>
 
-          <% @card.rulings.each do |ruling| %>
+        <% @card.rulings.each do |ruling| %>
 
-            <p><strong><%= ruling['date'] %>:</strong> <%= ruling['text'] %></p>
+          <p><strong><%= ruling['date'] %>:</strong> <%= ruling['text'] %></p>
 
-          <% end %>
+        <% end %>
 
-        </div>
+      </div>
 
     <% end %>
 

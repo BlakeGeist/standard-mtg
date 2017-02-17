@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require tinymce
 
 $(document).on('ready page:load', function() {
 
