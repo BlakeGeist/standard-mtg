@@ -63,7 +63,7 @@ class DashboardsController < ApplicationController
 
     description = params[:description]
 
-    if description.includes '&mdash'
+    if description.include? '&mdash'
      description.gsub!('&mdash;', '-')
     end
 
