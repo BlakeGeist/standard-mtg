@@ -36,6 +36,7 @@ class DashboardsController < ApplicationController
   def ebayRequest
 
     require 'ebayr'
+    require 'nokogiri'
 
     Ebayr.dev_id = "a036b866-4e0d-49de-b7f6-a45309064be2"
 
@@ -63,23 +64,7 @@ class DashboardsController < ApplicationController
 
     description = params[:description]
 
-    if description.include? '&mdash;'
-
-      description.gsub!('&mdash;', '-')
-
-    end
-
-    if description.include? '&nbsp;'
-
-      description.gsub!('&nbsp;', ' ')
-
-    end
-
-    if description.include? '&rsquo;'
-
-      description.gsub!('&rsquo;', "'")
-
-    end
+    description_xml  = Nokogiri::XML(description)
 
     @this = Ebayr.call(
       :VerifyAddItem,
@@ -94,7 +79,7 @@ class DashboardsController < ApplicationController
         :Title => "#{params[:title]}",
         :Country => 'US',
         :Currency => 'USD',
-        :Description => "#{params[:description]}",
+        :Description => description_xml,
         :DispatchTimeMax => '3',
         :HitCounter => 'NoHitCounter',
         :ItemSpecifics => [
