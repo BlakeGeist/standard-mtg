@@ -59,6 +59,12 @@
 
           <%= tinymce %>
 
+          <script type="text/javascript">
+          tinyMCE.init({
+            encoding: "xml"
+          });
+          </script>
+
           <textarea class="tinymce" name="description" rows="20">
 
             <p><strong>Card Name:</strong> <%= @card.name %></p>

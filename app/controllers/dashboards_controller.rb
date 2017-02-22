@@ -62,10 +62,6 @@ class DashboardsController < ApplicationController
 
     end
 
-    description = params[:description]
-
-    description_xml  = Nokogiri::HTML(description)
-
     @this = Ebayr.call(
       :VerifyAddItem,
       :Item => [
@@ -79,7 +75,7 @@ class DashboardsController < ApplicationController
         :Title => "#{params[:title]}",
         :Country => 'US',
         :Currency => 'USD',
-        :Description => description_xml,
+        :Description => "params[:description]",
         :DispatchTimeMax => '3',
         :HitCounter => 'NoHitCounter',
         :ItemSpecifics => [
