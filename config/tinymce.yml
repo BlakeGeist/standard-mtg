@@ -4,5 +4,6 @@ toolbar:
 plugins:
   - image
   - link
+  - autolink
 encoding:
   - xml
