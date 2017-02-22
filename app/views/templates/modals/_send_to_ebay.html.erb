@@ -104,7 +104,7 @@
 
                 <% @card.rulings.each do |ruling| %>
 
-                  <p><strong><%= ruling['date'] %>:</strong> <%= ruling['text'] %></p>
+                  <p><strong><%= ruling['date'] %>:</strong> <%= simple_format(ruling['text']).gsub(URI.regexp, '<a href="\0">\0</a>').html_safe %></p>
 
                 <% end %>
 
