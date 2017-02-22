@@ -64,7 +64,7 @@ class DashboardsController < ApplicationController
 
     description = params[:description]
 
-    description_xml  = Nokogiri::XML(description)
+    description_xml  = Nokogiri::HTML(description)
 
     @this = Ebayr.call(
       :VerifyAddItem,
