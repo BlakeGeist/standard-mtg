@@ -20,6 +20,17 @@
   right: -8px;
 }
 
+.pcard-price {
+  position: absolute;
+  text-align: left;
+  z-index: 99;
+  margin-top: -10px;
+  background-color: #fff;
+  padding: 1px 6px;
+  border: 1px solid #8a8a8a;
+  left: -8px;
+}
+
 .pcard_checkbox {
   display: none;
 }
