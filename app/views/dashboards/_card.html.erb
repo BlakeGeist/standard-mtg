@@ -1,6 +1,9 @@
 <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
+<% @card = Card.find_by! multiverseid: card.multiverseid %>
 
 <div class="pcard" id="card<%= @pcard.id %>">
+
+  <div class="pcard-price"><%= @card.tcg_prices.last.avgprice %></div>
 
   <div class="pcard-amount"><%=@pcard.amount %></div>
 
