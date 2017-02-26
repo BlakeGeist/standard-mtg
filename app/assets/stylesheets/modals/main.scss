@@ -17,10 +17,10 @@ html{
     -moz-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    align-items: center;
+    -webkit-align-items: flex-start;
+    -moz-align-items: flex-start;
+    -ms-align-items: flex-start;
+    align-items: flex-start;
     position: fixed;
     display: none;
     background-color: #f2f2f2;
@@ -102,3 +102,9 @@ html{
       display: flex;
     }
   }
+
+@media (max-width: 768px) {
+  .modal {
+    margin: 0;
+  }
+}
