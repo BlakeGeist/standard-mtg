@@ -36,7 +36,7 @@
 
         <label class="add-to-collection-add" for="card_<%= card.multiverseid %>">Add</label>
 
-        <% if card.tcg_prices %>
+        <% if card.card.tcg_prices.first.avgprice %>
 
           <%= hidden_field_tag "pcard[price]", card.tcg_prices.first.avgprice %>
 
