@@ -36,6 +36,8 @@
 
         <label class="add-to-collection-add" for="card_<%= card.multiverseid %>">Add</label>
 
+        <%= hidden_field_tag "pcard[price]", card.tcg_prices.first.avgprice %>
+
         <%= check_box_tag "pcard[card_id]", card.multiverseid, false, class: "pcard_checkbox", id: "card_#{card.multiverseid}", data: {id: card.multiverseid } %>
 
         <select name='pcard[amount]' class='add-to-collection-amount card_<%= card.multiverseid %>'>
