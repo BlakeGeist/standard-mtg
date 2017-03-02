@@ -2,6 +2,7 @@ class PcardsController < ApplicationController
 
   def create
     @pcard = current_user.pcards.create(pcard_params)
+  
     if @pcard.save
       flash[:notice] = "Successfully created pcard."
       respond_to do |format|
@@ -38,7 +39,7 @@ class PcardsController < ApplicationController
 
   private
     def pcard_params
-      params.require(:pcard).permit(:amount, :card_id)
+      params.require(:pcard).permit(:amount, :card_id, :price)
     end
 
 end

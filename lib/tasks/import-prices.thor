@@ -1,5 +1,23 @@
 class Import_price < Thor
 
+  desc 'create_base_pcard_price', 'get fix_names'
+
+  def create_base_pcard_price
+
+    require File.expand_path('config/environment.rb')
+
+    @pcards = Pcard.all
+
+    @pcards.each do |card|
+
+      origional_card = Card.find_by! multiverseid: card.card_id
+
+      puts origional_card.name
+
+    end
+
+  end
+
   desc 'fix_names', 'get fix_names'
 
   def fix_names

@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   resources :colors
   resources :standards
   resources :crarities
+  resources :pcards
 
   get 'mechanics/index'
   resources :mechanics

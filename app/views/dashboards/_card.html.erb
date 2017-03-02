@@ -27,11 +27,15 @@
 
     <%= link_to 'Destroy Card', user_pcard_path(current_user, @pcard), :method => :delete, :remote => true %>
 
-    <div class="ebay-options expanded">
+    <% if current_user %>
 
-      <%= link_to "To Ebay >>", { action: "open_modal", :modal => 'send_to_ebay', :multiverseid => card.multiverseid, :controller => "application" }, remote: true, class: 'ebay-options=panel-link mod-send-to-ebay' %>
+      <div class="ebay-options expanded">
 
-    </div>
+        <%= link_to "To Ebay >>", { action: "open_modal", :modal => 'send_to_ebay', :multiverseid => card.multiverseid, :controller => "application" }, remote: true, class: 'ebay-options=panel-link mod-send-to-ebay' %>
+
+      </div>
+
+    <% end %>
 
   </div>
 
