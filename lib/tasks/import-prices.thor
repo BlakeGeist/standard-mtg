@@ -10,7 +10,7 @@ class Import_price < Thor
 
     @pcards.each do |card|
 
-      if card_id
+      if card.card_id
 
         origional_card = Card.find_by! multiverseid: card.card_id
 
