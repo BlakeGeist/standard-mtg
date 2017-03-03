@@ -3,7 +3,23 @@
 
 <div class="pcard" id="card<%= @pcard.id %>">
 
-  <div class="pcard-price"><%= @card.tcg_prices.last.avgprice %></div>
+  <div class="pcard-price expanded">
+
+    <a href="" data-expand class="pcard-price-percentage"><%= getCardSpread(@pcard.price, card.tcg_prices.last.avgprice) %></a>
+
+    <div class="pcard-price-expander">
+
+      <div class="pcard-price-expander-item"><label>Current Spread:</label> <%= getCardSpread(@pcard.price, card.tcg_prices.last.avgprice) %></div>
+
+      <div class="pcard-price-expander-item"><label>Currrent Price:</label> <%= card.tcg_prices.last.avgprice %></div>
+
+      <div class="pcard-price-expander-item"><label>Benchmark Price:</label> <%=@pcard.price %></div>
+
+      <div class="pcard-price-expander-item">Time till rotation</div>
+
+    </div>
+
+  </div>
 
   <div class="pcard-amount"><%=@pcard.amount %></div>
 

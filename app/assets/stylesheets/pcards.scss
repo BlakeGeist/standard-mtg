@@ -27,7 +27,16 @@
   padding: 1px 6px;
   border: 1px solid #8a8a8a;
   left: -8px;
+  &.is-open {
+    .pcard-price-expander {
+      display: block;
+    }
+  }
 }
+
+  .pcard-price-expander {
+    display: none;
+  }
 
 .pcard_checkbox {
   display: none;

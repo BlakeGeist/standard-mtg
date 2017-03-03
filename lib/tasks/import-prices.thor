@@ -14,7 +14,13 @@ class Import_price < Thor
 
         origional_card = Card.find_by! multiverseid: card.card_id
 
+        card.price = origional_card.tcg_prices.last.avgprice
+
         puts origional_card.name
+
+        puts card.price
+
+        card.save
 
       end
 
