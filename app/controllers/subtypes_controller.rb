@@ -14,7 +14,7 @@ class SubtypesController < ApplicationController
 
    @cards = @search.result(distinct: true)
 
-   @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 30)
+   @cards = @cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 24)
 
 
  end
