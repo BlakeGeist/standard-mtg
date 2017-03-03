@@ -39,6 +39,33 @@ module PcardsHelper
 
     end
 
+  end
+
+  def getCardHigh(card)
+
+    avgPrices = Array.new
+
+    card.tcg_prices.each do |price|
+
+      avgPrices.push(price.avgprice)
+
+    end
+
+    return avgPrices.max
+
+  end
+
+  def getCardLow(card)
+
+    avgPrices = Array.new
+
+    card.tcg_prices.each do |price|
+
+      avgPrices.push(price.avgprice)
+
+    end
+
+    return avgPrices.min
 
   end
 
