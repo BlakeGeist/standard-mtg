@@ -19,7 +19,7 @@ class DashboardsController < ApplicationController
     @the_cards = @search.result(distinct: true)
 
     if current_user.pcards.count > 0
-      @cards = @the_cards.sort_by{ |t| [t.avgprice.to_i] }.reverse.paginate(:page => params[:page], :per_page => 30)
+      @cards = @the_cards.sort_by{ |t| [t.avgprice.to_i] }.reverse.paginate(:page => params[:page], :per_page => 24)
     end
 
     @subtypes = Subtype.all
