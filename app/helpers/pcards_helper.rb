@@ -25,4 +25,21 @@ module PcardsHelper
 
   end
 
+  def getCardSpread(card_price, pcard_price)
+
+    num = (pcard_price / card_price * 100).to_s.to_f.round - 100
+
+    if num > 0
+
+      return '+' + num.to_s + '%'
+
+    else
+
+      return num.to_s + '%'
+
+    end
+
+
+  end
+
 end
