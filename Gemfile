@@ -33,7 +33,10 @@ gem 'ransack'
 
 #ebay intergration
 gem 'omniauth-ebay'
+#for ebay trader api
 gem 'ebayr'
+#for ebay finder api
+gem 'rebay'
 
 # seo friendly urls
 gem 'friendly_id', '~> 5.1.0'

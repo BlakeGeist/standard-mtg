@@ -1,5 +1,11 @@
 <%= render '/templates/search' %>
 
+<div class="test">
+
+  <%= link_to "Test >>", {action: "findItemsByKeywords"}, remote: true %>
+
+</div>
+
 <div class="collection-total">
 
   <%= get_total(@users_cards) %>

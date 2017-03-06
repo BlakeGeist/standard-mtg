@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :dashboards do
     collection do
       post :ebayRequest
+      get :findItemsByKeywords
     end
   end
 
