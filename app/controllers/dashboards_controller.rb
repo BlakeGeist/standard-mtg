@@ -33,6 +33,17 @@ class DashboardsController < ApplicationController
     end
   end
 
+  def findItemsByKeywords
+
+    require 'Rebay'
+
+    finder = Rebay::Finding.new
+    respnose = finder.find_items_by_keywords({:keywords => 'acordian'})
+
+    @this = response.body
+
+  end
+
   def ebayRequest
 
     require 'ebayr'
