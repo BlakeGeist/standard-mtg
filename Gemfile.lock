@@ -166,6 +166,8 @@ GEM
     rdoc (4.3.0)
     rebay (1.2.0)
       json
+    rebay2 (0.2.1)
+      json
     representable (3.0.3)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -242,6 +244,7 @@ DEPENDENCIES
   rails_12factor
   ransack
   rebay
+  rebay2
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   thor

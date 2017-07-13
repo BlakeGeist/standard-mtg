@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get 'admins/index'
   get 'ebay/index'
 
+  resources :top50s
+  resources :top_cards
+
   resources :application do
     collection do
       get :open_modal

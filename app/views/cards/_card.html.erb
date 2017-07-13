@@ -8,6 +8,8 @@
 
     <div class="pcard-amount"><%=@pcard.amount %></div>
 
+    <% if card.recent_ebay_purchases %><div class="pcard-ebay-amount"><%=card.recent_ebay_purchases %></div><% end %>
+
     <%= form_for([current_user, @pcard], remote: true, :html => { :class => "edit_pcard"}) do |f| %>
 
       <a class="cards-card-link" href="<%= card_path(card) %>">
@@ -29,6 +31,8 @@
     <%= form_for([current_user, current_user.pcards.build], remote: true, :authenticity_token => true, :html => { :id => "new_pcard_#{card.multiverseid}"}) do |f| %>
 
       <a class="cards-card-link" href="<%= card_path(card) %>">
+
+        <% if card.recent_ebay_purchases %><div class="pcard-ebay-amount"><%=card.recent_ebay_purchases %></div><% end %>
 
         <img src="<%= card.image_url %>" />
 
