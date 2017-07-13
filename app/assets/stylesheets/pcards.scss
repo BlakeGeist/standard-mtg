@@ -18,6 +18,19 @@
   right: -8px;
 }
 
+.pcard-ebay-amount {
+  position: absolute;
+  text-align: right;
+  z-index: 99;
+  margin-top: -10px;
+  background-color: #fff;
+  color: #020202;
+  padding: 1px 6px;
+  border: 1px solid #8a8a8a;
+  right: -8px;
+  bottom: 1.6rem;
+}
+
 .pcard-price {
   position: absolute;
   text-align: left;

@@ -37,6 +37,7 @@ gem 'omniauth-ebay'
 gem 'ebayr'
 #for ebay finder api
 gem 'rebay'
+gem 'rebay2'
 
 # seo friendly urls
 gem 'friendly_id', '~> 5.1.0'

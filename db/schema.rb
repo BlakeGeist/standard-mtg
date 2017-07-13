@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302070409) do
+ActiveRecord::Schema.define(version: 20170713053200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,14 +44,15 @@ ActiveRecord::Schema.define(version: 20170302070409) do
     t.text     "legalities"
     t.text     "rulings"
     t.text     "foreignNames"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "slug"
     t.decimal  "avgprice"
     t.decimal  "hiprice"
     t.decimal  "lowprice"
     t.decimal  "foilprice"
     t.text     "link"
+    t.integer  "recent_ebay_purchases"
   end
 
   add_index "cards", ["slug"], name: "index_cards_on_slug", unique: true, using: :btree
@@ -144,6 +145,25 @@ ActiveRecord::Schema.define(version: 20170302070409) do
     t.text     "link"
   end
 
+  create_table "top50s", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "top_cards", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "count"
+    t.integer  "top50_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "events"
+    t.text     "card_list"
+    t.float    "deck"
+    t.float    "avg"
+  end
+
+  add_index "top_cards", ["top50_id"], name: "index_top_cards_on_top50_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -169,4 +189,5 @@ ActiveRecord::Schema.define(version: 20170302070409) do
 
   add_foreign_key "pcards", "users"
   add_foreign_key "tcg_prices", "cards"
+  add_foreign_key "top_cards", "top50s"
 end
