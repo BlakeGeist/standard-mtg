@@ -6,6 +6,12 @@ class TopCardsController < ApplicationController
     $standard = Standard.all
 
     @cards = Card.where("price > ?", 0.01).where(set: $standard.map(&:short_name)).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 100)
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
+
   end
 
   def new
