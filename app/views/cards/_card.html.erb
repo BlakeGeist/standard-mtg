@@ -32,6 +32,8 @@
 
       <a class="cards-card-link" href="<%= card_path(card) %>">
 
+        <% if card && card.tcg_prices && card.tcg_prices.last && card.tcg_prices.last.avgprice %><div class="pcard-price"><%= number_to_currency(card.tcg_prices.last.avgprice, :unit => "$") %></div><% end %>
+
         <% if card.recent_ebay_purchases %><div class="pcard-ebay-amount"><%=card.recent_ebay_purchases %></div><% end %>
 
         <img src="<%= card.image_url %>" />

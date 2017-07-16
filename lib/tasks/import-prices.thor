@@ -119,6 +119,7 @@ class Import_price < Thor
           card.hiprice = hiprice
           card.avgprice = avgprice
           card.link = link
+          card.price = avgprice
 
           card.save
 

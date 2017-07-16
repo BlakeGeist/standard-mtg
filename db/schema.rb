@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713053200) do
+ActiveRecord::Schema.define(version: 20170716034633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 20170713053200) do
     t.decimal  "foilprice"
     t.text     "link"
     t.integer  "recent_ebay_purchases"
+    t.integer  "live_ebay_auctions"
+    t.float    "price"
   end
 
   add_index "cards", ["slug"], name: "index_cards_on_slug", unique: true, using: :btree
@@ -105,6 +107,17 @@ ActiveRecord::Schema.define(version: 20170713053200) do
   end
 
   add_index "pcards", ["user_id"], name: "index_pcards_on_user_id", using: :btree
+
+  create_table "prices", force: :cascade do |t|
+    t.float    "hiprice"
+    t.float    "lowprice"
+    t.float    "avgprice"
+    t.float    "foilavgprice"
+    t.string   "market"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "link"
+  end
 
   create_table "rarities", force: :cascade do |t|
     t.string   "rarity"

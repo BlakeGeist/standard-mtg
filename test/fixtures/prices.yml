@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hiprice: 1.5
+  lowprice: 1.5
+  avgprice: 1.5
+  foilavgprice: 1.5
+  market: MyString
+
+two:
+  hiprice: 1.5
+  lowprice: 1.5
+  avgprice: 1.5
+  foilavgprice: 1.5
+  market: MyString
