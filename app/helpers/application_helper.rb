@@ -1,5 +1,12 @@
 module ApplicationHelper
 
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    css_class = column == sort_column ? "current #{sort_direction}" : nil
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to title, {:sort => column, :direction => direction}, {:class => css_class}
+  end
+
   #returns the total amount of cards in the db that match this set
   #usage: looking for 'standards' object
   def getTotalCardsInSet(set)

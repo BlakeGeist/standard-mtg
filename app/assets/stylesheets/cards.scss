@@ -16,3 +16,23 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+.cards {
+  flex-wrap: wrap;
+}
+
+.cards-card {
+  display: flex;
+  flex: 1 1 100%;
+  justify-content: space-between;
+}
+
+  .cards-card-attribute {
+    &.mod-name {
+      flex: 0 1 20rem;
+    }
+    &.mod-ebay-purchases {
+      flex: 0 1 20rem;
+    }
+  }
