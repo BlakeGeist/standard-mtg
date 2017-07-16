@@ -1,0 +1,15 @@
+<% @cards.each do |card| %>
+
+  <div class="cards-card">
+
+    <div class="cards-card-attribute mod-name"><%= link_to card.name, card %></div>
+
+    <div class="cards-card-attribute mod-ebay-purchases"><%= card.recent_ebay_purchases %></div>
+
+    <div class="cards-card-attribute mod-ebay-purchases"><%= card.live_ebay_auctions %></div>
+
+    <div class="cards-card-attribute mod-tcg-price"><% if card.price %><%= number_to_currency(card.price, :unit => "$") %><% else %>$0.00<% end %></div>
+
+  </div>
+
+<% end %>
