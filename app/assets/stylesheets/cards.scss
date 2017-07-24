@@ -5,7 +5,7 @@
 
 // homepage what sets are in standard styles
 
-.sets{
+.sets {
 }
 
 .sets-block {
@@ -22,10 +22,14 @@
   flex-wrap: wrap;
 }
 
-.cards-card {
-  display: flex;
-  flex: 1 1 100%;
-  justify-content: space-between;
+.top_cards-page {
+
+  .cards-card {
+    display: flex;
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+  
 }
 
   .cards-card-attribute {
