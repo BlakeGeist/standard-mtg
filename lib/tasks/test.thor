@@ -1,0 +1,52 @@
+{
+  "itemId"=>"382171522173",
+  "title"=>"***4x Overwhelming Splendor*** MTG Hour of Devastation HOU MINT Kid Icarus",
+  "globalId"=>"EBAY-US",
+  "primaryCategory"=>{"categoryId"=>"38292", "categoryName"=>"MTG Individual Cards"},
+  "galleryURL"=>"http://thumbs2.ebaystatic.com/m/mMYr2uEo09p9uHj_mmpxeoQ/140.jpg",
+  "viewItemURL"=>"http://www.ebay.com/itm/4x-Overwhelming-Splendor-MTG-Hour-Devastation-HOU-MINT-Kid-Icarus-/382171522173",
+  "paymentMethod"=>"PayPal",
+  "autoPay"=>"false",
+  "postalCode"=>"47150",
+  "location"=>"New Albany,IN,USA",
+  "country"=>"US",
+  "shippingInfo"=>{
+    "shippingServiceCost"=>{
+      "@currencyId"=>"USD",
+      "__value__"=>"3.0"
+    },
+    "shippingType"=>"Flat",
+    "shipToLocations"=>"Worldwide",
+    "expeditedShipping"=>"false",
+    "oneDayShippingAvailable"=>"false",
+    "handlingTime"=>"1"
+  },
+  "sellingStatus"=>{
+    "currentPrice"=>{
+      "@currencyId"=>"USD",
+      "__value__"=>"0.94"
+    },
+    "convertedCurrentPrice"=>{
+      "@currencyId"=>"USD",
+      "__value__"=>"0.94"
+    },
+    "bidCount"=>"1",
+    "sellingState"=>"Active",
+    "timeLeft"=>"P3DT20H25M7S"
+  },
+  "listingInfo"=>{
+    "bestOfferEnabled"=>"false",
+    "buyItNowAvailable"=>"false",
+    "startTime"=>"2017-07-21T00:07:35.000Z",
+    "endTime"=>"2017-07-28T00:07:35.000Z",
+    "listingType"=>"Auction",
+    "gift"=>"false"
+  },
+  "returnsAccepted"=>"true",
+  "condition"=>{
+    "conditionId"=>"3000",
+    "conditionDisplayName"=>"Used"
+  },
+  "isMultiVariationListing"=>"false",
+  "topRatedListing"=>"true"
+}
