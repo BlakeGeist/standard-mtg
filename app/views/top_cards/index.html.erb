@@ -10,6 +10,8 @@
 
     <div class="cards-card-attribute mod-tcg-price"><%= sortable "price" %></div>
 
+    <div class="cards-card-attribute mod-ebay-low-price">Ebay</div>
+
   </div>
 
   <% @cards.each do |card| %>
@@ -23,6 +25,8 @@
       <div class="cards-card-attribute mod-ebay-purchases"><%= card.live_ebay_auctions %></div>
 
       <div class="cards-card-attribute mod-tcg-price"><% if card.price %><%= number_to_currency(card.price, :unit => "$") %><% else %>$0.00<% end %></div>
+
+      <div class="cards-card-attribute mod-ebay-purchases"><%= number_to_currency(3.99, :unit => "$") %></div>
 
     </div>
 
