@@ -75,6 +75,8 @@ class DashboardsController < ApplicationController
 
     description =  params[:description].html_safe
 
+    description = description.encode('UTF-8', :invalid => :replace, :undef => :replace)
+
     @this = Ebayr.call(
       :AddItem,
       :Item => [
