@@ -69,11 +69,11 @@ class DashboardsController < ApplicationController
 
       photo_name = card.image_url.gsub!('&','&amp;')
 
-    else
+    else 
 
       photo_name = card.image_url
 
-    end 
+    end
 
     @this = Ebayr.call(
       :AddItem,
