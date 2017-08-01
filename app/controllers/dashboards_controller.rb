@@ -73,7 +73,7 @@ class DashboardsController < ApplicationController
 
     end
 
-    description = params[:description].html_safe
+    description = ActionController::Base.helpers.sanitize(params[:description])
 
     @this = Ebayr.call(
       :AddItem,
