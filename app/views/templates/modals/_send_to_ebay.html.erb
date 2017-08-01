@@ -61,7 +61,8 @@
 
           <script type="text/javascript">
           tinyMCE.init({
-            encoding: "xml"
+            encoding: "xml",
+            entity_encoding : "raw"
           });
           </script>
 
@@ -90,9 +91,9 @@
 
               <strong>Card Text:</strong>
 
-              <p><%= @card.text.html_safe if @card.text%></p>
+              <p><%= raw @card.text %></p>
 
-              <p><%= @card.flavor.html_safe if @card.flavor %></p>
+              <p><%= @card.flavor %></p>
 
             </div>
 
@@ -143,4 +144,3 @@
   </div>
 
 </div>
- 
