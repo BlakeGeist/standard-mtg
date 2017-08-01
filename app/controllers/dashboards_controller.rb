@@ -73,9 +73,19 @@ class DashboardsController < ApplicationController
 
     end
 
-    html_doc = Nokogiri::HTML(params[:description].html_safe)
+    description = params[:description].html_safe
 
-    description  = Nokogiri::XML(html_doc)
+    if description.to_s.include? '&minus'
+
+      description = description.gsub!('&minus','-')
+
+    emd
+
+    if description.to_s.include? '&rsquo;'
+
+      description = description.gsub!('&rsquo',"'")
+
+    emd
 
     @this = Ebayr.call(
       :AddItem,
