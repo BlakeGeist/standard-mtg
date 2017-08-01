@@ -102,7 +102,7 @@ class DashboardsController < ApplicationController
         :Title => "#{params[:title]}",
         :Country => 'US',
         :Currency => 'USD',
-        :Description => "#{}",
+        :Description => "#{description}",
         :DispatchTimeMax => '3',
         :HitCounter => 'NoHitCounter',
         :ItemSpecifics => [
