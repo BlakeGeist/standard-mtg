@@ -73,6 +73,8 @@ class DashboardsController < ApplicationController
 
     end
 
+    description = params[:description].html_safe
+
     @this = Ebayr.call(
       :AddItem,
       :Item => [
@@ -86,7 +88,7 @@ class DashboardsController < ApplicationController
         :Title => "#{params[:title]}",
         :Country => 'US',
         :Currency => 'USD',
-        :Description => "test",
+        :Description => description,
         :DispatchTimeMax => '3',
         :HitCounter => 'NoHitCounter',
         :ItemSpecifics => [
