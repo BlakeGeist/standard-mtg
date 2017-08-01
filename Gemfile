@@ -34,9 +34,9 @@ gem 'ransack'
 #ebay intergration
 gem 'omniauth-ebay'
 #for ebay trader api
-gem 'ebayr'
+gem 'ebayr', '0.0.9'
 #for ebay finder api
-gem 'rebay'
+gem 'rebay', '1.2.0'
 gem 'rebay2'
 
 # seo friendly urls
@@ -52,7 +52,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'json'
 
 # tinymce-rails
-gem 'tinymce-rails'
+gem 'tinymce-rails', '4.5.3'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
