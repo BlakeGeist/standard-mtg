@@ -75,15 +75,15 @@ class DashboardsController < ApplicationController
 
     description = params[:description].html_safe
 
-    if description.to_s.include? '&minus'
+    if description.to_s.include? '&minus;'
 
-      description = description.gsub!('&minus','-')
+      description = description.gsub!('&minus;','-')
 
     emd
 
     if description.to_s.include? '&rsquo;'
 
-      description = description.gsub!('&rsquo',"'")
+      description = description.gsub!('&rsquo;',"'")
 
     emd
 
