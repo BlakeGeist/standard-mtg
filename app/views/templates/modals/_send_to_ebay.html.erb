@@ -88,11 +88,11 @@
 
             <div>
 
-              <strong>Card Text:</strong>
-
               <% if @card.text %>
 
-                <p><%= @card.text.html_safe %></p>
+                <strong>Card Text:</strong>
+
+                <p><%= h @card.text %></p>
 
               <% end %>
 
