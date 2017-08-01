@@ -91,9 +91,17 @@
 
               <strong>Card Text:</strong>
 
-              <p><%= @card.text.html_safe if @card.text %></p>
+              <% if @card.text %>
 
-              <p><%= @card.flavor.html_safe if @card.flavor %></p>
+                <p><%= @card.text.html_safe %></p>
+
+              <% end %>
+
+              <% if @card.flavor %>
+
+                <p><%= @card.flavor.html_safe %></p>
+
+              <% end %>
 
             </div>
 
