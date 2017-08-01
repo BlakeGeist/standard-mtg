@@ -25,8 +25,22 @@ class ApplicationController < ActionController::Base
   def open_modal
 
     @modal = params[:modal]
-
     @multiverseid = params[:multiverseid]
+    @card = Card.find_by! multiverseid: @multiverseid
+    @pcard = current_user.pcards.find_by! card_id: @multiverseid
+    @text = @card.text
+
+    if @text.to_s.include? '&minus;'
+
+      @text = @text.gsub!('&minus;','-')
+
+    end
+
+    if @text.to_s.include? '&rsquo;'
+
+      @text = @text.gsub!('&rsquo;',"'")
+
+    end
 
     respond_to do |format|
       format.js
