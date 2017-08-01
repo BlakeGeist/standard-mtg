@@ -50,6 +50,7 @@ class DashboardsController < ApplicationController
     require 'nokogiri'
     require 'rest_client'
     require 'base64'
+    require 'rexml/document'
 
     Ebayr.dev_id = "a036b866-4e0d-49de-b7f6-a45309064be2"
 
@@ -69,7 +70,7 @@ class DashboardsController < ApplicationController
 
       photo_name = card.image_url.gsub!('&','&amp;')
 
-    else 
+    else
 
       photo_name = card.image_url
 
