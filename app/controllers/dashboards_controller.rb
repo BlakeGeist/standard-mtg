@@ -48,7 +48,9 @@ class DashboardsController < ApplicationController
 
     require 'ebayr'
     require 'nokogiri'
-
+    require 'rest_client'
+    require 'base64'
+    
     Ebayr.dev_id = "a036b866-4e0d-49de-b7f6-a45309064be2"
 
     Ebayr.app_id = "BlakeGei-standard-PRD-ee6e394ea-800e1243"
