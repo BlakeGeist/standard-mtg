@@ -79,13 +79,13 @@ class DashboardsController < ApplicationController
 
       description = description.gsub!('&minus;','-')
 
-    emd
+    end
 
     if description.to_s.include? '&rsquo;'
 
       description = description.gsub!('&rsquo;',"'")
 
-    emd
+    end
 
     @this = Ebayr.call(
       :AddItem,
