@@ -50,7 +50,7 @@ class DashboardsController < ApplicationController
     require 'nokogiri'
     require 'rest_client'
     require 'base64'
-    
+
     Ebayr.dev_id = "a036b866-4e0d-49de-b7f6-a45309064be2"
 
     Ebayr.app_id = "BlakeGei-standard-PRD-ee6e394ea-800e1243"
@@ -75,10 +75,6 @@ class DashboardsController < ApplicationController
 
     end
 
-    description = params[:description].html_safe
-
-
-
     @this = Ebayr.call(
       :AddItem,
       :Item => [
@@ -92,7 +88,7 @@ class DashboardsController < ApplicationController
         :Title => "#{params[:title]}",
         :Country => 'US',
         :Currency => 'USD',
-        :Description => "#{description}",
+        :Description => "#{REXML::Text.new(params[:description], false, nil, false)}",
         :DispatchTimeMax => '3',
         :HitCounter => 'NoHitCounter',
         :ItemSpecifics => [
