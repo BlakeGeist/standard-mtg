@@ -1,5 +1,4 @@
-<% @card = Card.find_by! multiverseid: multiverseid %>
-<% @pcard = current_user.pcards.find_by! card_id: multiverseid %>
+
 
 <div id="modal">
 
@@ -89,11 +88,11 @@
 
             <div>
 
-              <% if @card.text %>
+              <% if @text %>
 
                 <strong>Card Text:</strong>
 
-                <p><%= raw @card.text %></p>
+                <p><%= @text %></p>
 
               <% end %>
 
