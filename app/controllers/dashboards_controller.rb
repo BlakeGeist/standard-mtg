@@ -73,9 +73,7 @@ class DashboardsController < ApplicationController
 
     end
 
-    html_doc = Nokogiri::HTML(params[:description].html_safe)
-
-    description = html_doc.to_html
+    description = params[:description].html_safe
 
     if description.to_s.include? '&minus;'
 
