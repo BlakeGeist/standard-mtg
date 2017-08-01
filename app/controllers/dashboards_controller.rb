@@ -73,7 +73,7 @@ class DashboardsController < ApplicationController
 
     end
 
-    description = ActionController::Base.helpers.sanitize(params[:description])
+    description  = Nokogiri::XML(params[:description])
 
     @this = Ebayr.call(
       :AddItem,
