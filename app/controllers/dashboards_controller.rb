@@ -73,7 +73,9 @@ class DashboardsController < ApplicationController
 
     end
 
-    description = params[:description].html_safe
+    html_doc = Nokogiri::HTML(params[:description].html_safe)
+
+    description = html_doc.to_html
 
     if description.to_s.include? '&minus;'
 
@@ -100,7 +102,7 @@ class DashboardsController < ApplicationController
         :Title => "#{params[:title]}",
         :Country => 'US',
         :Currency => 'USD',
-        :Description => "#{description}",
+        :Description => "#{}",
         :DispatchTimeMax => '3',
         :HitCounter => 'NoHitCounter',
         :ItemSpecifics => [
