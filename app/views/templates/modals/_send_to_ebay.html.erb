@@ -90,9 +90,9 @@
 
               <strong>Card Text:</strong>
 
-              <p><%= raw @card.text %></p>
+              <p><%= @card.text.html_safe %></p>
 
-              <p><%= @card.flavor %></p>
+              <p><%= @card.flavor.html_safe %></p>
 
             </div>
 

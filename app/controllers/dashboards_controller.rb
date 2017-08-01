@@ -73,7 +73,7 @@ class DashboardsController < ApplicationController
 
     end
 
-    description  = Nokogiri::HTML(params[:description])
+    description = params[:description].html_safe
 
     @this = Ebayr.call(
       :AddItem,
