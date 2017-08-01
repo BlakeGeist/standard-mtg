@@ -90,9 +90,9 @@
 
               <strong>Card Text:</strong>
 
-              <p><%= @card.text.html_safe %></p>
+              <p><%= @card.text.html_safe if @card.text%></p>
 
-              <p><%= @card.flavor.html_safe %></p>
+              <p><%= @card.flavor.html_safe if @card.flavor %></p>
 
             </div>
 
@@ -143,3 +143,4 @@
   </div>
 
 </div>
+ 
