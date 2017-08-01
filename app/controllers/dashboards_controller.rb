@@ -73,7 +73,7 @@ class DashboardsController < ApplicationController
 
     end
 
-    description = params[:description].html_safe
+    description = html_safe(params[:description])
 
     @this = Ebayr.call(
       :AddItem,
