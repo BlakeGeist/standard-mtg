@@ -3,27 +3,31 @@
 
 <div class="pcard" id="card<%= @pcard.id %>">
 
-  <div class="pcard-price expanded">
+  <% if card && card.tcg_prices && card.tcg_prices.last && card.tcg_prices.last.avgprice %>
 
-    <a href="" data-expand class="pcard-price-percentage">$<%= card.tcg_prices.last.avgprice %></a>
+    <div class="pcard-price expanded">
 
-    <div class="pcard-price-expander">
+      <a href="" data-expand class="pcard-price-percentage">$<%= card.tcg_prices.last.avgprice %></a>
 
-      <div class="pcard-price-expander-item"><label>Card Spread:</label> <%= getCardSpread(@pcard.price, card.tcg_prices.last.avgprice) %></div>
+      <div class="pcard-price-expander">
 
-      <div class="pcard-price-expander-item"><label>Currrent Price:</label> $<%= card.tcg_prices.last.avgprice %></div>
+        <div class="pcard-price-expander-item"><label>Card Spread:</label> <%= getCardSpread(@pcard.price, card.tcg_prices.last.avgprice) %></div>
 
-      <div class="pcard-price-expander-item"><label>Benchmark Price:</label> $<%= @pcard.price %></div>
+        <div class="pcard-price-expander-item"><label>Currrent Price:</label> $<%= card.tcg_prices.last.avgprice %></div>
 
-      <div class="pcard-price-expander-item"><label>Card High Price:</label> $<%= getCardHigh(card) %></div>
+        <div class="pcard-price-expander-item"><label>Benchmark Price:</label> $<%= @pcard.price %></div>
 
-      <div class="pcard-price-expander-item"><label>Card Low Price:</label> $<%= getCardLow(card) %></div>
+        <div class="pcard-price-expander-item"><label>Card High Price:</label> $<%= getCardHigh(card) %></div>
 
-      <div class="pcard-price-expander-item">Time till rotation</div>
+        <div class="pcard-price-expander-item"><label>Card Low Price:</label> $<%= getCardLow(card) %></div>
+
+        <div class="pcard-price-expander-item">Time till rotation</div>
+
+      </div>
 
     </div>
 
-  </div>
+  <% end %>
 
   <div class="pcard-amount"><%=@pcard.amount %></div>
 
