@@ -4,7 +4,7 @@
 
     <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
 
-    <% if card && card.tcg_prices && card.tcg_prices.last & card.tcg_prices.last.avgprice %>
+    <% if card && card.tcg_prices && card.tcg_prices.last && card.tcg_prices.last.avgprice %>
 
       <div class="pcard-price"><%= card.tcg_prices.last.avgprice %></div>
 
