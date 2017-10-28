@@ -29,7 +29,7 @@ class AdminsController < ApplicationController
 
     mtg_sets = MTG::Set.all
 
-    $recent_mtg_sets = mtg_sets.last(20).reverse
+    $recent_mtg_sets = mtg_sets
 
 
     #rarities
