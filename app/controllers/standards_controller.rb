@@ -10,6 +10,20 @@ class StandardsController < ApplicationController
     end
   end
 
+  def edit
+    @standard = Standard.friendly.find(params[:id])
+  end
+
+  def update
+    @standard = Standard.friendly.find(params[:id])
+
+    if @standard.update(standard_params)
+      redirect_to edit_standard_path(params[:id])
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @standard = Standard.find(params[:id])
     @standard.destroy
@@ -30,7 +44,7 @@ class StandardsController < ApplicationController
 
   private
     def standard_params
-      params.require(:standard).permit(:name, :short_name, :photo, :slug)
+      params.require(:standard).permit(:name, :short_name, :photo, :slug, :active)
     end
 
 end

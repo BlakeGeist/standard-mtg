@@ -26,7 +26,7 @@
 
                 <div class="admins-page-section-edit-item-attributes-attribute mod-<%= attribute[0] %>">
 
-                  <% if attribute[1] and attribute[1].include? 'amazonaws.com' %>
+                  <% if attribute[1] and attribute[1].is_a? String and attribute[1].include? 'amazonaws.com' %>
 
                     <%= image_tag attribute[1] %>
 
@@ -43,6 +43,8 @@
           <% end %>
 
           <div class="admin-page-section-edit-item-controls">
+
+            <%= link_to 'Edit', edit_standard_path(section.id) %> |
 
             <%= link_to 'Destroy', standard_path(section.id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, short_name: section[:short_name] %>
 
