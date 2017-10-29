@@ -29,6 +29,13 @@ $(document).on('click', '.expanded', function(ev) {
   ev.stopPropagation();
 });
 
+$(document).on('click', '.advanced', function(ev) {
+  ev.preventDefault();
+  ev.stopPropagation();
+
+  $(".search").toggleClass('is-open');
+});
+
 //this function will toggle the nearest input
 $(document).on('click', '[data-checkbox-toggle]', function(ev)) {
   ev.preventDefault();
