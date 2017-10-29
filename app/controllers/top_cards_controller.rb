@@ -3,7 +3,7 @@ class TopCardsController < ApplicationController
 
   def index
     @top_cards = TopCard.all
-    $standard = Standard.all
+    #$standard = Standard.all
 
     @cards = Card.where("price > ?", 0.01).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 100)
 
