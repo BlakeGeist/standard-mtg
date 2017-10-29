@@ -24,15 +24,11 @@
 
           <% search_item[0].each do |search_by| %>
 
-            <div class='advanced-search-by-item'>
+            <div class='advanced-search-by-item' data-checkbox-toggle>
 
               <% if search_item[2].downcase == 'set' %>
 
                 <%= check_box_tag("q[" + search_item[2].downcase + "_cont_all][]", search_by[:short_name]) %>
-
-                <% elsif search_item[2].downcase == 'mechanics' %>
-
-                  <%= check_box_tag("q[text_cont_any][]", search_by[:name]) %>
 
                 <% elsif search_item[2].downcase == 'mechanics' %>
 

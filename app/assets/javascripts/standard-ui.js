@@ -1,3 +1,9 @@
+// close is-opened items if not clicked within
+$(document).on('click', 'html', function(ev) {
+  //Hide the menus if visible
+  $('.is-open').toggleClass('is-open');
+});
+
 $(document).on('click', '.toggle-section', function(ev) {
   ev.preventDefault();
   ev.stopPropagation();
@@ -22,3 +28,12 @@ $(document).on('click', '.expanded', function(ev) {
   ev.preventDefault();
   ev.stopPropagation();
 });
+
+$(document).on('click', '[data-checkbox-toggle]', function(ev)) {
+  ev.preventDefault();
+  ev.stopPropagation();
+
+  $(this).closest('input').).attr('colspan', function(index, attr){
+    return attr == 6 ? null : 6;
+  });
+}
