@@ -8,7 +8,7 @@ class DashboardsController < ApplicationController
     $mechanics = Mechanic.all
     $subtypes = Subtype.all
     $rarities = Crarity.all
-    $standard = Standard.all
+    #$standard = Standard.all
 
     @users_cards = current_user.pcards.pluck(:card_id, :amount)
 
