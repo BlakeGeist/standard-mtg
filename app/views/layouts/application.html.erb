@@ -25,89 +25,89 @@
 </head>
 <body class="<%= params[:controller] %>-page">
 
-<header>
+  <header>
 
-  <nav class="header-nav">
+    <nav class="header-nav">
 
-    <div class="header-nav-home">
+      <div class="header-nav-home">
 
-      <%= link_to 'Home', root_path, class: 'header-nav-link' %>
+        <%= link_to 'Home', root_path, class: 'header-nav-link' %>
 
-      <span class="header-nav-open"><%= link_to image_tag( asset_path('menu.png'), class: 'header-nav-open-image'), "#open-mobile-menu-link", id: 'openMobileMenuLink' %></span>
-
-    </div>
-
-    <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
-
-    <% $standard.reverse.each do |set| %>
-
-      <div>
-
-        <a href="<%= standard_path(set) %>" class="header-nav-link">
-
-          <span class="header-nav-link-text"><%= set.name %></span>
-
-          <span class="header-nav-link-text-small"><%= set.short_name %></span>
-
-          <span><%= image_tag set.photo, class: 'header-nav-link-image' %></span>
-
-        </a>
+        <span class="header-nav-open"><%= link_to image_tag( asset_path('menu.png'), class: 'header-nav-open-image'), "#open-mobile-menu-link", id: 'openMobileMenuLink' %></span>
 
       </div>
 
-      <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' unless set == $standard.first %>
+      <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' %>
 
-    <% end %>
+      <% $standard.reverse.each do |set| %>
 
-  </nav>
+        <div>
 
-</header>
+          <a href="<%= standard_path(set) %>" class="header-nav-link">
 
-<main>
+            <span class="header-nav-link-text"><%= set.name %></span>
 
-  <div class="body">
+            <span class="header-nav-link-text-small"><%= set.short_name %></span>
 
-  <div class="ux-bar">
+            <span><%= image_tag set.photo, class: 'header-nav-link-image' %></span>
 
-      <% if user_signed_in? %>
+          </a>
 
-        Logged in as <strong><%= current_user.username %></strong>.
+        </div>
 
-        <%= link_to 'Edit profile', edit_user_registration_path %>
-
-        | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-
-        | <%= link_to "Collection", dashboards_index_path %>
-
-      <% else %>
-
-        <%= link_to "Sign in with Ebay", user_ebay_omniauth_authorize_path %>
-
-        | <%= link_to "Sign up with Email", new_user_registration_path %>
-
-        | <%= link_to "Login", new_user_session_path %>
+        <%= image_tag asset_path('menu-bar.png'), class: 'header-nav-bar' unless set == $standard.first %>
 
       <% end %>
 
-      <% if current_user && current_user.admin? %>
+    </nav>
 
-         | <%= link_to "Admin", admins_index_path %>
+  </header>
 
-      <% end %>
+  <main>
 
-      <% if session["dick"] %>
+    <div class="body">
 
-        | <%= link_to "Ebay Dashboard", ebay_index_path %>
+      <div class="ux-bar">
 
-      <% end %>
+        <% if user_signed_in? %>
+
+          Logged in as <strong><%= current_user.username %></strong>.
+
+          <%= link_to 'Edit profile', edit_user_registration_path %>
+
+          | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+          | <%= link_to "Collection", dashboards_index_path %>
+
+        <% else %>
+
+          <%= link_to "Sign in with Ebay", user_ebay_omniauth_authorize_path %>
+
+          | <%= link_to "Sign up with Email", new_user_registration_path %>
+
+          | <%= link_to "Login", new_user_session_path %>
+
+        <% end %>
+
+        <% if current_user && current_user.admin? %>
+
+           | <%= link_to "Admin", admins_index_path %>
+
+        <% end %>
+
+        <% if session["dick"] %>
+
+          | <%= link_to "Ebay Dashboard", ebay_index_path %>
+
+        <% end %>
+
+      </div>
+
+      <%= yield %>
 
     </div>
 
-    <%= yield %>
-
-  </div>
-
-</main>
+  </main>
 
 </body>
 
