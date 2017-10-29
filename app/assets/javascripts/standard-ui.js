@@ -16,6 +16,11 @@ $(document).on('click', '[data-expand]', function(ev) {
   $(this).closest('.expanded').toggleClass('is-open');
 });
 
+$(document).on('click', '.expanded', function(ev) {
+  ev.preventDefault();
+  ev.stopPropagation();
+});
+
 $(document).on('click', '[data-modal="close"]', function(ev) {
   ev.preventDefault();
   ev.stopPropagation();
@@ -24,9 +29,11 @@ $(document).on('click', '[data-modal="close"]', function(ev) {
   $('#modal').remove();
 });
 
-$(document).on('click', '.expanded', function(ev) {
+$(document).on('click', '.advanced', function(ev) {
   ev.preventDefault();
   ev.stopPropagation();
+
+  $(".search").toggleClass('is-open');
 });
 
 //this function will toggle the nearest input
