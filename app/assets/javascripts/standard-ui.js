@@ -45,3 +45,10 @@ $(document).on('click', '[data-checkbox-toggle]', function(ev)) {
     return attr == 6 ? null : 6;
   });
 }
+
+$(document).on('click', '[toggle-price]', function(event){
+  ev.preventDefault();
+  ev.stopPropagation();
+
+  $(this).html("<%= escape_javascript(render(:partial => 'pages/top_link')) %>");
+});
