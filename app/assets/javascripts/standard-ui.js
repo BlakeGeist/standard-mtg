@@ -38,12 +38,7 @@ $(document).on('click', '.advanced', function(ev) {
 
 //this function will toggle the nearest input
 $(document).on('click', '[data-checkbox-toggle]', function(ev) {
-  ev.preventDefault();
   ev.stopPropagation();
-
-  $(this).closest('input').attr('colspan', function(index, attr){
-    return attr == 6 ? null : 6;
-  });
 });
 
 $(document).on('click', '[toggle-price]', function(event){
