@@ -29,6 +29,7 @@ $(document).on('click', '.expanded', function(ev) {
   ev.stopPropagation();
 });
 
+//this function will toggle the nearest input
 $(document).on('click', '[data-checkbox-toggle]', function(ev)) {
   ev.preventDefault();
   ev.stopPropagation();
