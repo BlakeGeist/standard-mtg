@@ -54,7 +54,6 @@ $(document).on('ready page:load', function() {
 
 });
 
-
 $(document).on('click', '.advanced', function(ev) {
   ev.preventDefault();
   ev.stopPropagation();
