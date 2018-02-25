@@ -103,6 +103,12 @@
 
       </div>
 
+      <% if user_signed_in? %>
+
+        <%= user_session %>
+
+      <% end %>
+
       <%= yield %>
 
     </div>
