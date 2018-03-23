@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+
+  <% @cards.each do |card| %>
+
+    <%= render 'cards/card', :card => card %>
+
+  <% end %>
+
+<% else %>
+
+  <%= render '/templates/default_cards' %>
+
+<% end %>

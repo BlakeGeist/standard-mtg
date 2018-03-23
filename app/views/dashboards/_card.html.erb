@@ -11,7 +11,7 @@
 
       <div class="pcard-price-expander">
 
-        <div class="pcard-price-expander-item"><label>Card Spread:</label> <%= getCardSpread(@pcard.price, card.tcg_prices.last.avgprice) %></div>
+        <div class="pcard-price-expander-item"><label>Card Spread:</label> <%= getCardSpread(@pcard.price, card.tcg_prices.last.avgprice) if @pcard.price && card.tcg_prices.last.avgprice %></div>
 
         <div class="pcard-price-expander-item"><label>Currrent Price:</label> $<%= card.tcg_prices.last.avgprice %></div>
 
