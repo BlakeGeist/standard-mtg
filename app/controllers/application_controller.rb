@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   #this allows the cards to be sortable
   require 'will_paginate/array'
 
+  def ebayRequest()
+    doEbayRequest(params[:keywords])
+    respond_to do |format|
+      format.js
+    end
+  end
+
   $colors = Color.all
   $mechanics = Mechanic.all
   $subtypes = Subtype.all

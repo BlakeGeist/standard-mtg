@@ -1,5 +1,27 @@
 module ApplicationHelper
 
+  def doEbayRequest(keywords)
+    puts keywords
+    puts keywords
+    puts keywords
+    puts keywords
+    puts keywords
+    puts keywords
+    finder = Rebay2::Finding.new
+    response = finder.find_items_by_keywords(
+      {
+        :keywords => keywords,
+        :itemFilter => [
+          :name => "ListingType",
+          :value => "AuctionWithBIN",
+          :value => "FixedPrice"
+        ]
+      }
+    )
+    @response = response.response
+    return @response
+  end
+
   def sortable(column, title = nil)
     title ||= column.titleize
     css_class = column == sort_column ? "current #{sort_direction}" : nil

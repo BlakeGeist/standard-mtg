@@ -41,6 +41,7 @@ gem 'rebay2'
 
 # seo friendly urls
 gem 'friendly_id', '~> 5.1.0'
+gem 'selenium-webdriver', '~> 3.6.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -50,6 +51,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 gem 'json'
+gem "watir", "6.0.0"
 
 # tinymce-rails
 gem 'tinymce-rails'
