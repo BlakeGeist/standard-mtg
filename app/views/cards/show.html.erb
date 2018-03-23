@@ -1,7 +1,5 @@
 <div class="card">
 
-  <%= link_to 'Get Current Auctions', {action: "ebayRequest", controller: 'application', keywords: @card.name}, :remote => true %>
-
   <div class="card-info">
 
     <div class="card-info-section mod-image"><%= image_tag (@card.image_url), class: 'card-image' %></div>
@@ -141,6 +139,8 @@
 
         <h2>TCG Prices</h2>
 
+        <%= link_to 'Get Current Auctions', {action: "ebayRequest", controller: 'application', keywords: @card.name}, :remote => true %>
+
         <table>
 
           <tr>
@@ -169,7 +169,7 @@
 
           <tr>
 
-            <td>Avgprice</td>
+            <td><strong>Avgprice</strong></td>
 
             <% @card_prices.each do |price| %>
 
