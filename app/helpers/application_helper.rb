@@ -1,24 +1,21 @@
 module ApplicationHelper
 
   def doEbayRequest(keywords)
-    puts keywords
-    puts keywords
-    puts keywords
-    puts keywords
-    puts keywords
-    puts keywords
     finder = Rebay2::Finding.new
     response = finder.find_items_by_keywords(
       {
         :keywords => keywords,
         :itemFilter => [
           :name => "ListingType",
-          :value => "AuctionWithBIN",
-          :value => "FixedPrice"
-        ]
+          :value => "FixedPrice",
+          :value => "StoreInventory",
+          :value => "AuctionWithBIN"
+        ],
+        :GetItFastOnly => true
       }
     )
     @response = response.response
+
     return @response
   end
 
