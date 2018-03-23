@@ -33,6 +33,10 @@ class StandardsController < ApplicationController
   end
 
   def show
+    if user_signed_in? and current_user.pcards
+      @users_cards = current_user.pcards.pluck(:card_id)
+    end
+
     @standard = Standard.friendly.find(params[:id])
     @title = "#{@standard.name} Card List | Standard MTG Cards"
     @search = Card.where('set=?', @standard.short_name).where.not("types like?", "%Land%").search(params[:q])

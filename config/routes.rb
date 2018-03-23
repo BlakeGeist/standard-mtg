@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   resources :standards
   resources :crarities
   resources :pcards
+  resources :alls
 
   get 'mechanics/index'
   resources :mechanics

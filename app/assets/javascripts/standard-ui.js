@@ -16,6 +16,12 @@ $(document).on('click', '[data-expand]', function(ev) {
   $(this).closest('.expanded').toggleClass('is-open');
 });
 
+$(document).on('click', '[data-expand-info]', function(ev) {
+  ev.preventDefault();
+  ev.stopPropagation();
+  alert('here');
+});
+
 $(document).on('click', '.expanded', function(ev) {
   ev.preventDefault();
   ev.stopPropagation();
