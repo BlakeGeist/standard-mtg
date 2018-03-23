@@ -1,7 +1,6 @@
 <div class="card">
 
-  <%= session["dick"] %>
-
+  <%= link_to 'Get Current Auctions', {action: "ebayRequest", controller: 'application', keywords: @card.name}, :remote => true %>
 
   <div class="card-info">
 

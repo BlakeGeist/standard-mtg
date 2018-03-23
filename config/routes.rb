@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :application do
     collection do
       get :open_modal
+      get :ebayRequest
     end
   end
 
@@ -65,7 +66,6 @@ Rails.application.routes.draw do
   resources :cards do
     resources :tcg_prices
   end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

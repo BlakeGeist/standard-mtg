@@ -1,0 +1,27 @@
+<table>
+
+  <tr>
+
+    <th>Price</th>
+
+    <th>Title</th>
+
+    <th>Item URL</th>
+
+  </tr>
+
+  <% items.each do |item| %>
+
+    <tr>
+
+      <td>$<%= item['sellingStatus']['currentPrice']['__value__'] %></td>
+
+      <td><%= item['title'] %></td> 
+
+      <td><%= link_to 'Ebay Link', item['viewItemURL'], target: '_blank' %></td>
+
+    </tr>
+
+  <% end %>
+
+</table>
