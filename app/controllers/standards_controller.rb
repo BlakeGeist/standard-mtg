@@ -43,7 +43,7 @@ class StandardsController < ApplicationController
     @t_cards = Card.where('set=?', @standard.short_name)
     @last_ten = Card.where('set=?', @standard.short_name).sort_by{ |t| [t.lowprice.to_i] }.reverse
     @the_cards = @search.result(distinct: true)
-    @cards = @the_cards.sort_by{ |t| [t.cmc.to_i, t.colors] }.paginate(:page => params[:page], :per_page => 24)
+    @cards = @the_cards.sort_by{ |t| [t.name] }.paginate(:page => params[:page], :per_page => 24)
   end
 
   private
