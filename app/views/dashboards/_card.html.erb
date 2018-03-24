@@ -1,6 +1,8 @@
 <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
 <% @card = Card.find_by! multiverseid: card.multiverseid %>
 
+<%= @GetOrders %>
+
 <div class="pcard <% if @GetOrders and @GetOrders.include? @card.name %>is-on-ebay<% end %>" id="card<%= @pcard.id %>">
 
   <% if card && card.tcg_prices && card.tcg_prices.last && card.tcg_prices.last.avgprice %>
