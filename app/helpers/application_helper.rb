@@ -34,51 +34,84 @@ module ApplicationHelper
 
   end
 
-  def import_these_cards(set)
+  def import_these_cards_from_this_set(set)
 
     require File.expand_path('config/environment.rb')
 
-    @set = MTG::Card.where(set: set).all
+    search_params = "s:" + set
 
-    @set.each do |card|
+    @set = Scryfall::Cards.search search_params
+
+    #@set = MTG::Card.where(set: set).all
+
+    set_data = @set['data']
+
+    set_data.each do |card|
 
       hashCard = JSON.parse card.to_json
 
-      puts hashCard['legalities']
+      if hashCard['card_faces']
+
+        hashCard['image_uris'] = hashCard['card_faces']
+
+      end
+
 
       Card.create!(
-        :info => hashCard,
         :name => hashCard['name'],
         :layout => hashCard['layout'],
-        :mana_cost => hashCard['manaCost'],
+        :mana_cost => hashCard['mana_cost'],
         :cmc => hashCard['cmc'],
-        :cardType => hashCard['type'],
+        :type_line => hashCard['type_line'],
         :rarity => hashCard['rarity'],
-        :flavor => hashCard['flavor'],
-        :text => hashCard['text'],
-        :number => hashCard['number'],
-        :power => hashCard['power'],
-        :toughness => hashCard['toughness'],
-        :multiverseid => hashCard['multiverseid'],
-        :originalText => hashCard['originalText'],
-        :originalType => hashCard['originalType'],
-        :set => hashCard['set'],
-        :setName => hashCard['setName'],
-        :image_url => hashCard['imageUrl'],
-        :supertypes => hashCard['supertypes'],
-        :subtypes => hashCard['subtypes'],
-        :types => hashCard['types'],
-        :colors => hashCard['colors'],
-        :printings => hashCard['printings'],
-        :legalities => hashCard['legalities'],
+        :multiverseid => hashCard['multiverse_ids'].to_s,
+        :images => hashCard['image_uris'].to_s,
+        :colors => hashCard['colors'] || ['C'],
+        :legalities => hashCard['legalities'].to_a,
         :rulings => hashCard['rulings'],
-        :foreignNames => hashCard['foreignNames'],
-        :artist => hashCard['artist']
+        :artist => hashCard['artist'],
+        :mtgo_id => hashCard['mtgo_id'],
+        :arena_id => hashCard['arena_id'],
+        :tcgplayer_id => hashCard['tcgplayer_id'],
+        :lang => hashCard['lang'],
+        :released_at_date => hashCard['released_at'],
+        :uri => hashCard['uri'],
+        :scryfall_uri => hashCard['scryfall_uri'],
+        :oracle_text => hashCard['oracle_text'],
+        :color_identity => hashCard['color_identity'],
+        :games => hashCard['games'],
+        :reserved => hashCard['reserved'],
+        :foil => hashCard['foil'],
+        :nonfoil => hashCard['nonfoil'],
+        :oversized => hashCard['oversized'],
+        :promo => hashCard['promo'],
+        :reprint => hashCard['reprint'],
+        :variation => hashCard['variation'],
+        :set => hashCard['set'].upcase,
+        :set_name => hashCard['set_name'],
+        :set_type => hashCard['set_type'],
+        :set_uri => hashCard['set_uri'],
+        :set_search_uri => hashCard['set_search_uri'],
+        :scryfall_set_uri => hashCard['scryfall_set_uri'],
+        :rulings_uri => hashCard['rulings_uri'],
+        :prints_search_uri => hashCard['prints_search_uri'],
+        :collection_number => hashCard['collector_number'],
+        :digital => hashCard['digital'],
+        :rarity => hashCard['rarity'],
+        :flavor_text => hashCard['flavor_text'],
+        :border_color => hashCard['border_color'],
+        :frame => hashCard['frame'],
+        :full_art => hashCard['full_art'],
+        :textless => hashCard['textless'],
+        :booster => hashCard['booster'],
+        :edhrec_rank => hashCard['edhrec_rank'],
+        :prices => hashCard['prices'].to_s,
+        :story_spotlight => hashCard['story_spotlight'],
+        :avgprice => hashCard['prices']
       )
+
     end
 
-
   end
-
 
 end

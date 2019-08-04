@@ -83,13 +83,13 @@ class DashboardsController < ApplicationController
 
     card = Card.find_by! multiverseid: multiverseid
 
-    if card.image_url.to_s.include? '&type'
+    if card.image_url_normal.to_s.include? '&type'
 
-      photo_name = card.image_url.gsub!('&','&amp;')
+      photo_name = card.image_url_normal.gsub!('&','&amp;')
 
     else
 
-      photo_name = card.image_url
+      photo_name = card.image_url_normal
 
     end
 
@@ -122,7 +122,7 @@ class DashboardsController < ApplicationController
         :PaymentMethods => 'PayPal',
         :PayPalEmailAddress => session["dick"]["info"]["email"],
         :PictureDetails => [
-          :ExternalPictureURL => "#{card.image_url}"
+          :ExternalPictureURL => "#{card.image_url_normal}"
         ],
         :PostalCode => '98682',
         :PrimaryCategory => [

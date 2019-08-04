@@ -7,6 +7,8 @@ require 'rubygems'
 
 require 'mtg_sdk'
 
+require "scryfall/cards"
+
 require 'yaml'
 
 require 'json'

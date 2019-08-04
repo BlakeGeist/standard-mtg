@@ -82,7 +82,7 @@ class AdminsController < ApplicationController
 
     @this_set = Standard.find_by_short_name(params[:set_code])
 
-    import_these_cards(params[:set_code])
+    import_these_cards_from_this_set(params[:set_code])
 
     respond_to do |format|
       format.js
@@ -98,8 +98,8 @@ class AdminsController < ApplicationController
 
   end
 
-  #this is the method called by the delete set button from the admins
-  def delete_set_cand
+  #this is the method called by the "delete this set from the db" button from the admins
+  def delete_set_and_cards
 
     @this_set = Standard.find_by_short_name(params[:set_code])
 

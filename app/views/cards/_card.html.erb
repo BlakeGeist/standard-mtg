@@ -1,5 +1,13 @@
 <div class="pcard" id="div_new_pcard_<%= card.multiverseid %>">
 
+  <% image = eval(card.images) %>
+
+  <% if card.layout === 'transform' %>
+
+    <% image = image[0]['image_uris'] %>
+
+  <% end %>
+
   <% if @users_cards.include? card.multiverseid %>
 
     <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
@@ -18,7 +26,11 @@
 
       <a class="cards-card-link" href="<%= card_path(card) %>">
 
-        <img src="<%= card.image_url %>" />
+        <% if image %>
+
+          <%= image_tag(image['normal'], width: '260px') %>
+
+        <% end %>
 
       </a>
 
@@ -40,7 +52,11 @@
 
         <% if card.recent_ebay_purchases %><div class="pcard-ebay-amount"><%=card.recent_ebay_purchases %></div><% end %>
 
-        <img src="<%= card.image_url %>" />
+        <% if image %>
+
+          <%= image_tag(image['normal'], width: '260px') %>
+
+        <% end %>
 
       </a>
 

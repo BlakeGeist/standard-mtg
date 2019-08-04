@@ -11,9 +11,9 @@
 
       <div class="search-input">
 
-        <%= f.label :info_cont, " Search" %>
+        <%#= f.label :info_cont, " Search" %>
 
-        <%= f.text_field :info_cont %>
+        <%#= f.text_field :info_cont %>
 
         <div class="actions"><%= f.submit "submit" %> </div> |
 
@@ -65,7 +65,7 @@
 
         <a href="<%= card_path(card) %>">
 
-          <img src="<%= card.image_url %>" />
+          <img src="<%= card.image_url_normal %>" />
 
         </a>
 
