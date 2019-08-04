@@ -27,10 +27,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  host: ec2-54-243-249-149.compute-1.amazonaws.com
+  host: ec2-54-204-35-248.compute-1.amazonaws.com
   adapter: postgresql
   encoding: unicode
-  database: d55679mf7n35gm
+  database: decroftiskrb9a
   pool: 5
-  username: ahjeyqgglzufto
-  password: mxzve1TXf7BjUG2_d5v9p0nl_8
+  username: ojxkzfylqwbpmp
+  password: 80b889adc6a2afcab11593223f07d06e3726e1f324c91f3546e9c13890e42785
