@@ -60,6 +60,10 @@ module ApplicationHelper
 
         hashCard['multiverse_ids2'] = hashCard['multiverse_ids'][1]
 
+      else
+
+        hashCard['multiverse_ids2'] = 0;
+
       end
 
 
@@ -71,7 +75,7 @@ module ApplicationHelper
         :type_line => hashCard['type_line'],
         :rarity => hashCard['rarity'],
         :multiverseid => hashCard['multiverse_ids'][0],
-        :multiverseid2 => hashCard['multiverse_ids2'] || nil,
+        :multiverseid2 => hashCard['multiverse_ids2'],
         :images => hashCard['image_uris'].to_s,
         :colors => hashCard['colors'] || ['C'],
         :legalities => hashCard['legalities'].to_a,
