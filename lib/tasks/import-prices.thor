@@ -74,7 +74,7 @@ class Import_price < Thor
           card_name.gsub!(" ", "%20")
         end
 
-        card_set_name = card.setName
+        card_set_name = card.set_name
         if card_set_name and card_set_name.include? " "
           card_set_name.gsub!(" ", "%20")
         end
@@ -88,8 +88,8 @@ class Import_price < Thor
           card.name.gsub!("%20", " ")
         end
 
-        if card.setName and card.setName.include? "%20"
-          card.setName.gsub!("%20", " ")
+        if card.set_name and card.set_name.include? "%20"
+          card.set_name.gsub!("%20", " ")
         end
 
         hiprice = @doc.xpath("//hiprice").text

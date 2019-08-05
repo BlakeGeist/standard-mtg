@@ -7,7 +7,8 @@ class CreateCards < ActiveRecord::Migration
       t.integer :arena_id
       t.integer :tcgplayer_id
       t.integer :cmc
-      t.string :multiverseid
+      t.integer :multiverseid
+      t.integer :multiverseid2
       t.string :name
       t.string :layout
       t.string :released_at_date

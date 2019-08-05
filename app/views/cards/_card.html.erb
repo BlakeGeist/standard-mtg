@@ -1,3 +1,4 @@
+
 <div class="pcard" id="div_new_pcard_<%= card.multiverseid %>">
 
   <% image = eval(card.images) %>
@@ -52,11 +53,7 @@
 
         <% if card.recent_ebay_purchases %><div class="pcard-ebay-amount"><%=card.recent_ebay_purchases %></div><% end %>
 
-        <% if image %>
-
-          <%= image_tag(image['normal'], width: '260px') %>
-
-        <% end %>
+        <%= image_tag(image['normal'], width: '260px') %>
 
       </a>
 

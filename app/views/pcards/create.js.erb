@@ -1,5 +1,7 @@
 "<%= @this_card = Card.find_by! multiverseid: params[:pcard][:card_id] %>"
 
+
+
 $("#div_new_pcard_<%= params[:pcard][:card_id] %>").html("<%= escape_javascript(render partial: "cards/fetch_card", locals: {card: @this_card, current_user: current_user}) %>");
 
 $("#edit_pcard_<%= params[:id] %>").hide();

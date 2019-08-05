@@ -1,8 +1,9 @@
 class PcardsController < ApplicationController
 
   def create
+
     @pcard = current_user.pcards.create(pcard_params)
-  
+
     if @pcard.save
       flash[:notice] = "Successfully created pcard."
       respond_to do |format|

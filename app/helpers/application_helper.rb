@@ -56,6 +56,12 @@ module ApplicationHelper
 
       end
 
+      if hashCard['multiverse_ids'].count > 1
+
+        hashCard['multiverse_ids2'] = hashCard['multiverse_ids'][1]
+
+      end
+
 
       Card.create!(
         :name => hashCard['name'],
@@ -64,7 +70,8 @@ module ApplicationHelper
         :cmc => hashCard['cmc'],
         :type_line => hashCard['type_line'],
         :rarity => hashCard['rarity'],
-        :multiverseid => hashCard['multiverse_ids'].to_s,
+        :multiverseid => hashCard['multiverse_ids'][0],
+        :multiverseid2 => hashCard['multiverse_ids2'] || nil,
         :images => hashCard['image_uris'].to_s,
         :colors => hashCard['colors'] || ['C'],
         :legalities => hashCard['legalities'].to_a,

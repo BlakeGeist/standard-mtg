@@ -1,5 +1,6 @@
 <% @pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
 <% @card = Card.find_by! multiverseid: card.multiverseid %>
+<% image = eval(card.images) %>
 
 <div class="pcard <% if @GetOrders and @GetOrders.to_s.include? @card.name %>is-on-ebay<% end %>" id="card<%= @pcard.id %>">
 
@@ -35,7 +36,7 @@
 
     <a class="cards-card-link" href="<%= card_path(card) %>">
 
-      <img src="<%= card.image_url_normal %>" />
+      <%= image_tag(image['normal'], width: '260px') %>
 
     </a>
 
