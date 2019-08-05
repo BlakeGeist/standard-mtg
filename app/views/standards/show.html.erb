@@ -5,7 +5,6 @@
 
   <h2><%= @standard.name %> Cards</h2>
 
-  <p>If you were to purchase this entire set for its low price on TCG Player it would cost you. <%= @t_cards.pluck(:lowprice).compact.sum %></p>
 
   <p>The 10 most expensive cards are. </p>
 
@@ -13,7 +12,7 @@
 
     <% @last_ten.first(10).each do |card| %>
 
-      <li><%= link_to card.name, card %> | <%= card.lowprice %></li>
+      <li><%= link_to card.name, card %> | <%= card.avgprice %></li>
 
     <% end %>
 
