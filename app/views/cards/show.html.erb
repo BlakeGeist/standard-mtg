@@ -1,8 +1,14 @@
+<% image = eval(@card.images) %>
+
 <div class="card">
 
   <div class="card-info">
 
-    <div class="card-info-section mod-image"><%= image_tag (@card.image_url_normal), class: 'card-image' %></div>
+    <div class="card-info-section mod-image">
+
+      <%= image_tag(image['normal'], class: 'card-image') %>
+
+    </div>
 
     <div class="card-info-section mod-info">
 
@@ -10,25 +16,7 @@
 
         <p class="card-info-type">
 
-          <strong>Type:</strong>
-
-          <% @card.types.each_with_index do |type, index| %>
-
-            <%= type %><%= "," unless @card.types.count==index+1 %>
-
-          <% end %>
-
-        </p>
-
-        <p>
-
-        <strong>Subtype<%= "s" unless @card.subtypes.count <= 1 %></strong>
-
-          <% @card.subtypes.each do |type| %>
-
-            <%= type %><%= "," unless type == @card.subtypes.last %>
-
-          <% end %>
+          <strong>Type:</strong> <%= @card.type_line %>
 
         </p>
 
@@ -36,7 +24,7 @@
 
           <strong>CMC:</strong>
 
-          <%= @card.info['manaCost'] %>
+          <%= @card.cmc %>
 
         </p>
 
@@ -52,9 +40,9 @@
 
         <%=raw @card_text %>
 
-        <% if @card.flavor %>
+        <% if @card.flavor_text %>
 
-          <p class="card-info-flavor"><em><%= @card.flavor %></em></p>
+          <p class="card-info-flavor"><em><%= @card.flavor_text %></em></p>
 
         <% end %>
 
@@ -72,40 +60,9 @@
 
       </p>
 
-      <p class="card-info-raity-number"><strong>Rarity &amp; Number:</strong> <%= @card.rarity %>, <%= @card.number %></p>
+      <p class="card-info-raity-number">
 
-      <p class="card-info-printings">
-
-        <strong>Printings:</strong>
-
-        <% @card.printings.each_with_index do |set, index| %>
-
-          <% set_controller = "#{set.downcase}_path" %>
-
-          <% if $standard.include? MTG::Set.find(set).name %>
-
-            <a href="<%= MTG::Set.find(set).name.downcase.gsub(' ', '-') %>"><%= MTG::Set.find(set).name %></a>
-            <%= "," unless @card.printings.count==index+1 %>
-
-          <% else %>
-
-            <%= MTG::Set.find(set).name %><%= "," unless @card.printings.count==index+1 %>
-
-          <% end %>
-
-        <% end %>
-
-      </p>
-
-      <p class="card-info-legalities">
-
-        <strong>Legal formats:</strong>
-
-        <% @card.legalities.each_with_index do |set, index| %>
-
-          <%= set['format'] %><%= "," unless @card.legalities.count==index+1 %>
-
-        <% end %>
+        <strong>Rarity &amp; Number:</strong> <%= @card.rarity %>, <%= @card.collection_number %>
 
       </p>
 
@@ -125,7 +82,7 @@
 
         <% if @card.lowprice? %>
 
-          <p><a href="http://www.cardkingdom.com/mtg/<%= @card.setName.gsub(" ", "-").downcase %>/<%=@card.slug%>" target="_blank">Card Kingdom</a></p>
+          <p><a href="http://www.cardkingdom.com/mtg/<%= @card.set_name.gsub(" ", "-").downcase %>/<%=@card.slug%>" target="_blank">Card Kingdom</a></p>
 
         <% end %>
 

@@ -49,10 +49,11 @@ Rails.application.routes.draw do
     end
   end
   resources :colors
-  resources :standards
+  resources :standards, :path => 'set'
   resources :crarities
   resources :pcards
   resources :alls
+
 
   get 'mechanics/index'
   resources :mechanics
