@@ -41,9 +41,10 @@ class StandardsController < ApplicationController
     @title = "#{@standard.name} Card List | Standard MTG Cards"
     @search = Card.where('set=?', @standard.short_name).search(params[:q])
     @t_cards = Card.where('set=?', @standard.short_name)
-    @last_ten = Card.where('set=?', @standard.short_name).sort_by{ |t| [t.avgprice.to_i] }.reverse
     @the_cards = @search.result(distinct: true)
     @cards = @the_cards.sort_by{ |t| [t.collection_number] }.paginate(:page => params[:page], :per_page => 24)
+    @last_ten = Card.where('set=?', @standard.short_name).sort_by{ |t| [t.avgprice.to_i] }.reverse
+    
   end
 
   private

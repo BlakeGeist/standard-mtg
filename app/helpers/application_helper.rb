@@ -36,90 +36,98 @@ module ApplicationHelper
 
   def import_these_cards_from_this_set(set)
 
+    page_number = 1
+    next_page = true
+
     require File.expand_path('config/environment.rb')
 
-    search_params = "s:" + set
+    until !next_page do
 
-    @set = Scryfall::Cards.search search_params
+      @set = Scryfall::Cards.search "s:" + set, page_number
 
-    #@set = MTG::Card.where(set: set).all
+      page_number = page_number + 1
 
-    set_data = @set['data']
+      next_page = @set['has_more']
 
-    set_data.each do |card|
+      #@set = MTG::Card.where(set: set).all
 
-      hashCard = JSON.parse card.to_json
+      set_data = @set['data']
 
-      if hashCard['card_faces']
+      set_data.each do |card|
 
-        hashCard['image_uris'] = hashCard['card_faces']
+        hashCard = JSON.parse card.to_json
+
+        if hashCard['card_faces']
+
+          hashCard['image_uris'] = hashCard['card_faces']
+
+        end
+
+        if hashCard['multiverse_ids'].count > 1
+
+          hashCard['multiverse_ids2'] = hashCard['multiverse_ids'][1]
+
+        else
+
+          hashCard['multiverse_ids2'] = 0;
+
+        end
+
+        Card.create!(
+          :name => hashCard['name'],
+          :layout => hashCard['layout'],
+          :mana_cost => hashCard['mana_cost'],
+          :cmc => hashCard['cmc'],
+          :type_line => hashCard['type_line'],
+          :rarity => hashCard['rarity'],
+          :multiverseid => hashCard['multiverse_ids'][0],
+          :multiverseid2 => hashCard['multiverse_ids2'],
+          :images => hashCard['image_uris'].to_s,
+          :colors => hashCard['colors'] || ['C'],
+          :legalities => hashCard['legalities'].to_a,
+          :rulings => hashCard['rulings'],
+          :artist => hashCard['artist'],
+          :mtgo_id => hashCard['mtgo_id'],
+          :arena_id => hashCard['arena_id'],
+          :tcgplayer_id => hashCard['tcgplayer_id'],
+          :lang => hashCard['lang'],
+          :released_at_date => hashCard['released_at'],
+          :uri => hashCard['uri'],
+          :scryfall_uri => hashCard['scryfall_uri'],
+          :oracle_text => hashCard['oracle_text'],
+          :color_identity => hashCard['color_identity'],
+          :games => hashCard['games'],
+          :reserved => hashCard['reserved'],
+          :foil => hashCard['foil'],
+          :nonfoil => hashCard['nonfoil'],
+          :oversized => hashCard['oversized'],
+          :promo => hashCard['promo'],
+          :reprint => hashCard['reprint'],
+          :variation => hashCard['variation'],
+          :set => hashCard['set'].upcase,
+          :set_name => hashCard['set_name'],
+          :set_type => hashCard['set_type'],
+          :set_uri => hashCard['set_uri'],
+          :set_search_uri => hashCard['set_search_uri'],
+          :scryfall_set_uri => hashCard['scryfall_set_uri'],
+          :rulings_uri => hashCard['rulings_uri'],
+          :prints_search_uri => hashCard['prints_search_uri'],
+          :collection_number => hashCard['collector_number'],
+          :digital => hashCard['digital'],
+          :rarity => hashCard['rarity'],
+          :flavor_text => hashCard['flavor_text'],
+          :border_color => hashCard['border_color'],
+          :frame => hashCard['frame'],
+          :full_art => hashCard['full_art'],
+          :textless => hashCard['textless'],
+          :booster => hashCard['booster'],
+          :edhrec_rank => hashCard['edhrec_rank'],
+          :prices => hashCard['prices'].to_s,
+          :story_spotlight => hashCard['story_spotlight'],
+          :avgprice => hashCard['prices']
+        )
 
       end
-
-      if hashCard['multiverse_ids'].count > 1
-
-        hashCard['multiverse_ids2'] = hashCard['multiverse_ids'][1]
-
-      else
-
-        hashCard['multiverse_ids2'] = 0;
-
-      end
-
-
-      Card.create!(
-        :name => hashCard['name'],
-        :layout => hashCard['layout'],
-        :mana_cost => hashCard['mana_cost'],
-        :cmc => hashCard['cmc'],
-        :type_line => hashCard['type_line'],
-        :rarity => hashCard['rarity'],
-        :multiverseid => hashCard['multiverse_ids'][0],
-        :multiverseid2 => hashCard['multiverse_ids2'],
-        :images => hashCard['image_uris'].to_s,
-        :colors => hashCard['colors'] || ['C'],
-        :legalities => hashCard['legalities'].to_a,
-        :rulings => hashCard['rulings'],
-        :artist => hashCard['artist'],
-        :mtgo_id => hashCard['mtgo_id'],
-        :arena_id => hashCard['arena_id'],
-        :tcgplayer_id => hashCard['tcgplayer_id'],
-        :lang => hashCard['lang'],
-        :released_at_date => hashCard['released_at'],
-        :uri => hashCard['uri'],
-        :scryfall_uri => hashCard['scryfall_uri'],
-        :oracle_text => hashCard['oracle_text'],
-        :color_identity => hashCard['color_identity'],
-        :games => hashCard['games'],
-        :reserved => hashCard['reserved'],
-        :foil => hashCard['foil'],
-        :nonfoil => hashCard['nonfoil'],
-        :oversized => hashCard['oversized'],
-        :promo => hashCard['promo'],
-        :reprint => hashCard['reprint'],
-        :variation => hashCard['variation'],
-        :set => hashCard['set'].upcase,
-        :set_name => hashCard['set_name'],
-        :set_type => hashCard['set_type'],
-        :set_uri => hashCard['set_uri'],
-        :set_search_uri => hashCard['set_search_uri'],
-        :scryfall_set_uri => hashCard['scryfall_set_uri'],
-        :rulings_uri => hashCard['rulings_uri'],
-        :prints_search_uri => hashCard['prints_search_uri'],
-        :collection_number => hashCard['collector_number'],
-        :digital => hashCard['digital'],
-        :rarity => hashCard['rarity'],
-        :flavor_text => hashCard['flavor_text'],
-        :border_color => hashCard['border_color'],
-        :frame => hashCard['frame'],
-        :full_art => hashCard['full_art'],
-        :textless => hashCard['textless'],
-        :booster => hashCard['booster'],
-        :edhrec_rank => hashCard['edhrec_rank'],
-        :prices => hashCard['prices'].to_s,
-        :story_spotlight => hashCard['story_spotlight'],
-        :avgprice => hashCard['prices']
-      )
 
     end
 

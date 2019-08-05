@@ -9,7 +9,7 @@ gem 'pg', '0.21.0'
 gem 'mtg_sdk'
 
 #load the mtg scryfall gem
-gem 'scryfall'
+gem 'scryfall', '~> 0.2.8'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'coffee-script-source', '1.8.0'
 # task gem - used for importer in lib/tasks/import-set.thor
-gem 'thor'
+gem 'thor', '~> 0.20.0'
 # pagination gem
 gem 'will_paginate', '~> 3.1.0'
 # heroku assets
