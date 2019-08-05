@@ -79,6 +79,12 @@ class Import_price < Thor
           card_set_name.gsub!(" ", "%20")
         end
 
+        if card_name.include? "/"
+
+          card_name = card_name[0, card_name.index("/")]
+
+        end
+
         source = "http://partner.tcgplayer.com/x3/phl.asmx/p?pk=StandardMTGCards&s=#{card_set_name}&p=#{card_name}"
         resp = Net::HTTP.get_response(URI.parse(source))
         @data = resp.body

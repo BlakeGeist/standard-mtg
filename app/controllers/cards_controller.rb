@@ -16,9 +16,7 @@ def index
   @search = Card.all.ransack(params[:q])
   @the_cards = @search.result(distinct: true).where.not("type_line like?", "%Basic Land%")
   @cards = @the_cards.sort_by{ |t| [t.colors.count, t.cmc.to_i, t.name.to_s] }.paginate(:page => params[:page], :per_page => 30)
-
   @cardsd = Card.last(5)
-
   @this_thing =  $standard.map(&:short_name)
 
   respond_to do |format|
@@ -30,12 +28,9 @@ def index
 
 
  def show
-
    @card = Card.friendly.find(params[:id])
    @latest_price = @card.tcg_prices.last
-
    @card_prices = @card.tcg_prices.last(5)
-
    @title="#{@card.name} is in Standard | Standard MTG Cards"
 
    unless @card.oracle_text.nil?
