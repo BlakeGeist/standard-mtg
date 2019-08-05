@@ -39,11 +39,11 @@ class StandardsController < ApplicationController
 
     @standard = Standard.friendly.find(params[:id])
     @title = "#{@standard.name} Card List | Standard MTG Cards"
-    @search = Card.where('set=?', @standard.short_name).where.not("types like?", "%Land%").search(params[:q])
+    @search = Card.where('set=?', @standard.short_name).search(params[:q])
     @t_cards = Card.where('set=?', @standard.short_name)
     @last_ten = Card.where('set=?', @standard.short_name).sort_by{ |t| [t.lowprice.to_i] }.reverse
     @the_cards = @search.result(distinct: true)
-    @cards = @the_cards.sort_by{ |t| [t.name] }.paginate(:page => params[:page], :per_page => 24)
+    @cards = @the_cards.sort_by{ |t| [t.collection_number] }.paginate(:page => params[:page], :per_page => 24)
   end
 
   private
