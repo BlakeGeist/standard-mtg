@@ -1,4 +1,5 @@
 <% pcard = current_user.pcards.find_by! card_id: card.multiverseid %>
+<% image = eval(card.images) %>
 
 <div class="pcard-price"><%= card.tcg_prices.last.avgprice %></div>
 
@@ -8,7 +9,7 @@
 
   <a class="cards-card-link" href="<%= card_path(card) %>">
 
-    <img src="<%= card.image_url_normal %>" />
+    <%= image_tag(image['normal'], width: '260px') %>
 
   </a>
 
