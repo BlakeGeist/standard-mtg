@@ -1,10 +1,18 @@
 <% @cards.each do |card| %>
 
+  <% image = eval(card.images) %>
+
+  <% if card.layout === 'transform' %>
+
+    <% image = image[0]['image_uris'] %>
+
+  <% end %>
+
   <div class="cards-card">
 
     <a href="<%= card_path(card) %>">
 
-      <img src="<%= card.image_url_normal %>" />
+      <%= image_tag(image['normal'], width: '260px') %>
 
     </a>
 
