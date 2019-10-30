@@ -1,30 +1,30 @@
 class CardsController < ApplicationController
 
-def index
+  def index
 
-  $colors = Color.all
-  $mechanics = Mechanic.all
-  $subtypes = Subtype.all
-  $rarities = Crarity.all
-  #$standard = Standard.all
+    $colors = Color.all
+    $mechanics = Mechanic.all
+    $subtypes = Subtype.all
+    $rarities = Crarity.all
+    #$standard = Standard.all
 
-  if user_signed_in? and current_user.pcards
-    @users_cards = current_user.pcards.pluck(:card_id)
+    if user_signed_in? and current_user.pcards
+      @users_cards = current_user.pcards.pluck(:card_id)
+    end
+
+    @title ="Standard MTG Card List 1| Standard MTG Cards"
+    @search = Card.all.ransack(params[:q])
+    @the_cards = @search.result(distinct: true).where.not("type_line like?", "%Basic Land%")
+    @cards = @the_cards.sort_by{ |t| [t.colors.count, t.cmc.to_i, t.name.to_s] }.paginate(:page => params[:page], :per_page => 30)
+    @cardsd = Card.last(5)
+    @this_thing =  $standard.map(&:short_name)
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
+
   end
-
-  @title ="Standard MTG Card List | Standard MTG Cards"
-  @search = Card.all.ransack(params[:q])
-  @the_cards = @search.result(distinct: true).where.not("type_line like?", "%Basic Land%")
-  @cards = @the_cards.sort_by{ |t| [t.colors.count, t.cmc.to_i, t.name.to_s] }.paginate(:page => params[:page], :per_page => 30)
-  @cardsd = Card.last(5)
-  @this_thing =  $standard.map(&:short_name)
-
-  respond_to do |format|
-    format.js
-    format.html
-  end
-
- end
 
 
  def show

@@ -1,4 +1,4 @@
-<section class="admins-page-section standards is-open expanded">
+<section class="admins-page-section cardsets is-open expanded">
 
   <% $recent_mtg_sets.each do |set| %>
 
@@ -44,9 +44,9 @@
 
           <div class="admin-page-section-edit-item-controls">
 
-            <%= link_to 'Edit', edit_standard_path(section.id) %> |
+            <%= link_to 'Edit', edit_cardset_path(section.id) %> |
 
-            <%= link_to 'Destroy', standard_path(section.id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, short_name: section[:short_name] %>
+            <%= link_to 'Destroy', cardset_path(section.id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, short_name: section[:short_name] %>
 
           </div>
 
@@ -56,13 +56,11 @@
 
     </div>
 
-
     <hr />
 
-      <div class="ebayTime"></div>
+    <div class="ebayTime"></div>
 
-        <%= link_to "GET eBAY time", { action: "create"}, remote: true %>
-
+    <%= link_to "GET eBAY time", { action: "create"}, remote: true %>
 
     <hr />
 

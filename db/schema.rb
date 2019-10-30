@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20171028115452) do
     t.text     "rulings"
     t.text     "flavor_text"
     t.text     "images"
+    t.integer  "cardset_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.string   "slug"
@@ -80,6 +81,28 @@ ActiveRecord::Schema.define(version: 20171028115452) do
   end
 
   add_index "cards", ["slug"], name: "index_cards_on_slug", unique: true, using: :btree
+
+  create_table "cardsets", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "short_name"
+    t.string   "gathererCode"
+    t.string   "old_code"
+    t.string   "magic_cards_info_code"
+    t.string   "releaseDate"
+    t.string   "border"
+    t.string   "type"
+    t.string   "block"
+    t.string   "onlineOnly"
+    t.string   "booster"
+    t.string   "mkm_id"
+    t.string   "mkm_name"
+    t.text     "photo"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "slug"
+    t.boolean  "active"
+  end
 
   create_table "colors", force: :cascade do |t|
     t.string   "name"
@@ -139,16 +162,6 @@ ActiveRecord::Schema.define(version: 20171028115452) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "link"
-  end
-
-  create_table "standards", force: :cascade do |t|
-    t.string   "name"
-    t.string   "short_name"
-    t.text     "photo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "slug"
-    t.boolean  "active"
   end
 
   create_table "subtypes", force: :cascade do |t|
@@ -217,6 +230,7 @@ ActiveRecord::Schema.define(version: 20171028115452) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "cards", "cardsets"
   add_foreign_key "pcards", "users"
   add_foreign_key "tcg_prices", "cards"
   add_foreign_key "top_cards", "top50s"

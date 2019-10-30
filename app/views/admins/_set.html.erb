@@ -2,7 +2,7 @@
 
   <%= set.name %> | <%= set.code %> |
 
-  <%= form_for @standard, remote: true, :html => {:class => "add-set-to-starndard-form"}  do |f| %>
+  <%= form_for @cardset, remote: true, :html => {:class => "add-set-to-starndard-form"}  do |f| %>
 
     <%= f.hidden_field :name, :value => set.name %>
 
@@ -18,7 +18,7 @@
 
     <% if defined?(this_set.id) %>
 
-      <%= link_to 'Destroy', standard_path(this_set.id), method: :delete, remote: true, class: 'remove-set-from-standard remove-button' %>
+      <%= link_to 'Destroy', cardset_path(this_set.id), method: :delete, remote: true, class: 'remove-set-from-standard remove-button' %>
 
       <span class="amount-of-cards-in-set"><%= getTotalCardsInSet(this_set) %></span>
 

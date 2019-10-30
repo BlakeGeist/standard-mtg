@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   $mechanics = Mechanic.all
   $subtypes = Subtype.all
   $rarities = Crarity.all
-  $standard = Standard.where(:active => '1').order("created_at ASC")
+  $standard = Cardset.where(:active => '1').order("created_at ASC")
 
   $models = [[$colors, "Colors", "colors"], [$standard, "Set", "set"],  [$rarities, "Rarities", "rarity"], [$mechanics, "Mechanics", "mechanics"], [$subtypes, "Subtypes", "subtypes"]]
 

@@ -50,6 +50,7 @@ class CreateCards < ActiveRecord::Migration
       t.text :rulings
       t.text :flavor_text
       t.text :images
+      t.references :cardset, foreign_key: true
 
       t.timestamps null: false
     end

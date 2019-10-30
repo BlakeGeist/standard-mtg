@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   #returns the total amount of cards in the db that match this set
-  #usage: looking for 'standards' object
+  #usage: looking for 'cardsets' object
   def getTotalCardsInSet(set)
 
     amount = Card.where(set: set.short_name.upcase).count
@@ -38,6 +38,10 @@ module ApplicationHelper
 
     page_number = 1
     next_page = true
+
+    puts set
+
+    setObject = Cardset.find_by_short_name(set.short_name)
 
     require File.expand_path('config/environment.rb')
 
@@ -73,7 +77,7 @@ module ApplicationHelper
 
         end
 
-        Card.create!(
+        setObject.cards.create(
           :name => hashCard['name'],
           :layout => hashCard['layout'],
           :mana_cost => hashCard['mana_cost'],

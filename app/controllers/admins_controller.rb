@@ -20,17 +20,16 @@ class AdminsController < ApplicationController
     #set all subtypes var
     @mechanics = Mechanic.all
 
-    #standards
-    #add a new standards
-    @standard = Standard.new
+    #cardsets
+    #add a new cardsets
+    @cardset = Cardset.new
     #set all subtypes var
-    @standards = Standard.all
-    $standard_codes = @standards.map { |set| set.short_name.downcase}
+    @cardsets = Cardset.all
+    $standard_codes = @cardsets.map { |set| set.short_name.downcase}
 
     mtg_sets = MTG::Set.all
 
-    $recent_mtg_sets = mtg_sets
-
+    $recent_mtg_sets = mtg_sets.sort_by { |set| set.release_date}
 
     #rarities
     #add a new rarities
@@ -43,8 +42,8 @@ class AdminsController < ApplicationController
     @sections = [
       {
         "name":"Standard",
-        "section":@standards,
-        "newSection":@standard
+        "section":@cardsets,
+        "newSection":@cardset
       },
       {
         "name":"Colors",
@@ -80,7 +79,7 @@ class AdminsController < ApplicationController
   #this is the method called by the import set button from the admin
   def import_set
 
-    @this_set = Standard.find_by_short_name(params[:set_code])
+    @this_set = Cardset.find_by_short_name(params[:set_code])
 
     import_these_cards_from_this_set(params[:set_code])
 
@@ -101,7 +100,7 @@ class AdminsController < ApplicationController
   #this is the method called by the "delete this set from the db" button from the admins
   def delete_set_and_cards
 
-    @this_set = Standard.find_by_short_name(params[:set_code])
+    @this_set = Cardset.find_by_short_name(params[:set_code])
 
     @this_set.destroy
     Card.where(set: params[:set_code_upper]).destroy_all

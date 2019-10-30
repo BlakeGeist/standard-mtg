@@ -47,7 +47,7 @@
 
     <%= form_for([current_user, current_user.pcards.build], remote: true, :authenticity_token => true, :html => { :id => "new_pcard_#{card.multiverseid}"}) do |f| %>
 
-      <a class="cards-card-link" href="<%= card_path(card) %>">
+      <a class="cards-card-link" href="<%= cardset_card_path(card.set, card) %>">
 
         <% if card && card.tcg_prices && card.tcg_prices.last && card.tcg_prices.last.avgprice %><div class="pcard-price"><%= number_to_currency(card.tcg_prices.last.avgprice, :unit => "$") %></div><% end %>
 

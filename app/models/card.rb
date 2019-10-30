@@ -16,6 +16,8 @@ class Card < ActiveRecord::Base
     new_record?
   end
 
-  has_many :tcg_prices,  dependent: :destroy 
+  belongs_to :cardset
+  has_many :tcg_prices,  dependent: :destroy
+  accepts_nested_attributes_for :cardset
 
 end

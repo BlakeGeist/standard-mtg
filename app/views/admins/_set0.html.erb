@@ -14,7 +14,7 @@
 
   <% if $standard_codes.include? set.short_name %>
 
-    <%= link_to 'Destroy', standard_path(set.id), method: :delete, remote: true, class: 'remove-set-from-standard remove-button' %>
+    <%= link_to 'Destroy', cardset_path(set.id), method: :delete, remote: true, class: 'remove-set-from-standard remove-button' %>
 
     <span class="amount-of-cards-in-set"><%= getTotalCardsInSet(set) %></span>
 

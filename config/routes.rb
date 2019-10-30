@@ -49,7 +49,7 @@ Rails.application.routes.draw do
     end
   end
   resources :colors
-  resources :standards, :path => 'set'
+
   resources :crarities
   resources :pcards
   resources :alls
@@ -61,11 +61,14 @@ Rails.application.routes.draw do
   get 'subtypes/index'
   resources :subtypes
 
-  resources :cards, :path => ''
   root 'cards#index'
 
   resources :cards do
     resources :tcg_prices
+  end
+
+  resources :cardsets, path: 'set' do
+    resources :cards, path: ''
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
